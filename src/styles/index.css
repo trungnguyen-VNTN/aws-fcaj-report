@@ -1,0 +1,167 @@
+@import "@fontsource/be-vietnam-pro/300.css";
+@import "@fontsource/be-vietnam-pro/400.css";
+@import "@fontsource/be-vietnam-pro/500.css";
+@import "@fontsource/be-vietnam-pro/600.css";
+@import "@fontsource/be-vietnam-pro/700.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg-primary: #f8fafc;
+  --color-bg-secondary: #f1f5f9;
+  --color-bg-card: #ffffff;
+  --color-bg-elevated: #ffffff;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-border-subtle: #f1f5f9;
+  --color-accent-orange: #ff9900;
+  --color-accent-orange-hover: #ec7211;
+  --color-accent-teal: #00a4bd;
+  --color-sidebar-bg: rgba(255, 255, 255, 0.85);
+}
+
+.dark {
+  --color-bg-primary: #0f1b2d;
+  --color-bg-secondary: #162234;
+  --color-bg-card: #162234;
+  --color-bg-elevated: #1e2d42;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-border: #1e2d42;
+  --color-border-subtle: #162234;
+  --color-accent-orange: #ff9900;
+  --color-accent-orange-hover: #ec7211;
+  --color-accent-teal: #00a4bd;
+  --color-sidebar-bg: rgba(15, 27, 45, 0.88);
+}
+
+/* Custom delicate background pattern */
+.bg-mesh-subtle {
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(255, 153, 0, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(0, 164, 189, 0.05) 0%, transparent 40%);
+}
+
+.dark .bg-mesh-subtle {
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(255, 153, 0, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(0, 164, 189, 0.08) 0%, transparent 45%);
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(148, 163, 184, 0.2) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dark .bg-dot-pattern {
+  background-image: radial-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+/* Highlight.js styling */
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1rem;
+  background: transparent;
+}
+
+.hljs-keyword, .hljs-selector-tag, .hljs-subst {
+  color: #ff7b72;
+}
+
+.hljs-string, .hljs-title, .hljs-section, .hljs-attribute, .hljs-literal, .hljs-template-tag, .hljs-template-variable, .hljs-type, .hljs-addition {
+  color: #a5d6ff;
+}
+
+.hljs-comment, .hljs-quote, .hljs-deletion, .hljs-meta {
+  color: #8b949e;
+  font-style: italic;
+}
+
+.hljs-number, .hljs-regexp, .hljs-link {
+  color: #79c0ff;
+}
+
+.hljs-variable, .hljs-attr {
+  color: #ffa657;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print CSS */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  header, 
+  aside, 
+  nav, 
+  .no-print, 
+  #command-palette, 
+  .reading-progress-bar,
+  .toc-container,
+  button {
+    display: none !important;
+  }
+
+  main {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555555;
+  }
+
+  a[href^="#"]::after {
+    content: "";
+  }
+}
