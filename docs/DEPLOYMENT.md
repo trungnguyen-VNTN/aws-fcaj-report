@@ -1,6 +1,10 @@
 # Triển khai website báo cáo
 
 Production hiện tại là [aws-fcaj-report.vercel.app](https://aws-fcaj-report.vercel.app).
+
+[Mở báo cáo tiếng Việt](https://aws-fcaj-report.vercel.app/vi) ·
+[Open the English report](https://aws-fcaj-report.vercel.app/en)
+
 Repository liên kết với project Vercel `aws-fcaj-report`.
 
 ## GitHub và Vercel

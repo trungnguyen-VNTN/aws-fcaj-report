@@ -119,6 +119,10 @@ vercel.json             Vite build và rewrite cho SPA
 
 ## Triển khai
 
+**[Mở website trên Vercel](https://aws-fcaj-report.vercel.app)** ·
+[Tiếng Việt](https://aws-fcaj-report.vercel.app/vi) ·
+[English](https://aws-fcaj-report.vercel.app/en)
+
 [GitHub Actions](.github/workflows/ci.yml) chạy kiểm tra trên push và pull request.
 Project Vercel được liên kết với repo này để triển khai nhánh `main`. Cấu hình
 [`vercel.json`](vercel.json) đặt đường dẫn asset về `/` và rewrite các route tài liệu
