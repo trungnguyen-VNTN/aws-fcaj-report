@@ -36,3 +36,48 @@ jobs:
         run: npm run build
         env:
           VITE_BASE_PATH: /
+
+  deployment:
+    name: Register Vercel deployment
+    needs: verify
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      statuses: read
+      deployments: write
+    steps:
+      - name: Wait for Vercel and publish the production link
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          for attempt in $(seq 1 40); do
+            status=$(gh api "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/status" \
+              --jq '[.statuses[] | select(.context == "Vercel")][0].state // "pending"')
+            if [ "$status" = "success" ]; then
+              break
+            fi
+            if [ "$status" = "failure" ] || [ "$status" = "error" ]; then
+              echo "Vercel deployment failed. Check the commit status for details."
+              exit 1
+            fi
+            sleep 10
+          done
+          if [ "$status" != "success" ]; then
+            echo "Vercel deployment has not completed within the waiting period."
+            exit 1
+          fi
+
+          log_url=$(gh api "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/status" \
+            --jq '[.statuses[] | select(.context == "Vercel")][0].target_url')
+          deployment_id=$(jq -n --arg ref "$GITHUB_SHA" \
+            '{ref: $ref, environment: "Vercel", auto_merge: false, required_contexts: [], production_environment: true, description: "AWS FCAJ report on Vercel"}' \
+            | gh api --method POST "repos/$GITHUB_REPOSITORY/deployments" --input - --jq '.id')
+          gh api --method POST "repos/$GITHUB_REPOSITORY/deployments/$deployment_id/statuses" \
+            -f state=success \
+            -f environment_url=https://aws-fcaj-report.vercel.app \
+            -f log_url="$log_url" \
+            -f description="Production website is ready on Vercel" \
+            -F auto_inactive=true
