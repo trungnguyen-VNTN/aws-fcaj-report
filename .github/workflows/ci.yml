@@ -41,6 +41,9 @@ jobs:
     name: Register Vercel deployment
     needs: verify
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    environment:
+      name: Vercel
+      url: https://aws-fcaj-report.vercel.app
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -70,14 +73,3 @@ jobs:
             exit 1
           fi
 
-          log_url=$(gh api "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/status" \
-            --jq '[.statuses[] | select(.context == "Vercel")][0].target_url')
-          deployment_id=$(jq -n --arg ref "$GITHUB_SHA" \
-            '{ref: $ref, environment: "Vercel", auto_merge: false, required_contexts: [], production_environment: true, description: "AWS FCAJ report on Vercel"}' \
-            | gh api --method POST "repos/$GITHUB_REPOSITORY/deployments" --input - --jq '.id')
-          gh api --method POST "repos/$GITHUB_REPOSITORY/deployments/$deployment_id/statuses" \
-            -f state=success \
-            -f environment_url=https://aws-fcaj-report.vercel.app \
-            -f log_url="$log_url" \
-            -f description="Production website is ready on Vercel" \
-            -F auto_inactive=true
