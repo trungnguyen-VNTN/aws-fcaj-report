@@ -29,3 +29,12 @@ Thumbs.db
 
 # Hugo legacy template
 fcj-workshop-template/
+.vercel
+
+# Local tool caches and editorial handoff files
+.npm-cache/
+/CODEX_BRIEF.md
+/docs/CONTENT_REVIEW.md
+/docs/CONTENT_TODOS.txt
+*.log
+coverage/

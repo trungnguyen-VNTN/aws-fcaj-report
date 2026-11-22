@@ -211,7 +211,7 @@ export const translations: Record<'en' | 'vi', Translations> = {
         freeTierNote: "* Chi phí môi trường Demo được tối ưu nằm trong gói AWS Free Tier 12 tháng đầu tiên.",
       },
       selfEval: {
-        criteria: "Tiêu chí đánh giá kết quả thực tập (8 tiêu chí chuẩn FCAJ)",
+        criteria: "Tiêu chí đánh giá kết quả thực tập (12 tiêu chí chuẩn FCAJ)",
         good: "Tốt",
         fair: "Khá",
         average: "Trung bình",

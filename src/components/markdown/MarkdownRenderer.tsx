@@ -43,7 +43,7 @@ function preprocessMarkdownDirectives(markdown: string): string {
 
   // 4. Convert :::figure{src="..." alt="..." caption="..."}
   processed = processed.replace(
-    /:::figure\{src="?([^"}\s]+)"?(?:\s+alt="?([^"}\s]+)"?)?(?:\s+caption="?([^"}]+)"?)?\}/gi,
+    /:::figure\{src="([^"}]+)"(?:\s+alt="([^"}]*)")?(?:\s+caption="([^"}]*)")?\}/gi,
     (_, src, alt = '', caption = '') =>
       `<div data-figure="true" data-src="${src}" data-alt="${alt}" data-caption="${caption}"></div>`
   );

@@ -111,7 +111,7 @@ function checkBilingualParity() {
 
 checkBilingualParity();
 
-// 3. Check Cost Headings in Proposal and 5.11-cost
+// 3. Check Cost Headings in Proposal and 5.6-monitoring-cost/5.6.3-cost
 function checkCostHeadings() {
   const proposalPaths = [
     path.join(rootDir, 'content', 'en', '2-proposal', 'index.md'),
@@ -119,8 +119,8 @@ function checkCostHeadings() {
   ];
 
   const costPaths = [
-    path.join(rootDir, 'content', 'en', '5-workshop', '5.11-cost', 'index.md'),
-    path.join(rootDir, 'content', 'vi', '5-workshop', '5.11-cost', 'index.md'),
+    path.join(rootDir, 'content', 'en', '5-workshop', '5.6-monitoring-cost/5.6.3-cost', 'index.md'),
+    path.join(rootDir, 'content', 'vi', '5-workshop', '5.6-monitoring-cost/5.6.3-cost', 'index.md'),
   ];
 
   [...proposalPaths, ...costPaths].forEach((filePath) => {

@@ -21,62 +21,398 @@ export interface NavItem {
 
 export const reportManifest: NavItem[] = [
   {
-    id: "1-worklog",
-    path: "1-worklog",
-    pre: "1.",
-    title: {
-      en: "Worklog (12 Weeks)",
-      vi: "Nhật ký công việc (12 Tuần)",
+    "id": "1-worklog",
+    "path": "1-worklog",
+    "pre": "1.",
+    "title": {
+      "vi": "Nhật ký công việc",
+      "en": "Worklog"
     },
-    description: {
-      en: "Daily tracking and progress records throughout the 12-week FCAJ journey.",
-      vi: "Nhật ký theo dõi công việc hàng ngày qua 12 tuần hành trình FCAJ.",
+    "description": {
+      "en": "Daily tracking and progress records throughout the 12-week FCAJ journey.",
+      "vi": "Nhật ký theo dõi công việc hàng ngày qua 12 tuần hành trình FCAJ."
     },
-    iconName: "Calendar",
-    templateType: "default",
-    suggestedHeadings: {
-      en: ["12-Week Overview", "Weekly Progress Summary", "Key Milestones"],
-      vi: ["Tổng quan 12 tuần", "Tóm tắt tiến độ hàng tuần", "Các mốc quan trọng"],
+    "iconName": "Calendar",
+    "templateType": "default",
+    "suggestedHeadings": {
+      "en": [
+        "12-Week Overview",
+        "Weekly Progress Summary",
+        "Key Milestones"
+      ],
+      "vi": [
+        "Tổng quan 12 tuần",
+        "Tóm tắt tiến độ hàng tuần",
+        "Các mốc quan trọng"
+      ]
     },
-    children: Array.from({ length: 12 }, (_, i) => {
-      const weekNum = i + 1;
-      return {
-        id: `1.${weekNum}-week${weekNum}`,
-        path: `1-worklog/1.${weekNum}-week${weekNum}`,
-        pre: `1.${weekNum}.`,
-        title: {
-          en: `Week ${weekNum} Worklog`,
-          vi: `Nhật ký Tuần ${weekNum}`,
+    "children": [
+      {
+        "id": "1.1-week1",
+        "path": "1-worklog/1.1-week1",
+        "pre": "1.1.",
+        "title": {
+          "vi": "Nhật ký tuần 1",
+          "en": "Week 1 Worklog"
         },
-        description: {
-          en: `Detailed daily worklog and task references for Week ${weekNum}.`,
-          vi: `Nhật ký chi tiết các công việc và tài liệu tham khảo trong Tuần ${weekNum}.`,
+        "description": {
+          "en": "Detailed daily worklog and task references for Week 1.",
+          "vi": "Nhật ký chi tiết các công việc và tài liệu tham khảo trong Tuần 1."
         },
-        iconName: "CalendarDays",
-        templateType: "worklog-week",
-        suggestedHeadings: {
-          en: ["Weekly Objectives", "Daily Tasks Table", "Weekly Results", "References & Evidence"],
-          vi: ["Mục tiêu tuần", "Bảng công việc hàng ngày", "Kết quả đạt được", "Tài liệu & Minh chứng"],
+        "iconName": "CalendarDays",
+        "templateType": "worklog-week",
+        "suggestedHeadings": {
+          "en": [
+            "Weekly Objectives",
+            "Daily Tasks Table",
+            "Weekly Results",
+            "References & Evidence"
+          ],
+          "vi": [
+            "Mục tiêu tuần",
+            "Bảng công việc hàng ngày",
+            "Kết quả đạt được",
+            "Tài liệu & Minh chứng"
+          ]
+        }
+      },
+      {
+        "id": "1.2-week2",
+        "path": "1-worklog/1.2-week2",
+        "pre": "1.2.",
+        "title": {
+          "vi": "Nhật ký tuần 2",
+          "en": "Week 2 Worklog"
         },
-      };
-    }),
+        "description": {
+          "en": "Detailed daily worklog and task references for Week 2.",
+          "vi": "Nhật ký chi tiết các công việc và tài liệu tham khảo trong Tuần 2."
+        },
+        "iconName": "CalendarDays",
+        "templateType": "worklog-week",
+        "suggestedHeadings": {
+          "en": [
+            "Weekly Objectives",
+            "Daily Tasks Table",
+            "Weekly Results",
+            "References & Evidence"
+          ],
+          "vi": [
+            "Mục tiêu tuần",
+            "Bảng công việc hàng ngày",
+            "Kết quả đạt được",
+            "Tài liệu & Minh chứng"
+          ]
+        }
+      },
+      {
+        "id": "1.3-week3",
+        "path": "1-worklog/1.3-week3",
+        "pre": "1.3.",
+        "title": {
+          "vi": "Nhật ký tuần 3",
+          "en": "Week 3 Worklog"
+        },
+        "description": {
+          "en": "Detailed daily worklog and task references for Week 3.",
+          "vi": "Nhật ký chi tiết các công việc và tài liệu tham khảo trong Tuần 3."
+        },
+        "iconName": "CalendarDays",
+        "templateType": "worklog-week",
+        "suggestedHeadings": {
+          "en": [
+            "Weekly Objectives",
+            "Daily Tasks Table",
+            "Weekly Results",
+            "References & Evidence"
+          ],
+          "vi": [
+            "Mục tiêu tuần",
+            "Bảng công việc hàng ngày",
+            "Kết quả đạt được",
+            "Tài liệu & Minh chứng"
+          ]
+        }
+      },
+      {
+        "id": "1.4-week4",
+        "path": "1-worklog/1.4-week4",
+        "pre": "1.4.",
+        "title": {
+          "vi": "Nhật ký tuần 4",
+          "en": "Week 4 Worklog"
+        },
+        "description": {
+          "en": "Detailed daily worklog and task references for Week 4.",
+          "vi": "Nhật ký chi tiết các công việc và tài liệu tham khảo trong Tuần 4."
+        },
+        "iconName": "CalendarDays",
+        "templateType": "worklog-week",
+        "suggestedHeadings": {
+          "en": [
+            "Weekly Objectives",
+            "Daily Tasks Table",
+            "Weekly Results",
+            "References & Evidence"
+          ],
+          "vi": [
+            "Mục tiêu tuần",
+            "Bảng công việc hàng ngày",
+            "Kết quả đạt được",
+            "Tài liệu & Minh chứng"
+          ]
+        }
+      },
+      {
+        "id": "1.5-week5",
+        "path": "1-worklog/1.5-week5",
+        "pre": "1.5.",
+        "title": {
+          "vi": "Nhật ký tuần 5",
+          "en": "Week 5 Worklog"
+        },
+        "description": {
+          "en": "Detailed daily worklog and task references for Week 5.",
+          "vi": "Nhật ký chi tiết các công việc và tài liệu tham khảo trong Tuần 5."
+        },
+        "iconName": "CalendarDays",
+        "templateType": "worklog-week",
+        "suggestedHeadings": {
+          "en": [
+            "Weekly Objectives",
+            "Daily Tasks Table",
+            "Weekly Results",
+            "References & Evidence"
+          ],
+          "vi": [
+            "Mục tiêu tuần",
+            "Bảng công việc hàng ngày",
+            "Kết quả đạt được",
+            "Tài liệu & Minh chứng"
+          ]
+        }
+      },
+      {
+        "id": "1.6-week6",
+        "path": "1-worklog/1.6-week6",
+        "pre": "1.6.",
+        "title": {
+          "vi": "Nhật ký tuần 6",
+          "en": "Week 6 Worklog"
+        },
+        "description": {
+          "en": "Detailed daily worklog and task references for Week 6.",
+          "vi": "Nhật ký chi tiết các công việc và tài liệu tham khảo trong Tuần 6."
+        },
+        "iconName": "CalendarDays",
+        "templateType": "worklog-week",
+        "suggestedHeadings": {
+          "en": [
+            "Weekly Objectives",
+            "Daily Tasks Table",
+            "Weekly Results",
+            "References & Evidence"
+          ],
+          "vi": [
+            "Mục tiêu tuần",
+            "Bảng công việc hàng ngày",
+            "Kết quả đạt được",
+            "Tài liệu & Minh chứng"
+          ]
+        }
+      },
+      {
+        "id": "1.7-week7",
+        "path": "1-worklog/1.7-week7",
+        "pre": "1.7.",
+        "title": {
+          "vi": "Nhật ký tuần 7",
+          "en": "Week 7 Worklog"
+        },
+        "description": {
+          "en": "Detailed daily worklog and task references for Week 7.",
+          "vi": "Nhật ký chi tiết các công việc và tài liệu tham khảo trong Tuần 7."
+        },
+        "iconName": "CalendarDays",
+        "templateType": "worklog-week",
+        "suggestedHeadings": {
+          "en": [
+            "Weekly Objectives",
+            "Daily Tasks Table",
+            "Weekly Results",
+            "References & Evidence"
+          ],
+          "vi": [
+            "Mục tiêu tuần",
+            "Bảng công việc hàng ngày",
+            "Kết quả đạt được",
+            "Tài liệu & Minh chứng"
+          ]
+        }
+      },
+      {
+        "id": "1.8-week8",
+        "path": "1-worklog/1.8-week8",
+        "pre": "1.8.",
+        "title": {
+          "vi": "Nhật ký tuần 8",
+          "en": "Week 8 Worklog"
+        },
+        "description": {
+          "en": "Detailed daily worklog and task references for Week 8.",
+          "vi": "Nhật ký chi tiết các công việc và tài liệu tham khảo trong Tuần 8."
+        },
+        "iconName": "CalendarDays",
+        "templateType": "worklog-week",
+        "suggestedHeadings": {
+          "en": [
+            "Weekly Objectives",
+            "Daily Tasks Table",
+            "Weekly Results",
+            "References & Evidence"
+          ],
+          "vi": [
+            "Mục tiêu tuần",
+            "Bảng công việc hàng ngày",
+            "Kết quả đạt được",
+            "Tài liệu & Minh chứng"
+          ]
+        }
+      },
+      {
+        "id": "1.9-week9",
+        "path": "1-worklog/1.9-week9",
+        "pre": "1.9.",
+        "title": {
+          "vi": "Nhật ký tuần 9",
+          "en": "Week 9 Worklog"
+        },
+        "description": {
+          "en": "Detailed daily worklog and task references for Week 9.",
+          "vi": "Nhật ký chi tiết các công việc và tài liệu tham khảo trong Tuần 9."
+        },
+        "iconName": "CalendarDays",
+        "templateType": "worklog-week",
+        "suggestedHeadings": {
+          "en": [
+            "Weekly Objectives",
+            "Daily Tasks Table",
+            "Weekly Results",
+            "References & Evidence"
+          ],
+          "vi": [
+            "Mục tiêu tuần",
+            "Bảng công việc hàng ngày",
+            "Kết quả đạt được",
+            "Tài liệu & Minh chứng"
+          ]
+        }
+      },
+      {
+        "id": "1.10-week10",
+        "path": "1-worklog/1.10-week10",
+        "pre": "1.10.",
+        "title": {
+          "vi": "Nhật ký tuần 10",
+          "en": "Week 10 Worklog"
+        },
+        "description": {
+          "en": "Detailed daily worklog and task references for Week 10.",
+          "vi": "Nhật ký chi tiết các công việc và tài liệu tham khảo trong Tuần 10."
+        },
+        "iconName": "CalendarDays",
+        "templateType": "worklog-week",
+        "suggestedHeadings": {
+          "en": [
+            "Weekly Objectives",
+            "Daily Tasks Table",
+            "Weekly Results",
+            "References & Evidence"
+          ],
+          "vi": [
+            "Mục tiêu tuần",
+            "Bảng công việc hàng ngày",
+            "Kết quả đạt được",
+            "Tài liệu & Minh chứng"
+          ]
+        }
+      },
+      {
+        "id": "1.11-week11",
+        "path": "1-worklog/1.11-week11",
+        "pre": "1.11.",
+        "title": {
+          "vi": "Nhật ký tuần 11",
+          "en": "Week 11 Worklog"
+        },
+        "description": {
+          "en": "Detailed daily worklog and task references for Week 11.",
+          "vi": "Nhật ký chi tiết các công việc và tài liệu tham khảo trong Tuần 11."
+        },
+        "iconName": "CalendarDays",
+        "templateType": "worklog-week",
+        "suggestedHeadings": {
+          "en": [
+            "Weekly Objectives",
+            "Daily Tasks Table",
+            "Weekly Results",
+            "References & Evidence"
+          ],
+          "vi": [
+            "Mục tiêu tuần",
+            "Bảng công việc hàng ngày",
+            "Kết quả đạt được",
+            "Tài liệu & Minh chứng"
+          ]
+        }
+      },
+      {
+        "id": "1.12-week12",
+        "path": "1-worklog/1.12-week12",
+        "pre": "1.12.",
+        "title": {
+          "vi": "Nhật ký tuần 12",
+          "en": "Week 12 Worklog"
+        },
+        "description": {
+          "en": "Detailed daily worklog and task references for Week 12.",
+          "vi": "Nhật ký chi tiết các công việc và tài liệu tham khảo trong Tuần 12."
+        },
+        "iconName": "CalendarDays",
+        "templateType": "worklog-week",
+        "suggestedHeadings": {
+          "en": [
+            "Weekly Objectives",
+            "Daily Tasks Table",
+            "Weekly Results",
+            "References & Evidence"
+          ],
+          "vi": [
+            "Mục tiêu tuần",
+            "Bảng công việc hàng ngày",
+            "Kết quả đạt được",
+            "Tài liệu & Minh chứng"
+          ]
+        }
+      }
+    ]
   },
   {
-    id: "2-proposal",
-    path: "2-proposal",
-    pre: "2.",
-    title: {
-      en: "Workshop Proposal",
-      vi: "Đề xuất Workshop (Proposal)",
+    "id": "2-proposal",
+    "path": "2-proposal",
+    "pre": "2.",
+    "title": {
+      "vi": "Đề xuất dự án",
+      "en": "Proposal"
     },
-    description: {
-      en: "Architectural design, scope, problem statement, timeline, and cost estimation for the workshop project.",
-      vi: "Thiết kế kiến trúc, phạm vi, vấn đề giải quyết, kế hoạch và ước tính chi phí cho dự án workshop.",
+    "description": {
+      "en": "Architectural design, scope, problem statement, timeline, and cost estimation for the workshop project.",
+      "vi": "Thiết kế kiến trúc, phạm vi, vấn đề giải quyết, kế hoạch và ước tính chi phí cho dự án workshop."
     },
-    iconName: "FileSpreadsheet",
-    templateType: "proposal",
-    suggestedHeadings: {
-      en: [
+    "iconName": "FileSpreadsheet",
+    "templateType": "proposal",
+    "suggestedHeadings": {
+      "en": [
         "Executive Summary",
         "Problem Statement & Objectives",
         "Proposed Solution & Architecture",
@@ -85,7 +421,7 @@ export const reportManifest: NavItem[] = [
         "Risk Analysis & Mitigation",
         "Expected Deliverables"
       ],
-      vi: [
+      "vi": [
         "Tổng quan đề xuất",
         "Vấn đề & Mục tiêu giải quyết",
         "Giải pháp & Kiến trúc hệ thống",
@@ -93,490 +429,448 @@ export const reportManifest: NavItem[] = [
         "Ước tính Chi phí (Demo & Production)",
         "Phân tích Rủi ro & Giải pháp",
         "Kết quả kỳ vọng"
+      ]
+    }
+  },
+  {
+    "id": "3-blogs",
+    "path": "3-blogs",
+    "pre": "3.",
+    "title": {
+      "vi": "Các bài blog đã đăng",
+      "en": "Blogs Posted"
+    },
+    "description": {
+      "en": "Three published AWS Study Group Vietnam articles covering SQS/Lambda, NAT gateway costs, and ALB 502 troubleshooting.",
+      "vi": "Ba bài chia sẻ về SQS/Lambda, chi phí NAT Gateway và lỗi ALB 502 đã đăng trên AWS Study Group Vietnam."
+    },
+    "iconName": "BookOpen",
+    "templateType": "default",
+    "suggestedHeadings": {
+      "en": [
+        "Community Sharing Overview",
+        "Published Articles List",
+        "Key Engagement Stats"
       ],
+      "vi": [
+        "Tổng quan hoạt động chia sẻ",
+        "Danh sách bài viết đã xuất bản",
+        "Thống kê tương tác"
+      ]
     },
+    "children": [
+      {
+        "id": "3.1-blog1",
+        "path": "3-blogs/3.1-blog1",
+        "pre": "3.1.",
+        "title": {
+          "vi": "Blog 1",
+          "en": "Blog 1"
+        },
+        "templateType": "blog",
+        "iconName": "FileText"
+      },
+      {
+        "id": "3.2-blog2",
+        "path": "3-blogs/3.2-blog2",
+        "pre": "3.2.",
+        "title": {
+          "vi": "Blog 2",
+          "en": "Blog 2"
+        },
+        "templateType": "blog",
+        "iconName": "FileText"
+      },
+      {
+        "id": "3.3-blog3",
+        "path": "3-blogs/3.3-blog3",
+        "pre": "3.3.",
+        "title": {
+          "vi": "Blog 3",
+          "en": "Blog 3"
+        },
+        "templateType": "blog",
+        "iconName": "FileText"
+      }
+    ]
   },
   {
-    id: "3-blogs",
-    path: "3-blogs",
-    pre: "3.",
-    title: {
-      en: "Technical Blogs Posted",
-      vi: "Bài viết kỹ thuật (Blogs Posted)",
+    "id": "4-events",
+    "path": "4-events",
+    "pre": "4.",
+    "title": {
+      "vi": "Các sự kiện đã tham gia",
+      "en": "Events Participated"
     },
-    description: {
-      en: "Technical knowledge sharing articles published on AWS Study Group Vietnam community.",
-      vi: "Các bài viết chia sẻ kiến thức kỹ thuật trên cộng đồng AWS Study Group Vietnam.",
+    "description": {
+      "en": "Event report outlines with attendance details and check-in photos pending.",
+      "vi": "Khung báo cáo sự kiện, thông tin tham dự và ảnh check-in cần bổ sung."
     },
-    iconName: "BookOpen",
-    templateType: "default",
-    suggestedHeadings: {
-      en: ["Community Sharing Overview", "Published Articles List", "Key Engagement Stats"],
-      vi: ["Tổng quan hoạt động chia sẻ", "Danh sách bài viết đã xuất bản", "Thống kê tương tác"],
+    "iconName": "Users",
+    "templateType": "default",
+    "suggestedHeadings": {
+      "en": [
+        "Event Participation Summary",
+        "Learnings & Networking",
+        "Photo Evidence"
+      ],
+      "vi": [
+        "Tổng hợp sự kiện tham dự",
+        "Kiến thức thu nhận & Kết nối",
+        "Minh chứng hình ảnh"
+      ]
     },
-    children: [
+    "children": [
       {
-        id: "3.1-blog1",
-        path: "3-blogs/3.1-blog1",
-        pre: "3.1.",
-        title: {
-          en: "Blog 1: Cloud & AI Fundamentals",
-          vi: "Blog 1: Nền tảng Cloud & Trí tuệ Nhân tạo",
+        "id": "4.1-event1",
+        "path": "4-events/4.1-event1",
+        "pre": "4.1.",
+        "title": {
+          "vi": "Sự kiện 1",
+          "en": "Event 1"
         },
-        description: {
-          en: "Deep dive into cloud infrastructure and modern AI workload architectures.",
-          vi: "Bài viết chuyên sâu về hạ tầng đám mây và kiến trúc ứng dụng AI.",
-        },
-        iconName: "FileText",
-        templateType: "blog",
-        suggestedHeadings: {
-          en: ["Article Overview", "Key Concepts & Architecture", "Step-by-Step Hands-On", "Community Feedback & Links"],
-          vi: ["Tổng quan bài viết", "Khái niệm cốt lõi & Kiến trúc", "Thực hành từng bước", "Phản hồi cộng đồng & Liên kết"],
-        },
+        "templateType": "event",
+        "iconName": "UserCheck"
       },
       {
-        id: "3.2-blog2",
-        path: "3-blogs/3.2-blog2",
-        pre: "3.2.",
-        title: {
-          en: "Blog 2: Serverless & Event-Driven Systems",
-          vi: "Blog 2: Kiến trúc Serverless & Xử lý Hướng sự kiện",
+        "id": "4.2-event2",
+        "path": "4-events/4.2-event2",
+        "pre": "4.2.",
+        "title": {
+          "vi": "Sự kiện 2",
+          "en": "Event 2"
         },
-        description: {
-          en: "Designing scalable, decoupled serverless systems with AWS Lambda and EventBridge.",
-          vi: "Thiết kế hệ thống serverless mở rộng và phân tán với AWS Lambda và EventBridge.",
-        },
-        iconName: "FileText",
-        templateType: "blog",
-        suggestedHeadings: {
-          en: ["Article Overview", "Architectural Pattern", "Implementation Walkthrough", "Results & Community Link"],
-          vi: ["Tổng quan bài viết", "Mô hình kiến trúc", "Hướng dẫn triển khai", "Kết quả & Liên kết cộng đồng"],
-        },
+        "templateType": "event",
+        "iconName": "UserCheck"
       },
       {
-        id: "3.3-blog3",
-        path: "3-blogs/3.3-blog3",
-        pre: "3.3.",
-        title: {
-          en: "Blog 3: GenAI Agents & Guardrails in Production",
-          vi: "Blog 3: Triển khai GenAI Agents & Guardrails thực tế",
+        "id": "4.3-event3",
+        "path": "4-events/4.3-event3",
+        "pre": "4.3.",
+        "title": {
+          "vi": "Sự kiện 3",
+          "en": "Event 3"
         },
-        description: {
-          en: "Implementing secure Generative AI agents with Amazon Bedrock Guardrails.",
-          vi: "Triển khai AI Agent an toàn và kiểm soát rủi ro với Amazon Bedrock Guardrails.",
-        },
-        iconName: "FileText",
-        templateType: "blog",
-        suggestedHeadings: {
-          en: ["Article Overview", "GenAI Safety Challenges", "Bedrock Guardrails Solution", "Practical Demonstration & Links"],
-          vi: ["Tổng quan bài viết", "Thách thức an toàn GenAI", "Giải pháp Bedrock Guardrails", "Minh họa thực tế & Liên kết"],
-        },
-      },
-    ],
+        "templateType": "event",
+        "iconName": "UserCheck"
+      }
+    ]
   },
   {
-    id: "4-events",
-    path: "4-events",
-    pre: "4.",
-    title: {
-      en: "Events Participated",
-      vi: "Sự kiện đã tham gia (Events)",
+    "id": "5-workshop",
+    "path": "5-workshop",
+    "pre": "5.",
+    "title": {
+      "vi": "Workshop",
+      "en": "Workshop"
     },
-    description: {
-      en: "AWS community days, technical summits, and FCAJ workshops attended with face check-ins.",
-      vi: "Các sự kiện AWS Community Day, Tech Summit và FCAJ Workshop đã tham gia có ảnh check-in rõ mặt.",
+    "description": {
+      "en": "Complete technical hands-on guide for AWS Personalized Nutrition E-Commerce Platform.",
+      "vi": "Hướng dẫn thực hành kỹ thuật hoàn chỉnh: Nền tảng E-Commerce Dinh dưỡng Cá nhân hóa trên AWS."
     },
-    iconName: "Users",
-    templateType: "default",
-    suggestedHeadings: {
-      en: ["Event Participation Summary", "Learnings & Networking", "Photo Evidence"],
-      vi: ["Tổng hợp sự kiện tham dự", "Kiến thức thu nhận & Kết nối", "Minh chứng hình ảnh"],
+    "iconName": "Boxes",
+    "templateType": "default",
+    "suggestedHeadings": {
+      "en": [
+        "Workshop Overview",
+        "High-Level Architecture",
+        "Lab Modules Index"
+      ],
+      "vi": [
+        "Tổng quan Workshop",
+        "Kiến trúc tổng quan",
+        "Mục lục các bài thực hành"
+      ]
     },
-    children: [
+    "children": [
       {
-        id: "4.1-event1",
-        path: "4-events/4.1-event1",
-        pre: "4.1.",
-        title: {
-          en: "Event 1: AWS Community Day Vietnam",
-          vi: "Sự kiện 1: AWS Community Day Vietnam",
+        "id": "5.1-workshop-overview",
+        "path": "5-workshop/5.1-workshop-overview",
+        "pre": "5.1.",
+        "title": {
+          "vi": "Giới thiệu",
+          "en": "Introduction"
         },
-        description: {
-          en: "Participation, learnings, and face check-in at AWS Community Day.",
-          vi: "Tham dự, bài học thu nhận và hình ảnh check-in tại AWS Community Day.",
-        },
-        iconName: "UserCheck",
-        templateType: "event",
-        suggestedHeadings: {
-          en: ["Event Overview & Details", "Key Keynotes & Sessions", "Face Check-in Evidence", "Takeaways & Networking"],
-          vi: ["Thông tin sự kiện", "Các phiên chia sẻ chính", "Ảnh check-in rõ mặt", "Bài học rút ra & Kết nối"],
-        },
+        "iconName": "Boxes",
+        "templateType": "workshop-step"
       },
       {
-        id: "4.2-event2",
-        path: "4-events/4.2-event2",
-        pre: "4.2.",
-        title: {
-          en: "Event 2: AWS GenAI & Cloud Summit",
-          vi: "Sự kiện 2: AWS GenAI & Cloud Summit",
+        "id": "5.2-prerequiste",
+        "path": "5-workshop/5.2-prerequiste",
+        "pre": "5.2.",
+        "title": {
+          "vi": "Điều kiện chuẩn bị",
+          "en": "Prerequisite"
         },
-        description: {
-          en: "Deep dive workshops and face check-in at AWS GenAI Summit.",
-          vi: "Hội thảo chuyên sâu và hình ảnh check-in tại AWS GenAI Summit.",
-        },
-        iconName: "UserCheck",
-        templateType: "event",
-        suggestedHeadings: {
-          en: ["Event Overview & Details", "AI/ML Innovations Learned", "Face Check-in Evidence", "Application to Workshop Project"],
-          vi: ["Thông tin sự kiện", "Đột phá AI/ML tiếp thu", "Ảnh check-in rõ mặt", "Ứng dụng vào đề tài Workshop"],
-        },
+        "iconName": "Boxes",
+        "templateType": "workshop-step"
       },
       {
-        id: "4.3-event3",
-        path: "4-events/4.3-event3",
-        pre: "4.3.",
-        title: {
-          en: "Event 3: FCAJ Technical Mentoring Workshop",
-          vi: "Sự kiện 3: FCAJ Technical Mentoring Workshop",
+        "id": "5.3-core-infra",
+        "path": "5-workshop/5.3-core-infra",
+        "pre": "5.3.",
+        "title": {
+          "vi": "Hạ tầng cốt lõi",
+          "en": "Core infrastructure"
         },
-        description: {
-          en: "Hands-on architectural review and feedback session with FCAJ mentors.",
-          vi: "Buổi phản biện kiến trúc và thực hành cùng đội ngũ Mentors FCAJ.",
-        },
-        iconName: "UserCheck",
-        templateType: "event",
-        suggestedHeadings: {
-          en: ["Event Overview & Details", "Mentorship Discussion Topics", "Face Check-in Evidence", "Actions Taken"],
-          vi: ["Thông tin sự kiện", "Chủ đề thảo luận cùng Mentor", "Ảnh check-in rõ mặt", "Hành động cải thiện"],
-        },
+        "iconName": "Boxes",
+        "templateType": "workshop-step",
+        "children": [
+          {
+            "id": "5.3.1-network",
+            "path": "5-workshop/5.3-core-infra/5.3.1-network",
+            "pre": "5.3.1.",
+            "title": {
+              "vi": "Tạo mạng VPC",
+              "en": "Create the VPC network"
+            },
+            "iconName": "Boxes",
+            "templateType": "workshop-step"
+          },
+          {
+            "id": "5.3.2-database",
+            "path": "5-workshop/5.3-core-infra/5.3.2-database",
+            "pre": "5.3.2.",
+            "title": {
+              "vi": "Tạo cơ sở dữ liệu RDS",
+              "en": "Create the RDS database"
+            },
+            "iconName": "Boxes",
+            "templateType": "workshop-step"
+          },
+          {
+            "id": "5.3.3-cognito",
+            "path": "5-workshop/5.3-core-infra/5.3.3-cognito",
+            "pre": "5.3.3.",
+            "title": {
+              "vi": "Cấu hình Cognito",
+              "en": "Configure Cognito"
+            },
+            "iconName": "Boxes",
+            "templateType": "workshop-step"
+          }
+        ]
       },
-    ],
+      {
+        "id": "5.4-deploy-app",
+        "path": "5-workshop/5.4-deploy-app",
+        "pre": "5.4.",
+        "title": {
+          "vi": "Triển khai ứng dụng",
+          "en": "Deploy the application"
+        },
+        "iconName": "Boxes",
+        "templateType": "workshop-step",
+        "children": [
+          {
+            "id": "5.4.1-ecs-alb",
+            "path": "5-workshop/5.4-deploy-app/5.4.1-ecs-alb",
+            "pre": "5.4.1.",
+            "title": {
+              "vi": "ECS Fargate và ALB",
+              "en": "ECS Fargate and ALB"
+            },
+            "iconName": "Boxes",
+            "templateType": "workshop-step"
+          },
+          {
+            "id": "5.4.2-cloudfront-frontend",
+            "path": "5-workshop/5.4-deploy-app/5.4.2-cloudfront-frontend",
+            "pre": "5.4.2.",
+            "title": {
+              "vi": "Frontend trên S3 và CloudFront",
+              "en": "Frontend on S3 and CloudFront"
+            },
+            "iconName": "Boxes",
+            "templateType": "workshop-step"
+          },
+          {
+            "id": "5.4.3-cicd",
+            "path": "5-workshop/5.4-deploy-app/5.4.3-cicd",
+            "pre": "5.4.3.",
+            "title": {
+              "vi": "CI/CD với GitHub Actions OIDC",
+              "en": "CI/CD with GitHub Actions OIDC"
+            },
+            "iconName": "Boxes",
+            "templateType": "workshop-step"
+          },
+          {
+            "id": "5.4.4-payments",
+            "path": "5-workshop/5.4-deploy-app/5.4.4-payments",
+            "pre": "5.4.4.",
+            "title": {
+              "vi": "Thanh toán VNPAY sandbox",
+              "en": "VNPAY sandbox payments"
+            },
+            "iconName": "Boxes",
+            "templateType": "workshop-step"
+          }
+        ]
+      },
+      {
+        "id": "5.5-bedrock-ai",
+        "path": "5-workshop/5.5-bedrock-ai",
+        "pre": "5.5.",
+        "title": {
+          "vi": "AI tra cứu với Amazon Bedrock",
+          "en": "AI lookup with Amazon Bedrock"
+        },
+        "iconName": "Boxes",
+        "templateType": "workshop-step",
+        "children": [
+          {
+            "id": "5.5.1-bedrock-guardrails",
+            "path": "5-workshop/5.5-bedrock-ai/5.5.1-bedrock-guardrails",
+            "pre": "5.5.1.",
+            "title": {
+              "vi": "Bật Nova 2 Lite và Guardrails",
+              "en": "Enable Nova 2 Lite and Guardrails"
+            },
+            "iconName": "Boxes",
+            "templateType": "workshop-step"
+          },
+          {
+            "id": "5.5.2-ai-evaluation",
+            "path": "5-workshop/5.5-bedrock-ai/5.5.2-ai-evaluation",
+            "pre": "5.5.2.",
+            "title": {
+              "vi": "Đánh giá AI",
+              "en": "Evaluate the AI"
+            },
+            "iconName": "Boxes",
+            "templateType": "workshop-step"
+          },
+          {
+            "id": "5.5.3-meal-recommendations",
+            "path": "5-workshop/5.5-bedrock-ai/5.5.3-meal-recommendations",
+            "pre": "5.5.3.",
+            "title": {
+              "vi": "Gợi ý bữa ăn (Bonus)",
+              "en": "Meal recommendations (Bonus)"
+            },
+            "iconName": "Boxes",
+            "templateType": "workshop-step"
+          }
+        ]
+      },
+      {
+        "id": "5.6-monitoring-cost",
+        "path": "5-workshop/5.6-monitoring-cost",
+        "pre": "5.6.",
+        "title": {
+          "vi": "Giám sát, bảo mật và chi phí",
+          "en": "Monitoring, security and cost"
+        },
+        "iconName": "Boxes",
+        "templateType": "workshop-step",
+        "children": [
+          {
+            "id": "5.6.1-monitoring",
+            "path": "5-workshop/5.6-monitoring-cost/5.6.1-monitoring",
+            "pre": "5.6.1.",
+            "title": {
+              "vi": "Alarm và log CloudWatch",
+              "en": "CloudWatch alarms and logs"
+            },
+            "iconName": "Boxes",
+            "templateType": "workshop-step"
+          },
+          {
+            "id": "5.6.2-audit-waf",
+            "path": "5-workshop/5.6-monitoring-cost/5.6.2-audit-waf",
+            "pre": "5.6.2.",
+            "title": {
+              "vi": "CloudTrail, ALB logs và WAF",
+              "en": "CloudTrail, ALB logs and WAF"
+            },
+            "iconName": "Boxes",
+            "templateType": "workshop-step"
+          },
+          {
+            "id": "5.6.3-cost",
+            "path": "5-workshop/5.6-monitoring-cost/5.6.3-cost",
+            "pre": "5.6.3.",
+            "title": {
+              "vi": "Ước tính và tối ưu chi phí",
+              "en": "Cost estimation and optimization"
+            },
+            "iconName": "Boxes",
+            "templateType": "workshop-step"
+          }
+        ]
+      },
+      {
+        "id": "5.7-cleanup",
+        "path": "5-workshop/5.7-cleanup",
+        "pre": "5.7.",
+        "title": {
+          "vi": "Dọn tài nguyên",
+          "en": "Clean up"
+        },
+        "iconName": "Boxes",
+        "templateType": "workshop-step"
+      }
+    ]
   },
   {
-    id: "5-workshop",
-    path: "5-workshop",
-    pre: "5.",
-    title: {
-      en: "Workshop Implementation",
-      vi: "Triển khai Workshop (Workshop)",
+    "id": "6-self-evaluation",
+    "path": "6-self-evaluation",
+    "pre": "6.",
+    "title": {
+      "vi": "Tự đánh giá",
+      "en": "Self-Assessment"
     },
-    description: {
-      en: "Complete technical hands-on guide for AWS Personalized Nutrition E-Commerce Platform.",
-      vi: "Hướng dẫn thực hành kỹ thuật hoàn chỉnh: Nền tảng E-Commerce Dinh dưỡng Cá nhân hóa trên AWS.",
+    "description": {
+      "vi": "Tự đánh giá theo 12 tiêu chí và xác nhận minh chứng cá nhân.",
+      "en": "Self-assessment against 12 criteria with personal evidence to confirm."
     },
-    iconName: "Boxes",
-    templateType: "default",
-    suggestedHeadings: {
-      en: ["Workshop Overview", "High-Level Architecture", "Lab Modules Index"],
-      vi: ["Tổng quan Workshop", "Kiến trúc tổng quan", "Mục lục các bài thực hành"],
-    },
-    children: [
-      {
-        id: "5.1-overview",
-        path: "5-workshop/5.1-overview",
-        pre: "5.1.",
-        title: {
-          en: "Overview & Architecture",
-          vi: "Tổng quan & Sơ đồ Kiến trúc",
-        },
-        description: {
-          en: "End-to-end system architecture, technology choices, and architectural diagrams.",
-          vi: "Kiến trúc hệ thống tổng thể, lựa chọn công nghệ và sơ đồ kiến trúc tự vẽ.",
-        },
-        iconName: "Network",
-        templateType: "workshop-step",
-        suggestedHeadings: {
-          en: ["System Overview", "Architecture Diagram (Custom drawn)", "Component Roles", "Security & Reliability Design"],
-          vi: ["Tổng quan hệ thống", "Sơ đồ kiến trúc (Tự vẽ)", "Vai trò các thành phần", "Thiết kế bảo mật & độ tin cậy"],
-        },
-      },
-      {
-        id: "5.2-prerequisites",
-        path: "5-workshop/5.2-prerequisites",
-        pre: "5.2.",
-        title: {
-          en: "Prerequisites & Environment Setup",
-          vi: "Điều kiện tiên quyết & Cài đặt Môi trường",
-        },
-        description: {
-          en: "AWS account configuration, IAM permissions, AWS CLI, and local development tools.",
-          vi: "Cấu hình tài khoản AWS, quyền IAM, AWS CLI và công cụ phát triển cần thiết.",
-        },
-        iconName: "Wrench",
-        templateType: "workshop-step",
-        suggestedHeadings: {
-          en: ["Prerequisites Checklist", "IAM Roles & Permissions", "CLI & SDK Setup", "Verification Steps"],
-          vi: ["Danh sách điều kiện tiên quyết", "IAM Roles & Phân quyền", "Cài đặt CLI & SDK", "Các bước xác minh môi trường"],
-        },
-      },
-      {
-        id: "5.3-network-security",
-        path: "5-workshop/5.3-network-security",
-        pre: "5.3.",
-        title: {
-          en: "Network & Security Infrastructure",
-          vi: "Hạ tầng Mạng & Bảo mật",
-        },
-        description: {
-          en: "VPC, public/private subnets, NAT Gateways, Security Groups, and KMS encryption.",
-          vi: "VPC, subnet công khai/riêng tư, NAT Gateway, Security Groups và mã hóa KMS.",
-        },
-        iconName: "ShieldCheck",
-        templateType: "workshop-step",
-        suggestedHeadings: {
-          en: ["Network Design", "VPC & Subnet Provisioning", "Security Groups & NACLs", "Verification Commands"],
-          vi: ["Thiết kế mạng", "Khởi tạo VPC & Subnets", "Cấu hình Security Groups", "Lệnh kiểm tra kết nối"],
-        },
-      },
-      {
-        id: "5.4-data-pipeline",
-        path: "5-workshop/5.4-data-pipeline",
-        pre: "5.4.",
-        title: {
-          en: "Data Pipeline & Storage Layer",
-          vi: "Tầng Dữ liệu & Xử lý Pipeline",
-        },
-        description: {
-          en: "Amazon DynamoDB single-table design, S3 bucket storage, and data streaming.",
-          vi: "Thiết kế single-table Amazon DynamoDB, lưu trữ S3 và streaming dữ liệu.",
-        },
-        iconName: "Database",
-        templateType: "workshop-step",
-        suggestedHeadings: {
-          en: ["Data Modeling", "DynamoDB Table Creation", "S3 Storage Configuration", "Data Validation"],
-          vi: ["Mô hình hóa dữ liệu", "Tạo bảng DynamoDB", "Cấu hình lưu trữ S3", "Kiểm tra tính hợp lệ dữ liệu"],
-        },
-      },
-      {
-        id: "5.5-backend-auth",
-        path: "5-workshop/5.5-backend-auth",
-        pre: "5.5.",
-        title: {
-          en: "Backend API & Authentication",
-          vi: "API Backend & Xác thực (Auth)",
-        },
-        description: {
-          en: "Amazon Cognito User Pools, API Gateway HTTP APIs, and serverless Lambda controllers.",
-          vi: "Amazon Cognito User Pools, API Gateway và các hàm xử lý serverless Lambda.",
-        },
-        iconName: "KeyRound",
-        templateType: "workshop-step",
-        suggestedHeadings: {
-          en: ["Authentication Strategy", "Cognito User Pool Setup", "API Gateway Endpoints", "Testing Auth Flow"],
-          vi: ["Chiến lược xác thực", "Thiết lập Cognito User Pool", "Định nghĩa API Gateway", "Kiểm thử luồng đăng nhập"],
-        },
-      },
-      {
-        id: "5.6-ai-agent-guardrails",
-        path: "5-workshop/5.6-ai-agent-guardrails",
-        pre: "5.6.",
-        title: {
-          en: "AI Nutrition Agent & Guardrails",
-          vi: "AI Agent Dinh dưỡng & Guardrails",
-        },
-        description: {
-          en: "Amazon Bedrock Foundation Models, Agent action groups, and safety guardrails.",
-          vi: "Amazon Bedrock Foundation Models, nhóm hành động cho Agent và hàng rào bảo vệ dữ liệu.",
-        },
-        iconName: "Cpu",
-        templateType: "workshop-step",
-        suggestedHeadings: {
-          en: ["AI Architecture & Bedrock Setup", "Agent Action Groups", "Guardrail Policies (PII & Medical Safety)", "Prompt Testing & Output Validation"],
-          vi: ["Kiến trúc AI & Thiết lập Bedrock", "Action Groups của Agent", "Chính sách Guardrail (PII & An toàn Y tế)", "Kiểm thử Prompt & Kết quả"],
-        },
-      },
-      {
-        id: "5.7-event-driven",
-        path: "5-workshop/5.7-event-driven",
-        pre: "5.7.",
-        title: {
-          en: "Event-Driven Processing & Messaging",
-          vi: "Xử lý Hướng sự kiện & Nhắn tin",
-        },
-        description: {
-          en: "Amazon EventBridge custom event bus, SQS dead-letter queues, and SNS alerts.",
-          vi: "Amazon EventBridge custom bus, hàng đợi Dead-letter SQS và thông báo SNS.",
-        },
-        iconName: "Zap",
-        templateType: "workshop-step",
-        suggestedHeadings: {
-          en: ["Event Schema Definition", "EventBridge Rules Setup", "SQS Dead Letter Queue Handling", "Event Flow Verification"],
-          vi: ["Định nghĩa Schema sự kiện", "Cấu hình Rules EventBridge", "Xử lý hàng đợi lỗi SQS", "Kiểm tra luồng sự kiện"],
-        },
-      },
-      {
-        id: "5.8-frontend-cloudfront",
-        path: "5-workshop/5.8-frontend-cloudfront",
-        pre: "5.8.",
-        title: {
-          en: "Frontend Delivery & CloudFront CDN",
-          vi: "Giao diện Frontend & Phân phối CloudFront",
-        },
-        description: {
-          en: "S3 static website hosting, CloudFront distribution with Origin Access Control (OAC), and SSL.",
-          vi: "Hosting S3 static website, phân phối CloudFront với Origin Access Control (OAC) và chứng chỉ SSL.",
-        },
-        iconName: "Globe",
-        templateType: "workshop-step",
-        suggestedHeadings: {
-          en: ["Frontend Build & Packaging", "S3 Bucket & OAC Configuration", "CloudFront Cache Behaviors", "Domain & HTTPS Verification"],
-          vi: ["Đóng gói Frontend", "Cấu hình S3 & OAC", "Cấu hình bộ nhớ đệm CloudFront", "Kiểm tra HTTPS & Tên miền"],
-        },
-      },
-      {
-        id: "5.9-ci-cd",
-        path: "5-workshop/5.9-ci-cd",
-        pre: "5.9.",
-        title: {
-          en: "CI/CD Pipeline & Automation",
-          vi: "Quy trình CI/CD & Tự động hóa",
-        },
-        description: {
-          en: "GitHub Actions automated testing, infrastructure as code deployment, and rollback strategy.",
-          vi: "GitHub Actions kiểm thử tự động, triển khai hạ tầng IaC và chiến lược khôi phục.",
-        },
-        iconName: "GitBranch",
-        templateType: "workshop-step",
-        suggestedHeadings: {
-          en: ["CI/CD Architecture", "GitHub Actions Workflow Setup", "AWS OIDC Authentication", "Pipeline Run Verification"],
-          vi: ["Kiến trúc CI/CD", "Thiết lập GitHub Actions Workflow", "Xác thực không mật khẩu AWS OIDC", "Kiểm tra chạy Pipeline"],
-        },
-      },
-      {
-        id: "5.10-testing-validation",
-        path: "5-workshop/5.10-testing-validation",
-        pre: "5.10.",
-        title: {
-          en: "Testing & Validation",
-          vi: "Kiểm thử & Xác minh Toàn diện",
-        },
-        description: {
-          en: "End-to-end integration tests, load testing, latency benchmarking, and security scans.",
-          vi: "Kiểm thử tích hợp đầu-cuối, kiểm thử tải, đo độ trễ và quét bảo mật.",
-        },
-        iconName: "CheckCircle2",
-        templateType: "workshop-step",
-        suggestedHeadings: {
-          en: ["Test Plan Overview", "Integration Test Execution", "Performance & Latency Results", "Security Audit Checklist"],
-          vi: ["Kế hoạch kiểm thử", "Thực thi kiểm thử tích hợp", "Đo lường hiệu năng & độ trễ", "Checklist kiểm tra an toàn thông tin"],
-        },
-      },
-      {
-        id: "5.11-cost",
-        path: "5-workshop/5.11-cost",
-        pre: "5.11.",
-        title: {
-          en: "Cost Estimation & Optimization",
-          vi: "Ước tính Chi phí & Tối ưu hóa (Cost)",
-        },
-        description: {
-          en: "Detailed AWS Pricing Calculator breakdown for Demo and Production scale, with Free Tier usage.",
-          vi: "Bảng chi tiết chi phí AWS Pricing Calculator cho môi trường Demo và Production, tận dụng Free Tier.",
-        },
-        iconName: "DollarSign",
-        templateType: "workshop-step",
-        suggestedHeadings: {
-          en: ["Cost Estimation Overview", "Demo Environment Cost Table", "Production Scale Cost Table", "Cost Optimization Strategies", "AWS Free Tier Coverage"],
-          vi: ["Tổng quan ước tính Chi phí", "Bảng chi phí Môi trường Demo", "Bảng chi phí Môi trường Production", "Chiến lược tối ưu chi phí", "Tối ưu hóa AWS Free Tier"],
-        },
-      },
-      {
-        id: "5.12-demo",
-        path: "5-workshop/5.12-demo",
-        pre: "5.12.",
-        title: {
-          en: "Live Demo & Screencast",
-          vi: "Demo Trực quan & Video Minh họa",
-        },
-        description: {
-          en: "Recorded video walkthrough, live links, user scenario steps, and test credentials.",
-          vi: "Video ghi hình demo, liên kết trực tiếp, các bước kịch bản người dùng và tài khoản kiểm thử.",
-        },
-        iconName: "PlayCircle",
-        templateType: "workshop-step",
-        suggestedHeadings: {
-          en: ["Demo Video Screencast", "Live Application URLs", "User Journey Scenarios", "Verification Evidence"],
-          vi: ["Video ghi hình Demo", "Đường dẫn ứng dụng trực tiếp", "Kịch bản trải nghiệm người dùng", "Minh chứng hoạt động thực tế"],
-        },
-      },
-      {
-        id: "5.13-cleanup",
-        path: "5-workshop/5.13-cleanup",
-        pre: "5.13.",
-        title: {
-          en: "Resource Clean-up",
-          vi: "Dọn dẹp Tài nguyên (Clean-up)",
-        },
-        description: {
-          en: "Step-by-step tear down commands to avoid incurring unexpected AWS charges.",
-          vi: "Hướng dẫn hủy tài nguyên từng bước để tránh phát sinh chi phí ngoài ý muốn.",
-        },
-        iconName: "Trash2",
-        templateType: "workshop-step",
-        suggestedHeadings: {
-          en: ["Clean-up Checklist", "Automated Tear-down Script", "Manual Deletion Verification", "Cost Guard Checks"],
-          vi: ["Checklist dọn dẹp tài nguyên", "Lệnh hủy tài nguyên tự động", "Xác minh tài nguyên đã xóa", "Kiểm tra AWS Cost Anomaly"],
-        },
-      },
-      {
-        id: "5.14-lessons-future",
-        path: "5-workshop/5.14-lessons-future",
-        pre: "5.14.",
-        title: {
-          en: "Lessons Learned & Future Improvements",
-          vi: "Bài học Kinh nghiệm & Hướng phát triển",
-        },
-        description: {
-          en: "Technical challenges overcome, architecture trade-offs, and future enhancement roadmap.",
-          vi: "Các thách thức kỹ thuật đã vượt qua, sự đánh đổi kiến trúc và lộ trình nâng cấp.",
-        },
-        iconName: "Sparkles",
-        templateType: "workshop-step",
-        suggestedHeadings: {
-          en: ["Key Technical Takeaways", "Architecture Trade-offs & Reflection", "Roadmap & Future Enhancements"],
-          vi: ["Bài học kỹ thuật cốt lõi", "Đánh giá sự đánh đổi kiến trúc", "Lộ trình phát triển tương lai"],
-        },
-      },
-    ],
+    "iconName": "Award",
+    "templateType": "self-evaluation",
+    "suggestedHeadings": {
+      "en": [
+        "Evaluation Criteria Matrix (12 Areas)",
+        "Key Strengths Identified",
+        "Areas for Growth",
+        "Overall Internship Reflection"
+      ],
+      "vi": [
+        "Bảng ma trận 12 tiêu chí đánh giá",
+        "Điểm mạnh nổi bật",
+        "Điểm cần tiếp tục cải thiện",
+        "Tổng kết quá trình thực tập"
+      ]
+    }
   },
   {
-    id: "6-self-evaluation",
-    path: "6-self-evaluation",
-    pre: "6.",
-    title: {
-      en: "Self-Evaluation",
-      vi: "Tự đánh giá (Self-Evaluation)",
+    "id": "7-feedback",
+    "path": "7-feedback",
+    "pre": "7.",
+    "title": {
+      "vi": "Chia sẻ và góp ý",
+      "en": "Sharing and Feedback"
     },
-    description: {
-      en: "Self-assessment across 8 FCAJ performance criteria with reflection notes.",
-      vi: "Bảng tự đánh giá theo 8 tiêu chí chuẩn FCAJ kèm nhận xét cá nhân.",
+    "description": {
+      "en": "Honest feedback, suggestions for FCAJ program improvement, and community recommendations.",
+      "vi": "Cảm nhận chân thực, đề xuất cải tiến chương trình FCAJ và khuyến nghị cho các khóa sau."
     },
-    iconName: "Award",
-    templateType: "self-evaluation",
-    suggestedHeadings: {
-      en: ["Evaluation Criteria Matrix (8 Areas)", "Key Strengths Identified", "Areas for Growth", "Overall Internship Reflection"],
-      vi: ["Bảng ma trận 8 tiêu chí đánh giá", "Điểm mạnh nổi bật", "Điểm cần tiếp tục cải thiện", "Tổng kết quá trình thực tập"],
-    },
-  },
-  {
-    id: "7-feedback",
-    path: "7-feedback",
-    pre: "7.",
-    title: {
-      en: "Sharing & Feedback",
-      vi: "Chia sẻ & Đóng góp ý kiến (Feedback)",
-    },
-    description: {
-      en: "Honest feedback, suggestions for FCAJ program improvement, and community recommendations.",
-      vi: "Cảm nhận chân thực, đề xuất cải tiến chương trình FCAJ và khuyến nghị cho các khóa sau.",
-    },
-    iconName: "MessageSquareHeart",
-    templateType: "feedback",
-    suggestedHeadings: {
-      en: ["Program Experience & Satisfaction", "What Went Well", "Recommendations for Improvement", "Would You Recommend FCAJ & Why?"],
-      vi: ["Trải nghiệm & Mức độ hài lòng", "Những điểm xuất sắc của chương trình", "Đề xuất cải tiến", "Khuyến nghị giới thiệu FCAJ & Lý do"],
-    },
-  },
+    "iconName": "MessageSquareHeart",
+    "templateType": "feedback",
+    "suggestedHeadings": {
+      "en": [
+        "Program Experience & Satisfaction",
+        "What Went Well",
+        "Recommendations for Improvement",
+        "Would You Recommend FCAJ & Why?"
+      ],
+      "vi": [
+        "Trải nghiệm & Mức độ hài lòng",
+        "Những điểm xuất sắc của chương trình",
+        "Đề xuất cải tiến",
+        "Khuyến nghị giới thiệu FCAJ & Lý do"
+      ]
+    }
+  }
 ];
 
 /**

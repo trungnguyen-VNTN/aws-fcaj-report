@@ -76,7 +76,7 @@ export const DocPage: React.FC = () => {
               </Badge>
             ) : (
               <Badge variant="amber" size="sm">
-                {t.common.skeleton}
+                {doc?.content.trim() ? t.common.draft : t.common.skeleton}
               </Badge>
             )}
 
@@ -100,7 +100,7 @@ export const DocPage: React.FC = () => {
         </header>
 
         {/* Document Content Rendering */}
-        {isContentReady && doc ? (
+        {doc?.content.trim() ? (
           <MarkdownRenderer content={doc.content} />
         ) : (
           <div className="space-y-10">

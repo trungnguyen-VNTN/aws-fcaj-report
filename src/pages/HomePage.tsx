@@ -8,7 +8,7 @@ import { Card } from '../components/common/Card';
 import { Badge } from '../components/common/Badge';
 import { ReportProgressBar } from '../components/specialized/ReportProgressBar';
 import { AwsLogo } from '../components/common/AwsLogo';
-import { isRouteCompleted } from '../services/contentLoader';
+import { getDocument, isRouteCompleted } from '../services/contentLoader';
 import {
   Calendar,
   FileSpreadsheet,
@@ -169,12 +169,12 @@ export const HomePage: React.FC = () => {
           <ReportProgressBar />
 
           {/* Quick Stats Card */}
-          <Card className="flex-1 flex flex-col justify-center p-6 bg-gradient-to-br from-aws-cardDark to-aws-deep text-white">
+          <Card className="flex-1 flex flex-col justify-center p-6 bg-gradient-to-br from-white to-slate-50 dark:from-aws-cardDark dark:to-aws-deep">
             <div className="flex items-center gap-2 mb-3">
               <AwsLogo className="w-7 h-7" />
-              <span className="font-bold text-sm text-aws-smile">Well-Architected Compliance</span>
+              <span className="font-bold text-sm text-amber-700 dark:text-aws-smile">Well-Architected Compliance</span>
             </div>
-            <p className="text-xs text-slate-300 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
               Khung báo cáo được cấu hình sẵn các quy tắc kiểm tra nghiêm ngặt: Parity song ngữ, 12 tuần Worklog, bảng chi phí Cost Table và sơ đồ kiến trúc tự vẽ.
             </p>
           </Card>
@@ -221,7 +221,7 @@ export const HomePage: React.FC = () => {
                           </Badge>
                         ) : (
                           <Badge variant="amber" size="sm">
-                            {t.common.skeleton}
+                            {getDocument(language, item.path)?.content.trim() ? t.common.draft : t.common.skeleton}
                           </Badge>
                         )}
                       </div>

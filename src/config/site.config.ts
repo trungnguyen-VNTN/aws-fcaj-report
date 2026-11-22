@@ -76,7 +76,7 @@ export const siteConfig: FullSiteConfig = {
       en: "AWS Personalized Nutrition E-Commerce Platform",
       vi: "Nền tảng Thương mại Điện tử Dinh dưỡng Cá nhân hóa trên AWS",
     },
-    githubUser: "your-github-username",
+    githubUser: "trungnguyen-VNTN",
     repoName: "aws-fcaj-report",
     baseUrl: "/",
     defaultLanguage: "vi",

@@ -1,0 +1,25 @@
+name: Sửa nội dung báo cáo
+description: Đề nghị bổ sung hoặc sửa nội dung có nguồn đối chiếu.
+title: "[Content] "
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Trang và ngôn ngữ
+      placeholder: content/vi/5-workshop/...
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Nội dung cần sửa
+      description: Trích đoạn hiện tại và mô tả nội dung đề nghị thay thế.
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Nguồn đối chiếu
+      description: Liên kết tài liệu, mã nguồn hoặc minh chứng liên quan. Ghi rõ ngày đo nếu thay số liệu.
+    validations:
+      required: true

@@ -1,33 +1,36 @@
 ---
-title: "Nhật ký Tuần X"
+title: "Nhật ký tuần 1"
+pre: "1.1."
 weight: 1
-pre: "1.X."
-description: "Nhật ký công việc hàng ngày và kết quả tuần X."
 status: "draft"
 ---
 
-:::notice{type="warning"}
-⚠️ **Lưu ý:** Báo cáo nhật ký công việc (Daily Worklog) phải ghi rõ tiến độ từng ngày, ngày bắt đầu và ngày hoàn thành thực tế.
-:::
+**Lịch dự kiến:** 14/09/2026 – 18/09/2026
 
-## 1. Mục tiêu tuần này
-:::todo[Mục tiêu tuần]
-- Liệt kê các mục tiêu trọng tâm cần đạt được trong tuần...
-:::
+Bảng dưới là lịch học dự kiến. Ngày trong bảng chưa phải xác nhận đã hoàn thành thực hành.
 
-## 2. Bảng công việc hàng ngày
-| Thứ | Công việc thực hiện | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+### Mục tiêu tuần 1:
+
+- Phân biệt Region, Availability Zone và edge location.
+- Kiểm tra danh tính bằng STS và ghi lại cấu hình.
+
+### Công việc thực hiện trong tuần:
+
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
 | --- | --- | --- | --- | --- |
-| 2 | - Nghiên cứu tài liệu... | DD/MM/YYYY | DD/MM/YYYY | https://docs.aws.amazon.com |
-| 3 | - Thiết lập môi trường và cấu hình... | DD/MM/YYYY | DD/MM/YYYY | |
-| 4 | - Triển khai tính năng... | DD/MM/YYYY | DD/MM/YYYY | |
-| 5 | - Kiểm thử và đo lường kết quả... | DD/MM/YYYY | DD/MM/YYYY | |
-| 6 | - Viết tài liệu hóa và tổng kết tuần... | DD/MM/YYYY | DD/MM/YYYY | |
+| Thứ | Nội dung học và thực hành | Bắt đầu dự kiến | Hoàn thành dự kiến | Tài liệu |
+| Thứ Hai | Phân biệt Region, Availability Zone và edge location | 14/09/2026 | 14/09/2026 | [AWS global infrastructure](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html) |
+| Thứ Ba | Xác định trách nhiệm của AWS và người dùng | 15/09/2026 | 15/09/2026 | [AWS global infrastructure](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html) |
+| Thứ Tư | Tìm dịch vụ và vùng đang dùng trên Console | 16/09/2026 | 16/09/2026 | [AWS global infrastructure](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html) |
+| Thứ Năm | Thiết lập AWS CLI với phiên đăng nhập tạm thời | 17/09/2026 | 17/09/2026 | [AWS global infrastructure](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html) |
+| Thứ Sáu | Kiểm tra danh tính bằng STS và ghi lại cấu hình | 18/09/2026 | 18/09/2026 | [AWS global infrastructure](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html) |
 
-## 3. Kết quả đạt được
-:::todo[Kết quả tuần]
-- Tóm tắt các kết quả kỹ thuật, sản phẩm bàn giao hoặc bài học thu được trong tuần...
+### Kết quả tuần 1:
+
+- Kết quả thực hành cá nhân chờ xác nhận.
+
+**Minh chứng dự kiến:** Ghi chú chọn vùng và đầu ra STS đã che định danh.
+
+:::todo[Kết quả thực tế]
+Sau buổi thực hành, ghi thao tác đã thử, kết quả quan sát và liên kết tới minh chứng.
 :::
-
-## 4. Tài liệu tham khảo & Minh chứng
-- Liên kết tài liệu, pull requests hoặc hình ảnh minh chứng.

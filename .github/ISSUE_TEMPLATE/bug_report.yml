@@ -1,0 +1,23 @@
+name: Báo lỗi website
+description: Báo lỗi hiển thị, điều hướng hoặc chức năng của báo cáo.
+title: "[Bug] "
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Trang gặp lỗi
+      placeholder: https://aws-fcaj-report.vercel.app/vi/...
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Các bước tái hiện
+      description: Ghi thao tác, kết quả đang thấy và kết quả mong đợi.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Môi trường và ảnh minh họa
+      description: Trình duyệt, thiết bị, kích thước màn hình và light/dark mode. Che dữ liệu cá nhân trước khi gửi ảnh.

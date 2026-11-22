@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { reportManifest } from '../../config/structure';
+import { reportManifest, flattenManifest, NavItem } from '../../config/structure';
 import { useLanguage } from '../../context/LanguageContext';
 import { siteConfig } from '../../config/site.config';
 import { AwsLogo } from '../common/AwsLogo';
@@ -113,6 +113,50 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onOpenSearch 
 
   const currentCleanPath = location.pathname.replace(/^\/(en|vi)\/?/, '');
 
+  useEffect(() => {
+    const ancestors = flattenManifest().filter(item => item.children?.length &&
+      (currentCleanPath === item.path || currentCleanPath.startsWith(item.path + '/')));
+    setExpandedGroups(previous => ({ ...previous, ...Object.fromEntries(ancestors.map(item => [item.id, true])) }));
+  }, [currentCleanPath]);
+
+  const renderItem = (item: NavItem, depth = 0): React.ReactNode => {
+    const hasChildren = Boolean(item.children?.length);
+    const expanded = expandedGroups[item.id] ?? false;
+    const active = currentCleanPath === item.path;
+    const ancestor = currentCleanPath.startsWith(item.path + '/');
+    const Icon = (item.iconName && iconMap[item.iconName]) || FileText;
+    const toggleLabel = language === 'vi'
+      ? (expanded ? 'Thu gọn ' : 'Mở rộng ') + item.title[language]
+      : (expanded ? 'Collapse ' : 'Expand ') + item.title[language];
+    return (
+      <div key={item.id} className="space-y-0.5">
+        <div className={`flex items-center rounded-lg text-xs transition-colors ${active
+          ? 'bg-aws-smile text-aws-squid font-bold'
+          : ancestor ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400'
+          : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}>
+          <Link to={`/${language}/${item.path}`} onClick={onClose}
+            aria-current={active ? 'page' : undefined}
+            className="flex flex-1 min-w-0 items-center gap-1.5 px-2 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-aws-smile">
+            <Icon className="w-3.5 h-3.5 shrink-0 opacity-70" />
+            <span className="font-mono text-[10px] shrink-0">{item.pre}</span>
+            <span className="leading-relaxed break-words">{item.title[language]}</span>
+            {visitedPages.includes(item.path) && !active && <CheckCircle2 aria-label={t.common.visited} className="w-3 h-3 shrink-0 text-emerald-500" />}
+          </Link>
+          {hasChildren && <button type="button" onClick={event => toggleGroup(item.id, event)}
+            aria-label={toggleLabel} aria-expanded={expanded} aria-controls={`nav-${item.id}`}
+            className="p-2 rounded-lg hover:bg-black/10 focus:outline-none focus:ring-2 focus:ring-aws-smile">
+            {expanded ? <ChevronDown className="w-3.5 h-3.5" /> : <ChevronRight className="w-3.5 h-3.5" />}
+          </button>}
+        </div>
+        {hasChildren && expanded && <div id={`nav-${item.id}`}
+          className={depth === 0 ? 'ml-3 pl-1 border-l border-slate-200 dark:border-aws-borderDark' : 'ml-2 pl-1 border-l border-slate-200 dark:border-aws-borderDark'}>
+          {item.children!.map(child => renderItem(child, depth + 1))}
+        </div>}
+      </div>
+    );
+  };
+
+
   return (
     <>
       {/* Mobile Backdrop */}
@@ -177,97 +221,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onOpenSearch 
 
         {/* Navigation Tree */}
         <nav className="flex-1 overflow-y-auto px-3 py-2 space-y-1 text-sm select-none" aria-label="Documentation navigation">
-          {reportManifest.map((item) => {
-            const hasChildren = Boolean(item.children && item.children.length > 0);
-            const isExpanded = expandedGroups[item.id] ?? true;
-            const isGroupActive = currentCleanPath.startsWith(item.path);
-            const isDirectActive = currentCleanPath === item.path;
-            const isVisited = visitedPages.includes(item.path);
-            const Icon = (item.iconName && iconMap[item.iconName]) || Boxes;
-
-            return (
-              <div key={item.id} className="space-y-0.5">
-                <div
-                  className={`group flex items-center justify-between px-2.5 py-2 rounded-lg text-xs font-semibold transition-all ${
-                    isDirectActive
-                      ? 'bg-aws-smile text-aws-squid font-bold shadow-sm'
-                      : isGroupActive
-                      ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400 font-semibold'
-                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/80 hover:text-slate-900 dark:hover:text-white'
-                  }`}
-                >
-                  <Link
-                    to={`/${language}/${item.path}`}
-                    onClick={onClose}
-                    className="flex items-center gap-2 flex-1 min-w-0"
-                  >
-                    <Icon className="w-4 h-4 shrink-0 opacity-80" />
-                    <span className="shrink-0 font-mono text-[11px] text-aws-smile dark:text-amber-400">
-                      {item.pre}
-                    </span>
-                    <span className="truncate">{item.title[language]}</span>
-                  </Link>
-
-                  <div className="flex items-center gap-1 shrink-0 ml-1">
-                    {isVisited && !isDirectActive && (
-                      <span title={t.common.visited} className="text-emerald-500">
-                        <CheckCircle2 className="w-3 h-3" />
-                      </span>
-                    )}
-
-                    {hasChildren && (
-                      <button
-                        onClick={(e) => toggleGroup(item.id, e)}
-                        className="p-1 rounded hover:bg-black/10 dark:hover:bg-white/10 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
-                        aria-label={isExpanded ? 'Collapse section' : 'Expand section'}
-                      >
-                        {isExpanded ? (
-                          <ChevronDown className="w-3.5 h-3.5" />
-                        ) : (
-                          <ChevronRight className="w-3.5 h-3.5" />
-                        )}
-                      </button>
-                    )}
-                  </div>
-                </div>
-
-                {/* Submenu Items */}
-                {hasChildren && isExpanded && (
-                  <div className="ml-4 pl-2 border-l border-slate-200 dark:border-aws-borderDark space-y-0.5 my-1">
-                    {item.children!.map((child) => {
-                      const isChildActive = currentCleanPath === child.path;
-                      const isChildVisited = visitedPages.includes(child.path);
-                      const ChildIcon = (child.iconName && iconMap[child.iconName]) || FileText;
-
-                      return (
-                        <Link
-                          key={child.id}
-                          to={`/${language}/${child.path}`}
-                          onClick={onClose}
-                          className={`flex items-center justify-between px-2 py-1.5 rounded-md text-xs transition-colors ${
-                            isChildActive
-                              ? 'bg-aws-smile text-aws-squid font-bold shadow-sm'
-                              : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-slate-100'
-                          }`}
-                        >
-                          <span className="flex items-center gap-1.5 min-w-0">
-                            <ChildIcon className="w-3 h-3 shrink-0 opacity-60" />
-                            <span className="font-mono text-[10px] text-slate-400 shrink-0">
-                              {child.pre}
-                            </span>
-                            <span className="truncate">{child.title[language]}</span>
-                          </span>
-                          {isChildVisited && !isChildActive && (
-                            <CheckCircle2 className="w-2.5 h-2.5 text-emerald-500 shrink-0 ml-1" />
-                          )}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            );
-          })}
+          {reportManifest.map(item => renderItem(item))}
         </nav>
 
         {/* Footer Links (AWS Community & Docs) */}
