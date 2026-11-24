@@ -20,21 +20,13 @@ ECR stores backend images. The workflow builds linux/arm64 to match runtime_plat
   }
 ```
 
-:::figure{src="/images/workshop/5.4.1-ecs-alb-step1.png" alt="5.4.1-ecs-alb-step1" caption="Screenshot pending"}
-
-:::todo[Screenshot required]
-ECS → Clusters → service → Tasks and EC2 → Target Groups → Targets; redact task and account identifiers.
-:::
+:::figure{src="/images/workshop/5.4.1-ecs-alb-step1.png" alt="5.4.1-ecs-alb-step1" caption="ECS service nutrition-dev-backend: two running tasks, deployment Success"}
 
 2. **Verify the result**
 
 Check for a RUNNING task, healthy target, and the deployed image tag. CloudFront → ALB uses HTTP without a custom domain, an accepted limitation with no HTTPS origin yet.
 
-:::figure{src="/images/workshop/step7-result.png" alt="ECS Fargate and ALB" caption="Evidence screenshot pending owner upload"}
-
-:::todo[Screenshot required]
-ECS → Clusters → service → Tasks and EC2 → Target Groups → Targets; redact task and account identifiers.
-:::
+:::figure{src="/images/workshop/step7-result.png" alt="ECS Fargate and ALB" caption="Target group nutrition-dev-api: two healthy targets on port 8080"}
 
 #### Recorded troubleshooting
 

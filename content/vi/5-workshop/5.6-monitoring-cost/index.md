@@ -7,11 +7,9 @@ status: "draft"
 
 Theo dõi sức khỏe ứng dụng, ghi dấu vết quản trị và đối chiếu chi phí. WAF là cấu hình tùy chọn chỉ bật theo buổi demo.
 
-:::figure{src="/images/architecture/5.6-monitoring-cost.png" alt="5.6-monitoring-cost" caption="Sơ đồ thành phần cần vẽ"}
+:::figure{src="/images/architecture/5.6-monitoring-cost.png" alt="5.6-monitoring-cost" caption="Sơ đồ thành phần: CloudWatch Logs → Alarm → SNS, CloudTrail → S3 logs, Budgets"}
 
-:::todo[Sơ đồ Draw.io]
-Vẽ sơ đồ con bằng Draw.io và AWS icons cho các thành phần của mục này, theo sơ đồ tham khảo tổng thể.
-:::
+File draw.io để chỉnh sửa: [5.6-monitoring-cost.drawio](/files/5.6-monitoring-cost.drawio).
 
 #### Content
 

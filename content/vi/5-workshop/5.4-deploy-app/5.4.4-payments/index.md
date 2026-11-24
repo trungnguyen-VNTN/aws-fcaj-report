@@ -31,21 +31,13 @@ Bật app bằng demo-infra.ps1 up -Vnpay theo runbook. VNPAY sandbox dùng HMAC
     .\scripts\demo-infra.ps1 up -Vnpay -Waf   # also put AWS WAF in front of CloudFront
 ```
 
-:::figure{src="/images/workshop/5.4.4-payments-step1.png" alt="5.4.4-payments-step1" caption="Ảnh cần bổ sung"}
-
-:::todo[Cần chụp ảnh]
-Chụp ứng dụng → thanh toán sandbox / nhật ký thanh toán admin và GitHub Actions → Verify application; che dữ liệu khách, mã giao dịch và định danh.
-:::
+:::figure{src="/images/workshop/5.4.4-payments-step1.png" alt="5.4.4-payments-step1" caption="Đơn #10 thanh toán qua VNPAY sandbox: Đã đặt, Đã thanh toán VNPAY"}
 
 2. **Kiểm tra kết quả**
 
 Theo PROGRESS ngày 21/11/2026: backend 86, frontend 145, E2E + axe 57. Lệnh nguồn trong CLAUDE.md: backend ./mvnw verify; frontend npm test -- --maxWorkers=1 và npm run test:e2e. Cần ghi biên bản thử web đã đăng nhập, hồ sơ, gợi ý và VNPAY vì PROGRESS còn để bước này mở.
 
-:::figure{src="/images/workshop/step13-result.png" alt="Thanh toán và kiểm thử" caption="Ảnh minh chứng cần chủ repo bổ sung"}
-
-:::todo[Cần chụp ảnh]
-Chụp ứng dụng → thanh toán sandbox / nhật ký thanh toán admin và GitHub Actions → Verify application; che dữ liệu khách, mã giao dịch và định danh.
-:::
+:::figure{src="/images/workshop/step13-result.png" alt="Thanh toán và kiểm thử" caption="Trang admin Nhật ký thanh toán: IPN VNPAY sandbox của đơn #10 ghi nhận "Đã thanh toán""}
 
 #### Lỗi đã ghi nhận
 

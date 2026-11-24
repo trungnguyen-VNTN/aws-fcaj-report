@@ -18,11 +18,7 @@ aws sso login --sso-session nutrition
 $env:TF_VAR_owner = "<tên bạn>"
 ```
 
-:::figure{src="/images/workshop/step2-result.png" alt="Prerequisites" caption="Evidence screenshot pending owner upload"}
-
-:::todo[Screenshot required]
-IAM Identity Center → Permission sets → nutrition-plan / nutrition-apply and IAM → Policies → nutrition-boundary.
-:::
+:::figure{src="/images/workshop/step2-result.png" alt="Prerequisites" caption="IAM Identity Center: two permission sets, nutrition-plan (read-only) and nutrition-apply (deploy)"}
 
 Verify profile access and boundary setup before bootstrap. Exclude session data, tokens, and credentials from the report.
 
@@ -75,11 +71,7 @@ terraform -chdir=infra/bootstrap apply tfplan
 terraform -chdir=infra/bootstrap output state_bucket
 ```
 
-:::figure{src="/images/workshop/step3-result.png" alt="Terraform bootstrap" caption="Evidence screenshot pending owner upload"}
-
-:::todo[Screenshot required]
-S3 → state bucket → Properties and AWS Budgets → USD 100 budget; redact account-bearing bucket names.
-:::
+:::figure{src="/images/workshop/step3-result.png" alt="Terraform bootstrap" caption="AWS Budgets: USD 100 budget, USD 15.06 used, USD 26.95 forecast"}
 
 Check the envs/dev/terraform.tfstate key, encryption, and use_lockfile=true. Review replacements, deletions, and IAM permissions before applying.
 
@@ -87,6 +79,4 @@ A state lock remained after an interrupted apply. Only after confirming that no 
 
 Sources: [`infra/README.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/README.md), [`docs/runbook.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/runbook.md), [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md), [`infra/envs/dev/versions.tf`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/envs/dev/versions.tf).
 
-:::todo[Verify AWS Budgets]
-Confirm whether the budget was created manually or through another process. Attach a redacted USD 100 budget screenshot and setup date.
-:::
+The USD 100 budget was created manually in the Console (it is not managed by Terraform). On 25 November 2026: USD 15.06 used, USD 26.95 forecast for the month, status Healthy.

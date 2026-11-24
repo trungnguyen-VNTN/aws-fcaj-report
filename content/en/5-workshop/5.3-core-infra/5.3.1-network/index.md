@@ -19,21 +19,13 @@ data "aws_ec2_managed_prefix_list" "cloudfront" {
 }
 ```
 
-:::figure{src="/images/workshop/5.3.1-network-step1.png" alt="5.3.1-network-step1" caption="Screenshot pending"}
-
-:::todo[Screenshot required]
-VPC → Your VPCs → Resource map, Security Groups → inbound rules, and Endpoints → available S3 gateway endpoint.
-:::
+:::figure{src="/images/workshop/5.3.1-network-step1.png" alt="5.3.1-network-step1" caption="VPC resource map: four subnets across two AZs (public and db), route tables, Internet Gateway and S3 endpoint"}
 
 2. **Verify the result**
 
 Compare the VPC resource map, routes, and SG chain with Terraform. The two DB subnets do not imply a Multi-AZ RDS deployment.
 
-:::figure{src="/images/workshop/step4-result.png" alt="VPC networking" caption="Evidence screenshot pending owner upload"}
-
-:::todo[Screenshot required]
-VPC → Your VPCs → Resource map, Security Groups → inbound rules, and Endpoints → available S3 gateway endpoint.
-:::
+:::figure{src="/images/workshop/step4-result.png" alt="VPC networking" caption="Security group nutrition-dev-rds: PostgreSQL 5432 only from the ECS security group"}
 
 #### Recorded troubleshooting
 

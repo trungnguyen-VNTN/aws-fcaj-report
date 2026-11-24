@@ -24,21 +24,13 @@ Module rds cấu hình db.t4g.micro, 20 GB gp3, mã hóa và Multi-AZ (bản d�
   multi_az = var.multi_az
 ```
 
-:::figure{src="/images/workshop/5.3.2-database-step1.png" alt="5.3.2-database-step1" caption="Ảnh cần bổ sung"}
-
-:::todo[Cần chụp ảnh]
-RDS → Databases → nutrition-dev-postgres → Connectivity & security / Configuration; Secrets Manager chỉ chụp metadata, không mở giá trị secret.
-:::
+:::figure{src="/images/workshop/5.3.2-database-step1.png" alt="5.3.2-database-step1" caption="RDS: db.t4g.micro, PostgreSQL 17.9, mã hóa KMS, Multi-AZ = Yes, secondary zone ap-southeast-1b"}
 
 2. **Kiểm tra kết quả**
 
 Kiểm tra RDS không public, mã hóa bật và task đọc được secret theo role. Đối chiếu migration trong backend/src/main/resources/db/migration.
 
-:::figure{src="/images/workshop/step5-result.png" alt="RDS và Flyway" caption="Ảnh minh chứng cần chủ repo bổ sung"}
-
-:::todo[Cần chụp ảnh]
-RDS → Databases → nutrition-dev-postgres → Connectivity & security / Configuration; Secrets Manager chỉ chụp metadata, không mở giá trị secret.
-:::
+:::figure{src="/images/workshop/step5-result.png" alt="RDS và Flyway" caption="RDS Connectivity & security: Publicly accessible = No, subnet group nutrition-dev-db gồm 2 subnet riêng"}
 
 #### Lỗi đã ghi nhận
 

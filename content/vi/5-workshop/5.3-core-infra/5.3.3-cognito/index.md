@@ -25,21 +25,13 @@ resource "aws_cognito_user_group" "user" {
 }
 ```
 
-:::figure{src="/images/workshop/5.3.3-cognito-step1.png" alt="5.3.3-cognito-step1" caption="Ảnh cần bổ sung"}
-
-:::todo[Cần chụp ảnh]
-Cognito → User pools → pool dự án → Groups, hiển thị USER và ADMIN, không chụp danh sách thành viên.
-:::
+:::figure{src="/images/workshop/5.3.3-cognito-step1.png" alt="5.3.3-cognito-step1" caption="Cognito user pool nutrition-dev-users ở Singapore"}
 
 2. **Kiểm tra kết quả**
 
 Theo docs/demo.md: API thiếu token trả 401, người dùng thường gọi API admin trả 403. Không chụp token hoặc dữ liệu người dùng.
 
-:::figure{src="/images/workshop/step6-result.png" alt="Đăng nhập Cognito" caption="Ảnh minh chứng cần chủ repo bổ sung"}
-
-:::todo[Cần chụp ảnh]
-Cognito → User pools → pool dự án → Groups, hiển thị USER và ADMIN, không chụp danh sách thành viên.
-:::
+:::figure{src="/images/workshop/step6-result.png" alt="Đăng nhập Cognito" caption="Cognito user pool: hai nhóm ADMIN và USER"}
 
 #### Lỗi đã ghi nhận
 

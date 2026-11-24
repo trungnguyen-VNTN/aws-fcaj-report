@@ -11,8 +11,6 @@ Gọi Nova 2 Lite và kiểm chứng độ an toàn theo bộ prompt.
 
 D18 đặt BEDROCK_REGION=ap-northeast-1, model amazon.nova-2-lite-v1:0, profile jp.amazon.nova-2-lite-v1:0. Guardrail cùng vùng. searchProducts là tool duy nhất; backend kiểm schema và truy vấn SQL tham số hóa. Intent search, facts, compare, plan dùng DB để ghép số liệu. D32 tính mục tiêu và gợi ý bằng code, không gửi dữ liệu cơ thể cho model. Quota chat 30 câu/ngày/người.
 
-
-
 [`infra/modules/guardrail/main.tf`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/modules/guardrail/main.tf)
 
 ```hcl
@@ -25,21 +23,13 @@ resource "aws_bedrock_guardrail" "chat" {
   blocked_outputs_messaging = "Tôi chỉ hỗ trợ tra cứu thực phẩm trong cửa hàng và không đưa ra lời khuyên y tế."
 ```
 
-:::figure{src="/images/workshop/5.5.1-bedrock-guardrails-step1.png" alt="5.5.1-bedrock-guardrails-step1" caption="Ảnh cần bổ sung"}
-
-:::todo[Cần chụp ảnh]
-Bedrock ở Tokyo → Guardrails → guardrail dự án và Service Quotas → Bedrock → quota Nova; kèm output eval đã che định danh.
-:::
+:::figure{src="/images/workshop/5.5.1-bedrock-guardrails-step1.png" alt="5.5.1-bedrock-guardrails-step1" caption="Guardrail nutrition-dev-chat ở Tokyo: chặn lời khuyên y tế và prompt attack"}
 
 2. **Kiểm tra kết quả**
 
 Bộ prompts.json hiện có 45 câu. Ngày 21/11/2026: an toàn 17/17, tra cứu 27/28 (ngưỡng 85%), 7 câu P01–P07 đều đạt. L01 dao động vì model bỏ category, cần theo dõi. docs/ai-eval.md còn mô tả các lượt 30/38 câu trước đó; dùng PROGRESS.md và bộ prompt hiện hành để đối chiếu. Eval gọi model có phí, không thuộc CI.
 
-:::figure{src="/images/workshop/step10-result.png" alt="AI tra cứu và Guardrails" caption="Ảnh minh chứng cần chủ repo bổ sung"}
-
-:::todo[Cần chụp ảnh]
-Bedrock ở Tokyo → Guardrails → guardrail dự án và Service Quotas → Bedrock → quota Nova; kèm output eval đã che định danh.
-:::
+:::figure{src="/images/workshop/step10-result.png" alt="AI tra cứu và Guardrails" caption="Service Quotas: Nova 2 Lite cross-region 8.000.000 token mỗi phút"}
 
 #### Lỗi đã ghi nhận
 

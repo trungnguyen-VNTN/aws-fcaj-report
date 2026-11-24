@@ -37,21 +37,13 @@ The app defaults to off. D20 uses up/down to retain RDS storage, S3, and fixed c
     .\scripts\demo-infra.ps1 down   # remove ALB + ECS service, stop RDS (~5-10 min)
 ```
 
-:::figure{src="/images/workshop/5.6.3-cost-step1.png" alt="5.6.3-cost-step1" caption="Screenshot pending"}
-
-:::todo[Screenshot required]
-Billing → Cost Explorer → 1–21 November 2026, grouped by Service; capture usage total and credits with account and billing details redacted.
-:::
+:::figure{src="/images/workshop/5.6.3-cost-step1.png" alt="5.6.3-cost-step1" caption="Cost Explorer, November 2026 cost by service (credits excluded)"}
 
 2. **Verify the result**
 
 Use the 1–21 November 2026 Cost Explorer interval and distinguish credits from usage. Monthly estimates are not a guaranteed bill.
 
-:::figure{src="/images/workshop/step11-result.png" alt="Cost estimation and optimization" caption="Evidence screenshot pending owner upload"}
-
-:::todo[Screenshot required]
-Billing → Cost Explorer → 1–21 November 2026, grouped by Service; capture usage total and credits with account and billing details redacted.
-:::
+:::figure{src="/images/workshop/step11-result.png" alt="Cost estimation and optimization" caption="Billing → Credits: USD 199.99 total credit, about USD 15.07 used"}
 
 #### Recorded troubleshooting
 

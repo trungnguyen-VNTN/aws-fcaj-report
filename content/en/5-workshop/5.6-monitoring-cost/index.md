@@ -7,11 +7,9 @@ status: "draft"
 
 Monitor application health, retain audit events, and review costs. WAF is optional and enabled for selected demo sessions.
 
-:::figure{src="/images/architecture/5.6-monitoring-cost.png" alt="5.6-monitoring-cost" caption="Component diagram pending"}
+:::figure{src="/images/architecture/5.6-monitoring-cost.png" alt="5.6-monitoring-cost" caption="Component diagram: CloudWatch Logs → alarms → SNS, CloudTrail → S3 logs, Budgets"}
 
-:::todo[Draw.io diagram]
-Draw this section’s component diagram with Draw.io and AWS icons, using the overall reference diagram.
-:::
+Editable draw.io source: [5.6-monitoring-cost.drawio](/files/5.6-monitoring-cost.drawio).
 
 #### Content
 

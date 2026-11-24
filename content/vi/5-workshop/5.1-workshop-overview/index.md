@@ -55,11 +55,7 @@ Từ 22/11/2026 (D33), môi trường dev chạy 2 task ECS, mỗi Availability 
 
 #### Kiểm chứng và nguồn
 
-:::figure{src="/images/workshop/step1-result.png" alt="Tổng quan" caption="Ảnh minh chứng cần chủ repo bổ sung"}
-
-:::todo[Cần chụp ảnh]
-CloudFront → Distributions → distribution của ứng dụng, hiển thị trạng thái và các behavior, che định danh.
-:::
+:::figure{src="/images/workshop/step1-result.png" alt="Tổng quan" caption="CloudFront distribution: tên miền *.cloudfront.net, hỗ trợ HTTP/3, root object index.html"}
 
 Đối chiếu /api/products, đăng nhập và kịch bản demo trong docs/demo.md. Snapshot test ngày 21/11/2026: backend 86, frontend 145, E2E + axe 57. Đây là kết quả được ghi lại, không phải lượt chạy trong báo cáo.
 

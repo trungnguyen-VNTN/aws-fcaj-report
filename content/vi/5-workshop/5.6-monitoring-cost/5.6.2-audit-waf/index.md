@@ -26,21 +26,13 @@ resource "aws_cloudtrail" "main" {
 }
 ```
 
-:::figure{src="/images/workshop/5.6.2-audit-waf-step1.png" alt="5.6.2-audit-waf-step1" caption="Ảnh cần bổ sung"}
-
-:::todo[Cần chụp ảnh]
-CloudWatch → All alarms / Log groups, SNS → Subscriptions, CloudTrail → Trails → Logging, S3 → log bucket → objects/lifecycle; nếu bật WAF thì chụp Web ACL.
-:::
+:::figure{src="/images/workshop/5.6.2-audit-waf-step1.png" alt="5.6.2-audit-waf-step1" caption="CloudTrail nutrition-dev-trail: multi-region, đang ghi log vào S3"}
 
 2. **Kiểm tra kết quả**
 
 Đối chiếu trạng thái alarm với app_running; xác nhận SNS subscription, CloudTrail logging và object log S3. WAF có thể vắng mặt khi tắt để giảm phí.
 
-:::figure{src="/images/workshop/step12-result.png" alt="Giám sát và bảo mật" caption="Ảnh minh chứng cần chủ repo bổ sung"}
-
-:::todo[Cần chụp ảnh]
-CloudWatch → All alarms / Log groups, SNS → Subscriptions, CloudTrail → Trails → Logging, S3 → log bucket → objects/lifecycle; nếu bật WAF thì chụp Web ACL.
-:::
+:::figure{src="/images/workshop/step12-result.png" alt="Giám sát và bảo mật" caption="Bucket log: thư mục alb/ (access log ALB) và cloudtrail/"}
 
 #### Lỗi đã ghi nhận
 

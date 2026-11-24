@@ -22,11 +22,7 @@ public class RecommendationService {
     DINNER(0.375);
 ```
 
-:::figure{src="/images/workshop/5.5.3-meal-recommendations-step1.png" alt="5.5.3-meal-recommendations-step1" caption="Screenshot pending"}
-
-:::todo[Screenshot required]
-Application → /profile and /suggestions after login using synthetic data; redact body measurements and identity.
-:::
+:::figure{src="/images/workshop/5.5.3-meal-recommendations-step1.png" alt="5.5.3-meal-recommendations-step1" caption="Profile-based lunch suggestion: numbers computed from the database against the meal target"}
 
 2. **Verify the result**
 

@@ -26,21 +26,13 @@ resource "aws_cloudtrail" "main" {
 }
 ```
 
-:::figure{src="/images/workshop/5.6.2-audit-waf-step1.png" alt="5.6.2-audit-waf-step1" caption="Screenshot pending"}
-
-:::todo[Screenshot required]
-CloudWatch → All alarms / Log groups, SNS → Subscriptions, CloudTrail → Trails → Logging, S3 → log bucket → objects/lifecycle; capture the Web ACL only if WAF is enabled.
-:::
+:::figure{src="/images/workshop/5.6.2-audit-waf-step1.png" alt="5.6.2-audit-waf-step1" caption="CloudTrail nutrition-dev-trail: multi-region, logging to S3"}
 
 2. **Verify the result**
 
 Compare alarm state with app_running and verify SNS confirmation, CloudTrail logging, and S3 log objects. WAF may be absent while disabled to reduce costs.
 
-:::figure{src="/images/workshop/step12-result.png" alt="Monitoring and security" caption="Evidence screenshot pending owner upload"}
-
-:::todo[Screenshot required]
-CloudWatch → All alarms / Log groups, SNS → Subscriptions, CloudTrail → Trails → Logging, S3 → log bucket → objects/lifecycle; capture the Web ACL only if WAF is enabled.
-:::
+:::figure{src="/images/workshop/step12-result.png" alt="Monitoring and security" caption="Log bucket: alb/ (ALB access logs) and cloudtrail/ folders"}
 
 #### Recorded troubleshooting
 

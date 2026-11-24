@@ -19,21 +19,13 @@ ci.yml chạy Terraform fmt/validate, backend verify và frontend checks. deploy
     }
 ```
 
-:::figure{src="/images/workshop/5.4.3-cicd-step1.png" alt="5.4.3-cicd-step1" caption="Ảnh cần bổ sung"}
-
-:::todo[Cần chụp ảnh]
-IAM → Roles → nutrition-dev-github-deploy → Trust relationships và GitHub Actions → run Deploy to AWS dev đã thành công; che ARN.
-:::
+:::figure{src="/images/workshop/5.4.3-cicd-step1.png" alt="5.4.3-cicd-step1" caption="IAM role nutrition-dev-github-deploy: chỉ tin GitHub OIDC cho nhánh master của repo dự án"}
 
 2. **Kiểm tra kết quả**
 
 Đối chiếu workflow với một run thực tế của chủ repo; kiểm tra trust policy aud và immutable subject prefix cùng nhánh master.
 
-:::figure{src="/images/workshop/step9-result.png" alt="CI/CD qua OIDC" caption="Ảnh minh chứng cần chủ repo bổ sung"}
-
-:::todo[Cần chụp ảnh]
-IAM → Roles → nutrition-dev-github-deploy → Trust relationships và GitHub Actions → run Deploy to AWS dev đã thành công; che ARN.
-:::
+:::figure{src="/images/workshop/step9-result.png" alt="CI/CD qua OIDC" caption="GitHub Actions: workflow Deploy to AWS dev chạy thành công (backend image, frontend, publish)"}
 
 #### Lỗi đã ghi nhận
 

@@ -31,13 +31,9 @@ Buyers query DB-sourced facts, filter products, and see data limitations. Store 
 
 ### 3. Solution Architecture
 
-:::figure{src="/images/architecture/system-overview.png" alt="AWS architecture reference" caption="Source repository reference, reviewed 22 November 2026"}
+:::figure{src="/images/architecture/system-overview.png" alt="AWS architecture reference" caption="AWS architecture drawn in draw.io with the AWS Architecture Icons, updated for Multi-AZ on 23 November 2026"}
 
 Since 22 November 2026 (D33) the dev environment runs two ECS tasks, one per Availability Zone, and RDS runs Multi-AZ with a standby in the second AZ. A *Reboot with failover* drill on 22 November moved the primary from ap-southeast-1a to ap-southeast-1b in about 20–45 seconds; the API was interrupted for about half a minute and recovered on its own, with no data loss.
-
-:::todo[Draw.io diagram]
-Redraw the architecture in Draw.io using official AWS icons, export it, and replace the reference image above.
-:::
 
 ### AWS Services Used
 

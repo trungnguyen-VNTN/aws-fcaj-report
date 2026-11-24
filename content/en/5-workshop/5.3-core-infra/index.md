@@ -7,11 +7,9 @@ status: "draft"
 
 Prepare networking, persistence, and authentication for the backend. Follow the child pages in order.
 
-:::figure{src="/images/architecture/5.3-core-infra.png" alt="5.3-core-infra" caption="Component diagram pending"}
+:::figure{src="/images/architecture/5.3-core-infra.png" alt="5.3-core-infra" caption="Component diagram: two-AZ VPC, subnets, security groups, RDS primary and standby, Cognito"}
 
-:::todo[Draw.io diagram]
-Draw this section’s component diagram with Draw.io and AWS icons, using the overall reference diagram.
-:::
+Editable draw.io source: [5.3-core-infra.drawio](/files/5.3-core-infra.drawio).
 
 #### Content
 

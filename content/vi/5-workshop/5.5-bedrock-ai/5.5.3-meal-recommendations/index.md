@@ -22,11 +22,7 @@ public class RecommendationService {
     DINNER(0.375);
 ```
 
-:::figure{src="/images/workshop/5.5.3-meal-recommendations-step1.png" alt="5.5.3-meal-recommendations-step1" caption="Ảnh cần bổ sung"}
-
-:::todo[Cần chụp ảnh]
-Ứng dụng → /profile và /suggestions sau đăng nhập với dữ liệu thử; che dữ liệu cơ thể và danh tính.
-:::
+:::figure{src="/images/workshop/5.5.3-meal-recommendations-step1.png" alt="5.5.3-meal-recommendations-step1" caption="Gợi ý bữa trưa theo hồ sơ: số liệu tính từ DB, so với mục tiêu của bữa"}
 
 2. **Kiểm tra kết quả**
 

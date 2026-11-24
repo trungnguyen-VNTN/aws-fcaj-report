@@ -25,21 +25,13 @@ resource "aws_cognito_user_group" "user" {
 }
 ```
 
-:::figure{src="/images/workshop/5.3.3-cognito-step1.png" alt="5.3.3-cognito-step1" caption="Screenshot pending"}
-
-:::todo[Screenshot required]
-Cognito → User pools → project pool → Groups, showing USER and ADMIN without member lists.
-:::
+:::figure{src="/images/workshop/5.3.3-cognito-step1.png" alt="5.3.3-cognito-step1" caption="Cognito user pool nutrition-dev-users in Singapore"}
 
 2. **Verify the result**
 
 Follow docs/demo.md: missing tokens produce 401, and ordinary users receive 403 on admin APIs. Exclude tokens and user information from screenshots.
 
-:::figure{src="/images/workshop/step6-result.png" alt="Cognito authentication" caption="Evidence screenshot pending owner upload"}
-
-:::todo[Screenshot required]
-Cognito → User pools → project pool → Groups, showing USER and ADMIN without member lists.
-:::
+:::figure{src="/images/workshop/step6-result.png" alt="Cognito authentication" caption="Cognito user pool: ADMIN and USER groups"}
 
 #### Recorded troubleshooting
 

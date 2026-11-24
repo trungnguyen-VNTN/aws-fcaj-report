@@ -23,21 +23,13 @@ resource "aws_cloudfront_origin_access_control" "frontend" {
 }
 ```
 
-:::figure{src="/images/workshop/5.4.2-cloudfront-frontend-step1.png" alt="5.4.2-cloudfront-frontend-step1" caption="Screenshot pending"}
-
-:::todo[Screenshot required]
-CloudFront → distribution → Origins / Behaviors and S3 → frontend bucket → Permissions → Block public access.
-:::
+:::figure{src="/images/workshop/5.4.2-cloudfront-frontend-step1.png" alt="5.4.2-cloudfront-frontend-step1" caption="CloudFront behaviors: /images/* → image bucket, /api/* → ALB (HTTPS only), default → frontend bucket"}
 
 2. **Verify the result**
 
 Reload a deep SPA route, check that the API returns JSON, verify /images/* delivery, and confirm public access blocks on buckets.
 
-:::figure{src="/images/workshop/step8-result.png" alt="S3 frontend and CloudFront" caption="Evidence screenshot pending owner upload"}
-
-:::todo[Screenshot required]
-CloudFront → distribution → Origins / Behaviors and S3 → frontend bucket → Permissions → Block public access.
-:::
+:::figure{src="/images/workshop/step8-result.png" alt="S3 frontend and CloudFront" caption="Frontend bucket: Block all public access = On; only CloudFront reads it through OAC"}
 
 #### Recorded troubleshooting
 

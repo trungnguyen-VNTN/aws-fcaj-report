@@ -20,21 +20,13 @@ ECR giữ image backend. Workflow build linux/arm64 để khớp runtime_platfor
   }
 ```
 
-:::figure{src="/images/workshop/5.4.1-ecs-alb-step1.png" alt="5.4.1-ecs-alb-step1" caption="Ảnh cần bổ sung"}
-
-:::todo[Cần chụp ảnh]
-ECS → Clusters → service → Tasks và EC2 → Target Groups → Targets; che task ID và định danh account.
-:::
+:::figure{src="/images/workshop/5.4.1-ecs-alb-step1.png" alt="5.4.1-ecs-alb-step1" caption="ECS service nutrition-dev-backend: 2 task đang chạy, deployment Success"}
 
 2. **Kiểm tra kết quả**
 
 Kiểm tra task RUNNING, target healthy và tag image. CloudFront → ALB dùng HTTP do chưa có domain; đây là hạn chế được chấp nhận, chưa có HTTPS origin.
 
-:::figure{src="/images/workshop/step7-result.png" alt="ECS Fargate và ALB" caption="Ảnh minh chứng cần chủ repo bổ sung"}
-
-:::todo[Cần chụp ảnh]
-ECS → Clusters → service → Tasks và EC2 → Target Groups → Targets; che task ID và định danh account.
-:::
+:::figure{src="/images/workshop/step7-result.png" alt="ECS Fargate và ALB" caption="Target group nutrition-dev-api: 2 target khỏe mạnh ở cổng 8080"}
 
 #### Lỗi đã ghi nhận
 

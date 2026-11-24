@@ -19,21 +19,13 @@ data "aws_ec2_managed_prefix_list" "cloudfront" {
 }
 ```
 
-:::figure{src="/images/workshop/5.3.1-network-step1.png" alt="5.3.1-network-step1" caption="Ảnh cần bổ sung"}
-
-:::todo[Cần chụp ảnh]
-VPC → Your VPCs → Resource map, Security Groups → inbound rules và Endpoints → S3 gateway endpoint available.
-:::
+:::figure{src="/images/workshop/5.3.1-network-step1.png" alt="5.3.1-network-step1" caption="VPC resource map: 4 subnet ở 2 AZ (public và db), route table, Internet Gateway và S3 endpoint"}
 
 2. **Kiểm tra kết quả**
 
 Đối chiếu VPC resource map, route table và chuỗi SG với Terraform. Không diễn giải hai subnet DB thành RDS Multi-AZ.
 
-:::figure{src="/images/workshop/step4-result.png" alt="Mạng VPC" caption="Ảnh minh chứng cần chủ repo bổ sung"}
-
-:::todo[Cần chụp ảnh]
-VPC → Your VPCs → Resource map, Security Groups → inbound rules và Endpoints → S3 gateway endpoint available.
-:::
+:::figure{src="/images/workshop/step4-result.png" alt="Mạng VPC" caption="Security group nutrition-dev-rds: chỉ nhận PostgreSQL 5432 từ security group của ECS"}
 
 #### Lỗi đã ghi nhận
 

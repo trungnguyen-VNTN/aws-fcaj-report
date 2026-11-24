@@ -23,21 +23,13 @@ resource "aws_cloudfront_origin_access_control" "frontend" {
 }
 ```
 
-:::figure{src="/images/workshop/5.4.2-cloudfront-frontend-step1.png" alt="5.4.2-cloudfront-frontend-step1" caption="Ảnh cần bổ sung"}
-
-:::todo[Cần chụp ảnh]
-CloudFront → distribution → Origins / Behaviors và S3 → frontend bucket → Permissions → Block public access.
-:::
+:::figure{src="/images/workshop/5.4.2-cloudfront-frontend-step1.png" alt="5.4.2-cloudfront-frontend-step1" caption="CloudFront behaviors: /images/* → S3 ảnh, /api/* → ALB (HTTPS only), mặc định → S3 frontend"}
 
 2. **Kiểm tra kết quả**
 
 Mở route sâu của SPA và tải lại; kiểm tra API trả JSON và ảnh tải qua /images/*. Đối chiếu bucket chặn public.
 
-:::figure{src="/images/workshop/step8-result.png" alt="Frontend S3 và CloudFront" caption="Ảnh minh chứng cần chủ repo bổ sung"}
-
-:::todo[Cần chụp ảnh]
-CloudFront → distribution → Origins / Behaviors và S3 → frontend bucket → Permissions → Block public access.
-:::
+:::figure{src="/images/workshop/step8-result.png" alt="Frontend S3 và CloudFront" caption="Bucket frontend: Block all public access = On, chỉ CloudFront đọc qua OAC"}
 
 #### Lỗi đã ghi nhận
 

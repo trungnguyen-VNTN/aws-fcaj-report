@@ -31,21 +31,13 @@ Enable the app using demo-infra.ps1 up -Vnpay as documented in the runbook. VNPA
     .\scripts\demo-infra.ps1 up -Vnpay -Waf   # also put AWS WAF in front of CloudFront
 ```
 
-:::figure{src="/images/workshop/5.4.4-payments-step1.png" alt="5.4.4-payments-step1" caption="Screenshot pending"}
-
-:::todo[Screenshot required]
-Capture application sandbox checkout / admin payment events and GitHub Actions → Verify application; redact customer data, transaction identifiers, and account details.
-:::
+:::figure{src="/images/workshop/5.4.4-payments-step1.png" alt="5.4.4-payments-step1" caption="Order #10 paid through VNPAY sandbox: placed and marked as paid"}
 
 2. **Verify the result**
 
 PROGRESS records 86 backend, 145 frontend, and 57 E2E plus axe tests on 21 November 2026. CLAUDE.md documents backend ./mvnw verify and frontend npm test -- --maxWorkers=1 plus npm run test:e2e. A signed-in live test record for profiles, suggestions, and VNPAY is still needed because PROGRESS leaves this open.
 
-:::figure{src="/images/workshop/step13-result.png" alt="Payments and testing" caption="Evidence screenshot pending owner upload"}
-
-:::todo[Screenshot required]
-Capture application sandbox checkout / admin payment events and GitHub Actions → Verify application; redact customer data, transaction identifiers, and account details.
-:::
+:::figure{src="/images/workshop/step13-result.png" alt="Payments and testing" caption="Admin payment log: the VNPAY sandbox IPN for order #10 recorded as paid"}
 
 #### Recorded troubleshooting
 

@@ -15,41 +15,23 @@ Use down with -Vnpay to retain the sandbox secret. Omitting -Vnpay removes that 
     .\scripts\demo-infra.ps1 down   # remove ALB + ECS service, stop RDS (~5-10 min)
 ```
 
-:::figure{src="/images/workshop/5.7-cleanup-step1.png" alt="5.7-cleanup-step1" caption="Screenshot pending"}
-
-:::todo[Screenshot required]
-ECS → project cluster → Services after down, showing no API service; redact identifiers.
-:::
+:::figure{src="/images/workshop/5.7-cleanup-step1.png" alt="5.7-cleanup-step1" caption="ECS cluster after shutdown: zero services, zero tasks"}
 
 2. **Check the stopped state and seven-day restart**
 
 Stop the demo while retaining data and understand full teardown.
 
-:::figure{src="/images/workshop/step14-result.png" alt="Cleanup and lessons learned" caption="Evidence screenshot pending owner upload"}
+:::figure{src="/images/workshop/step14-result.png" alt="Cleanup and lessons learned" caption="EC2 load balancers after shutdown (down): no ALB remains"}
 
-:::todo[Screenshot required]
-RDS → Databases → stopped, ECS → cluster → Services after down, and remaining billable resources; attach a restore drill record if performed.
-:::
-
-:::figure{src="/images/workshop/5.7-cleanup-step2.png" alt="5.7-cleanup-step2" caption="Screenshot pending"}
-
-:::todo[Screenshot required]
-RDS → Databases → nutrition-dev-postgres → Status stopped.
-:::
+:::figure{src="/images/workshop/5.7-cleanup-step2.png" alt="5.7-cleanup-step2" caption="RDS after shutdown: status Stopped"}
 
 3. **Full teardown and restore drill**
 
 For full teardown, the runbook requires an Available snapshot, deliberate owner changes to RDS/Cognito deletion protection, teardown review, dev destroy, and restoring protection on rebuild. The bootstrap bucket has prevent_destroy and stays outside the drill. No completed restore drill record is available.
 
-:::todo[Restore drill record]
-Provide the date, snapshot, restore duration, and verification results using the docs/runbook.md record.
-:::
+**Failover drill record (22 November 2026):** an RDS *Reboot with failover* was run on the Multi-AZ instance. The primary moved from ap-southeast-1a to ap-southeast-1b; the database restarted after about 18 seconds and AWS reported completion after about 43 seconds. The API was interrupted for about 25–35 seconds and recovered on its own, with no data loss and no manual action. A snapshot restore drill has not been performed; RDS keeps automated daily snapshots (below) for recovery.
 
-:::figure{src="/images/workshop/5.7-cleanup-step3.png" alt="5.7-cleanup-step3" caption="Screenshot pending"}
-
-:::todo[Screenshot required]
-RDS → Snapshots → Available snapshot and cleaned-up drill resources; supply only if performed.
-:::
+:::figure{src="/images/workshop/5.7-cleanup-step3.png" alt="5.7-cleanup-step3" caption="RDS system snapshots: nine automated daily backups"}
 
 #### Recorded troubleshooting
 

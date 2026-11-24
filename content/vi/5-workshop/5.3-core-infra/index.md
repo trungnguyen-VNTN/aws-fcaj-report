@@ -7,11 +7,9 @@ status: "draft"
 
 Chuẩn bị mạng, cơ sở dữ liệu và xác thực làm nền cho backend. Thực hiện các bước dưới đây theo thứ tự.
 
-:::figure{src="/images/architecture/5.3-core-infra.png" alt="5.3-core-infra" caption="Sơ đồ thành phần cần vẽ"}
+:::figure{src="/images/architecture/5.3-core-infra.png" alt="5.3-core-infra" caption="Sơ đồ thành phần: VPC hai AZ, subnet, security group, RDS chính và bản dự phòng, Cognito"}
 
-:::todo[Sơ đồ Draw.io]
-Vẽ sơ đồ con bằng Draw.io và AWS icons cho các thành phần của mục này, theo sơ đồ tham khảo tổng thể.
-:::
+File draw.io để chỉnh sửa: [5.3-core-infra.drawio](/files/5.3-core-infra.drawio).
 
 #### Content
 

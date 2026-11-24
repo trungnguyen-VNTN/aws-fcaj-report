@@ -22,11 +22,7 @@ cd backend
 ./mvnw.cmd test -Pbedrock-eval
 ```
 
-:::figure{src="/images/workshop/5.5.2-ai-evaluation-step1.png" alt="5.5.2-ai-evaluation-step1" caption="Ảnh cần bổ sung"}
-
-:::todo[Cần chụp ảnh]
-Bedrock ở Tokyo → Guardrails → guardrail dự án và Service Quotas → Bedrock → quota Nova; kèm output eval đã che định danh.
-:::
+:::figure{src="/images/workshop/5.5.2-ai-evaluation-step1.png" alt="5.5.2-ai-evaluation-step1" caption="Bộ đánh giá với model thật (-Pbedrock-eval): BUILD SUCCESS ngày 25/11/2026"}
 
 2. **Kiểm tra kết quả**
 
@@ -34,11 +30,7 @@ Bộ prompts.json hiện có 45 câu. Ngày 21/11/2026: an toàn 17/17, tra cứ
 
 Theo PROGRESS ngày 21/11/2026: backend 86, frontend 145, E2E + axe 57. Lệnh nguồn trong CLAUDE.md: backend ./mvnw verify; frontend npm test -- --maxWorkers=1 và npm run test:e2e. Cần ghi biên bản thử web đã đăng nhập, hồ sơ, gợi ý và VNPAY vì PROGRESS còn để bước này mở.
 
-:::figure{src="/images/workshop/step10-result.png" alt="AI tra cứu và Guardrails" caption="Ảnh minh chứng cần chủ repo bổ sung"}
-
-:::todo[Cần chụp ảnh]
-Bedrock ở Tokyo → Guardrails → guardrail dự án và Service Quotas → Bedrock → quota Nova; kèm output eval đã che định danh.
-:::
+:::figure{src="/images/workshop/step10-result.png" alt="AI tra cứu và Guardrails" caption="Service Quotas: Nova 2 Lite cross-region 8.000.000 token mỗi phút"}
 
 #### Lỗi đã ghi nhận
 

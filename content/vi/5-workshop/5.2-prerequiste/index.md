@@ -18,11 +18,7 @@ aws sso login --sso-session nutrition
 $env:TF_VAR_owner = "<tên bạn>"
 ```
 
-:::figure{src="/images/workshop/step2-result.png" alt="Điều kiện chuẩn bị" caption="Ảnh minh chứng cần chủ repo bổ sung"}
-
-:::todo[Cần chụp ảnh]
-IAM Identity Center → Permission sets → nutrition-plan / nutrition-apply và IAM → Policies → nutrition-boundary.
-:::
+:::figure{src="/images/workshop/step2-result.png" alt="Điều kiện chuẩn bị" caption="IAM Identity Center: hai permission set nutrition-plan (chỉ đọc) và nutrition-apply (triển khai)"}
 
 Kiểm tra profile đăng nhập và boundary trước bước bootstrap. Không ghi thông tin phiên, token hay dữ liệu đăng nhập vào báo cáo.
 
@@ -75,11 +71,7 @@ terraform -chdir=infra/bootstrap apply tfplan
 terraform -chdir=infra/bootstrap output state_bucket
 ```
 
-:::figure{src="/images/workshop/step3-result.png" alt="Bootstrap Terraform" caption="Ảnh minh chứng cần chủ repo bổ sung"}
-
-:::todo[Cần chụp ảnh]
-S3 → bucket state → Properties và AWS Budgets → ngân sách 100 USD; che tên bucket có account ID.
-:::
+:::figure{src="/images/workshop/step3-result.png" alt="Bootstrap Terraform" caption="AWS Budgets: ngân sách 100 USD, đã dùng 15,06 USD, dự báo 26,95 USD"}
 
 Kiểm tra key envs/dev/terraform.tfstate, mã hóa và use_lockfile=true. Đọc plan để phát hiện thay thế, xóa và quyền IAM trước apply.
 
@@ -87,6 +79,4 @@ Khóa state từng bị kẹt sau apply dở. Chỉ khi xác nhận không còn 
 
 Nguồn: [`infra/README.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/README.md), [`docs/runbook.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/runbook.md), [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md), [`infra/envs/dev/versions.tf`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/envs/dev/versions.tf).
 
-:::todo[Xác minh AWS Budgets]
-Xác nhận ngân sách được tạo thủ công hay bằng quy trình khác. Bổ sung ảnh Budget 100 USD và ngày thiết lập, che thông tin thanh toán.
-:::
+Ngân sách 100 USD được tạo thủ công trên Console (không nằm trong Terraform). Ngày 25/11/2026: đã dùng 15,06 USD, dự báo cả tháng 26,95 USD, trạng thái Healthy.

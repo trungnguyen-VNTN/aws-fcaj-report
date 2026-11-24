@@ -7,11 +7,9 @@ status: "draft"
 
 Configure Bedrock in Tokyo, then check the tool, Guardrail, and prompt suite. The bonus adds profiles and code-computed suggestions.
 
-:::figure{src="/images/architecture/5.5-bedrock-ai.png" alt="5.5-bedrock-ai" caption="Component diagram pending"}
+:::figure{src="/images/architecture/5.5-bedrock-ai.png" alt="5.5-bedrock-ai" caption="Component diagram: ECS calls Bedrock in Tokyo through Guardrails; numbers come from PostgreSQL"}
 
-:::todo[Draw.io diagram]
-Draw this section’s component diagram with Draw.io and AWS icons, using the overall reference diagram.
-:::
+Editable draw.io source: [5.5-bedrock-ai.drawio](/files/5.5-bedrock-ai.drawio).
 
 #### Content
 

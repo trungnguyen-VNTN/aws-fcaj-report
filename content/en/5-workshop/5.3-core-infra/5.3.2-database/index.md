@@ -24,21 +24,13 @@ The rds module configures db.t4g.micro, 20 GB gp3, encryption, and Multi-AZ oper
   multi_az = var.multi_az
 ```
 
-:::figure{src="/images/workshop/5.3.2-database-step1.png" alt="5.3.2-database-step1" caption="Screenshot pending"}
-
-:::todo[Screenshot required]
-RDS → Databases → nutrition-dev-postgres → Connectivity & security / Configuration; capture only Secrets Manager metadata without revealing values.
-:::
+:::figure{src="/images/workshop/5.3.2-database-step1.png" alt="5.3.2-database-step1" caption="RDS: db.t4g.micro, PostgreSQL 17.9, KMS encryption, Multi-AZ = Yes, secondary zone ap-southeast-1b"}
 
 2. **Verify the result**
 
 Verify that RDS is private and encrypted and that the task role can read the managed secret. Review backend/src/main/resources/db/migration.
 
-:::figure{src="/images/workshop/step5-result.png" alt="RDS and Flyway" caption="Evidence screenshot pending owner upload"}
-
-:::todo[Screenshot required]
-RDS → Databases → nutrition-dev-postgres → Connectivity & security / Configuration; capture only Secrets Manager metadata without revealing values.
-:::
+:::figure{src="/images/workshop/step5-result.png" alt="RDS and Flyway" caption="RDS connectivity and security: Publicly accessible = No, subnet group nutrition-dev-db with two private subnets"}
 
 #### Recorded troubleshooting
 

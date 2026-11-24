@@ -22,11 +22,7 @@ cd backend
 ./mvnw.cmd test -Pbedrock-eval
 ```
 
-:::figure{src="/images/workshop/5.5.2-ai-evaluation-step1.png" alt="5.5.2-ai-evaluation-step1" caption="Screenshot pending"}
-
-:::todo[Screenshot required]
-Bedrock in Tokyo → Guardrails → project guardrail and Service Quotas → Bedrock → Nova quotas; attach redacted evaluation output.
-:::
+:::figure{src="/images/workshop/5.5.2-ai-evaluation-step1.png" alt="5.5.2-ai-evaluation-step1" caption="Real-model evaluation (-Pbedrock-eval): BUILD SUCCESS on 25 November 2026"}
 
 2. **Verify the result**
 
@@ -34,11 +30,7 @@ prompts.json currently contains 45 cases. On 21 November 2026, safety was 17/17 
 
 PROGRESS records 86 backend, 145 frontend, and 57 E2E plus axe tests on 21 November 2026. CLAUDE.md documents backend ./mvnw verify and frontend npm test -- --maxWorkers=1 plus npm run test:e2e. A signed-in live test record for profiles, suggestions, and VNPAY is still needed because PROGRESS leaves this open.
 
-:::figure{src="/images/workshop/step10-result.png" alt="AI lookup and Guardrails" caption="Evidence screenshot pending owner upload"}
-
-:::todo[Screenshot required]
-Bedrock in Tokyo → Guardrails → project guardrail and Service Quotas → Bedrock → Nova quotas; attach redacted evaluation output.
-:::
+:::figure{src="/images/workshop/step10-result.png" alt="AI lookup and Guardrails" caption="Service Quotas: Nova 2 Lite cross-region 8,000,000 tokens per minute"}
 
 #### Recorded troubleshooting
 

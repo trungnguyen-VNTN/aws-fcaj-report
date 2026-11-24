@@ -37,21 +37,13 @@ App mặc định tắt. D20 dùng up/down để chỉ giữ RDS storage, S3 và
     .\scripts\demo-infra.ps1 down   # remove ALB + ECS service, stop RDS (~5-10 min)
 ```
 
-:::figure{src="/images/workshop/5.6.3-cost-step1.png" alt="5.6.3-cost-step1" caption="Ảnh cần bổ sung"}
-
-:::todo[Cần chụp ảnh]
-Billing → Cost Explorer → 01–21/11/2026, group by Service; chụp tổng và phần credit, che account và thông tin thanh toán.
-:::
+:::figure{src="/images/workshop/5.6.3-cost-step1.png" alt="5.6.3-cost-step1" caption="Cost Explorer tháng 11/2026, chi phí theo dịch vụ (đã loại credit)"}
 
 2. **Kiểm tra kết quả**
 
 Dùng kỳ Cost Explorer 01–21/11/2026 và kiểm tra credit tách khỏi usage. Ước tính tháng không phải hóa đơn cam kết.
 
-:::figure{src="/images/workshop/step11-result.png" alt="Chi phí và tối ưu" caption="Ảnh minh chứng cần chủ repo bổ sung"}
-
-:::todo[Cần chụp ảnh]
-Billing → Cost Explorer → 01–21/11/2026, group by Service; chụp tổng và phần credit, che account và thông tin thanh toán.
-:::
+:::figure{src="/images/workshop/step11-result.png" alt="Chi phí và tối ưu" caption="Billing → Credits: tổng credit 199,99 USD, đã dùng ước tính 15,07 USD"}
 
 #### Lỗi đã ghi nhận
 

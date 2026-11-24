@@ -31,13 +31,9 @@ Người mua tra cứu thông tin từ DB, lọc theo nhu cầu và xem giới h
 
 ### 3. Kiến trúc giải pháp
 
-:::figure{src="/images/architecture/system-overview.png" alt="AWS architecture reference" caption="Bản tham khảo từ mã nguồn, cập nhật 22/11/2026"}
+:::figure{src="/images/architecture/system-overview.png" alt="AWS architecture reference" caption="Sơ đồ kiến trúc AWS vẽ trên draw.io bằng bộ AWS Architecture Icons, cập nhật Multi-AZ ngày 23/11/2026"}
 
 Từ 22/11/2026 (D33), môi trường dev chạy 2 task ECS, mỗi Availability Zone một task, và RDS ở chế độ Multi-AZ với bản dự phòng (Standby) ở AZ thứ hai. Diễn tập *Reboot with failover* ngày 22/11 chuyển AZ chính từ ap-southeast-1a sang ap-southeast-1b trong khoảng 20–45 giây; API gián đoạn khoảng nửa phút rồi tự phục hồi, không mất dữ liệu.
-
-:::todo[Sơ đồ Draw.io]
-Vẽ lại kiến trúc trên Draw.io bằng bộ icon AWS chính thức, xuất ảnh và thay bản tham khảo tại đường dẫn trên.
-:::
 
 ### Các dịch vụ AWS sử dụng
 

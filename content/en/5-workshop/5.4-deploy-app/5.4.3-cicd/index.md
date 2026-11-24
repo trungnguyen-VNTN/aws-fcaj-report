@@ -19,21 +19,13 @@ ci.yml runs Terraform fmt/validate, backend verify, and frontend checks. deploy.
     }
 ```
 
-:::figure{src="/images/workshop/5.4.3-cicd-step1.png" alt="5.4.3-cicd-step1" caption="Screenshot pending"}
-
-:::todo[Screenshot required]
-IAM → Roles → nutrition-dev-github-deploy → Trust relationships and a successful GitHub Actions Deploy to AWS dev run; redact ARNs.
-:::
+:::figure{src="/images/workshop/5.4.3-cicd-step1.png" alt="5.4.3-cicd-step1" caption="IAM role nutrition-dev-github-deploy: trusts GitHub OIDC only for the project repository master branch"}
 
 2. **Verify the result**
 
 Compare the workflow with an actual owner-provided run. Verify aud, the immutable subject prefix, and the master branch restriction in its trust policy.
 
-:::figure{src="/images/workshop/step9-result.png" alt="CI/CD through OIDC" caption="Evidence screenshot pending owner upload"}
-
-:::todo[Screenshot required]
-IAM → Roles → nutrition-dev-github-deploy → Trust relationships and a successful GitHub Actions Deploy to AWS dev run; redact ARNs.
-:::
+:::figure{src="/images/workshop/step9-result.png" alt="CI/CD through OIDC" caption="GitHub Actions: the Deploy to AWS dev workflow succeeded (backend image, frontend, publish)"}
 
 #### Recorded troubleshooting
 

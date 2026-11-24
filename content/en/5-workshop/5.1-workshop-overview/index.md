@@ -55,11 +55,7 @@ To save cost, the application is switched on only for demos and grading (`demo-i
 
 #### Verification and sources
 
-:::figure{src="/images/workshop/step1-result.png" alt="Overview" caption="Evidence screenshot pending owner upload"}
-
-:::todo[Screenshot required]
-CloudFront → Distributions → application distribution, showing status and behaviors with identifiers redacted.
-:::
+:::figure{src="/images/workshop/step1-result.png" alt="Overview" caption="CloudFront distribution: *.cloudfront.net domain, HTTP/3 support, index.html as default root object"}
 
 Cross-check /api/products, login, and docs/demo.md scenarios. Recorded tests on 21 November 2026: backend 86, frontend 145, E2E plus axe 57. These are historical results rather than tests executed for this report.
 
