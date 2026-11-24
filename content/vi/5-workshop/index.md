@@ -22,3 +22,4 @@ Các bước dùng cấu hình và lệnh trong repo dự án. Minh chứng th�
 - [5.5 AI tra cứu với Amazon Bedrock](/5-workshop/5.5-bedrock-ai)
 - [5.6 Giám sát, bảo mật và chi phí](/5-workshop/5.6-monitoring-cost)
 - [5.7 Dọn tài nguyên](/5-workshop/5.7-cleanup)
+- [5.8 Kiểm thử và xử lý sự cố](/5-workshop/5.8-testing-troubleshooting)

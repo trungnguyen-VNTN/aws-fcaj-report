@@ -22,3 +22,4 @@ Steps use the project repository’s configuration and commands. Evidence is sup
 - [5.5 AI lookup with Amazon Bedrock](/5-workshop/5.5-bedrock-ai)
 - [5.6 Monitoring, security and cost](/5-workshop/5.6-monitoring-cost)
 - [5.7 Clean up](/5-workshop/5.7-cleanup)
+- [5.8 Testing and troubleshooting](/5-workshop/5.8-testing-troubleshooting)

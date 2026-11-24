@@ -15,19 +15,17 @@ Nova 2 Lite translates requests into a read-only tool. Code assembles numbers fr
 
 #### Workshop overview
 
-:::figure{src="/images/architecture/system-overview.png" alt="AWS architecture reference" caption="Source repository reference, reviewed 22 November 2026"}
+:::figure{src="/images/architecture/system-overview.png" alt="AWS architecture reference" caption="AWS architecture drawn in draw.io with the AWS Architecture Icons, updated for Multi-AZ on 23 November 2026"}
 
-The dev environment runs one task. The faded task in the other AZ depicts possible replacement placement rather than a second running task.
+Download the editable draw.io source: [aws-architecture.drawio](/files/aws-architecture.drawio).
 
-:::todo[Draw.io diagram]
-Redraw the architecture in Draw.io using official AWS icons, export it, and replace the reference image above.
-:::
+Since 22 November 2026 (D33) the dev environment runs two ECS tasks, one per Availability Zone, and RDS runs Multi-AZ with a standby in the second AZ. A *Reboot with failover* drill on 22 November moved the primary from ap-southeast-1a to ap-southeast-1b in about 20–45 seconds; the API was interrupted for about half a minute and recovered on its own, with no data loss.
 
 | Service | Role |
 | --- | --- |
 | CloudFront + S3 | React SPA and images through OAC; path rewriting Function; separate private buckets |
-| ALB + ECS Fargate + ECR | ALB accepts CloudFront plus a secret header; Spring Boot 4 / Java 21, ARM64, 0.5 vCPU / 1 GB, one task |
-| RDS PostgreSQL + Secrets Manager | db.t4g.micro, 20 GB gp3, Single-AZ, private subnets, encryption; Flyway V1–V11 |
+| ALB + ECS Fargate + ECR | ALB accepts CloudFront plus a secret header; Spring Boot 4 / Java 21, ARM64, 0.5 vCPU / 1 GB, two tasks across two AZs |
+| RDS PostgreSQL + Secrets Manager | db.t4g.micro, 20 GB gp3, Multi-AZ (standby in the second AZ), private subnets, encryption; Flyway V1–V11 |
 | Cognito | JWT sub and cognito:groups; USER / ADMIN |
 | Bedrock + Guardrails | Nova 2 Lite in Tokyo; read-only tool, numerical answers assembled from DB data |
 | CloudWatch + SNS + Budgets | 14-day logs, seven alarms, email alerts; USD 100 budget |
@@ -39,11 +37,21 @@ Read the diagram and decisions D15/D17/D18. CloudFront serves React and forwards
 [`docs/diagrams/architecture-star.txt`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/diagrams/architecture-star.txt)
 
 ```text
-1. Amazon CloudFront phân phối React SPA và ảnh sản phẩm từ hai bucket Amazon S3 riêng tư, qua Origin Access Control.
-2. Các yêu cầu /api/* đi qua Internet Gateway tới Application Load Balancer. ALB chỉ nhận lưu lượng từ dải IP của CloudFront và kèm header bí mật.
-3. Backend Spring Boot (Java 21) chạy trên Amazon ECS Fargate (ARM64), đặt ở public subnet và không dùng NAT để tiết kiệm chi phí. ECS service trải trên 2 Availability Zone: môi trường dev chạy 1 task, nếu task lỗi thì task thay thế có thể khởi động ở AZ còn lại. Mỗi lớp có security group riêng: ALB chỉ nhận từ CloudFront, ECS chỉ nhận từ ALB, RDS chỉ nhận từ ECS qua cổng 5432.
-4. Dữ liệu nằm trên Amazon RDS for PostgreSQL ở private subnet, được mã hoá bằng khoá AWS KMS. Mật khẩu do AWS Secrets Manager quản lý. Truy vấn dùng SQL tham số hoá; trừ kho bằng UPDATE có điều kiện trong transaction.
+1. Amazon CloudFront serves the React SPA and product images from two private Amazon S3 buckets through Origin Access Control.
+2. Requests to /api/* pass through the Internet Gateway to the Application Load Balancer. The ALB accepts traffic only from the CloudFront IP ranges and only with a secret header.
+3. The Spring Boot (Java 21) backend runs on Amazon ECS Fargate (ARM64) in public subnets without NAT to save cost. The ECS service runs two tasks across two Availability Zones: if one AZ fails, the task in the other AZ keeps serving. Each tier has its own security group: the ALB accepts only CloudFront, ECS accepts only the ALB, and RDS accepts only ECS on port 5432.
+4. Data lives in Amazon RDS for PostgreSQL Multi-AZ in private subnets, with a standby in the second AZ that takes over automatically when the primary fails. Data is encrypted with an AWS KMS key and the password is managed by AWS Secrets Manager. Queries are parameterised; stock is decremented with a conditional UPDATE inside a transaction.
 ```
+
+#### Live product (Demo)
+
+| Evidence | Link |
+| --- | --- |
+| Application (running on the dev environment) | [https://ddn09pubqlwme.cloudfront.net](https://ddn09pubqlwme.cloudfront.net) |
+| Source code | [github.com/trungnguyen-VNTN/nutrition-ecommerce](https://github.com/trungnguyen-VNTN/nutrition-ecommerce) |
+| Full demo video (4:57) | Coming soon |
+
+To save cost, the application is switched on only for demos and grading (`demo-infra.ps1 up`) and switched off otherwise (`down`). While it is off the site still loads but the API reports that it is paused; the demo video records the full flow: sign-in, product filters, nutrition profile, AI lookup, cart, checkout and the admin pages.
 
 #### Verification and sources
 
@@ -55,6 +63,6 @@ CloudFront → Distributions → application distribution, showing status and be
 
 Cross-check /api/products, login, and docs/demo.md scenarios. Recorded tests on 21 November 2026: backend 86, frontend 145, E2E plus axe 57. These are historical results rather than tests executed for this report.
 
-No specific failure for this step was found in the reviewed sources. Record the date, redacted error, and verified resolution if an issue occurs.
+Command-line tests and the real incidents met during the project are recorded in [5.8 Testing and troubleshooting](/5-workshop/5.8-testing-troubleshooting).
 
 Sources: [`infra/README.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/README.md), [`docs/runbook.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/runbook.md), [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md), [`docs/diagrams/architecture-star.txt`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/diagrams/architecture-star.txt).

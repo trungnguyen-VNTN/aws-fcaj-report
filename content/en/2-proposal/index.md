@@ -33,7 +33,7 @@ Buyers query DB-sourced facts, filter products, and see data limitations. Store 
 
 :::figure{src="/images/architecture/system-overview.png" alt="AWS architecture reference" caption="Source repository reference, reviewed 22 November 2026"}
 
-The dev environment runs one task. The faded task in the other AZ depicts possible replacement placement rather than a second running task.
+Since 22 November 2026 (D33) the dev environment runs two ECS tasks, one per Availability Zone, and RDS runs Multi-AZ with a standby in the second AZ. A *Reboot with failover* drill on 22 November moved the primary from ap-southeast-1a to ap-southeast-1b in about 20–45 seconds; the API was interrupted for about half a minute and recovered on its own, with no data loss.
 
 :::todo[Draw.io diagram]
 Redraw the architecture in Draw.io using official AWS icons, export it, and replace the reference image above.
@@ -42,8 +42,8 @@ Redraw the architecture in Draw.io using official AWS icons, export it, and repl
 ### AWS Services Used
 
 - **CloudFront + S3** — React SPA and images through OAC; path rewriting Function; separate private buckets.
-- **ALB + ECS Fargate + ECR** — ALB accepts CloudFront plus a secret header; Spring Boot 4 / Java 21, ARM64, 0.5 vCPU / 1 GB, one task.
-- **RDS PostgreSQL + Secrets Manager** — db.t4g.micro, 20 GB gp3, Single-AZ, private subnets, encryption; Flyway V1–V11.
+- **ALB + ECS Fargate + ECR** — ALB accepts CloudFront plus a secret header; Spring Boot 4 / Java 21, ARM64, 0.5 vCPU / 1 GB, two tasks across two AZs.
+- **RDS PostgreSQL + Secrets Manager** — db.t4g.micro, 20 GB gp3, Multi-AZ (standby in the second AZ), private subnets, encryption; Flyway V1–V11.
 - **Cognito** — JWT sub and cognito:groups; USER / ADMIN.
 - **Bedrock + Guardrails** — Nova 2 Lite in Tokyo; read-only tool, numerical answers assembled from DB data.
 - **CloudWatch + SNS + Budgets** — 14-day logs, seven alarms, email alerts; USD 100 budget.
@@ -94,21 +94,21 @@ Terraform provisions infrastructure; the Maven wrapper and Flyway manage the bac
 
 ### Infrastructure Costs
 
-Monthly USD estimates use the Singapore assumptions recorded in the brief on 22 November 2026, before tax, with possible ±10% variation. Production is a future proposal that has not been deployed. Bedrock calls actually run in Tokyo.
+Monthly USD estimates use Singapore pricing assumptions, updated on 23 November 2026 for the Multi-AZ, two-task setup (D33), before tax, with possible ±10% variation. Production is a future proposal that has not been deployed. Bedrock calls actually run in Tokyo.
 
 | Service / configuration | Demo (~4h/day) | 24/7 | Proposed production |
 | --- | --- | --- | --- |
-| RDS t4g.micro, 20 GB gp3, Single-AZ | ~4 | ~22 | ~70 (Multi-AZ, t4g.small) |
+| RDS t4g.micro, 20 GB gp3, Multi-AZ | ~12 | ~44 | ~70 (Multi-AZ, t4g.small) |
 | ALB, 2 AZ | ~3 | ~20 | ~22 |
-| ECS ARM64, 0.5 vCPU / 1 GB, 1 task | ~2.5 | ~15 | ~30 (2 tasks) |
-| Public IPv4, 3 addresses | ~2 | ~11 | ~11 |
+| ECS ARM64, 0.5 vCPU / 1 GB, 2 tasks | ~5 | ~30 | ~30–60 (2–4 tasks, auto scaling) |
+| Public IPv4, 4 addresses | ~2.5 | ~15 | ~15 |
 | Secrets Manager, 2 secrets | 0.8 | 0.8 | 0.8 |
 | Bedrock Nova 2 Lite | <1 | <1 | Usage dependent |
 | CloudFront, Cognito, CloudTrail, S3, ECR, CloudWatch | ~0–1 | ~1–3 | ~5 |
 | WAF (optional) | 0 | ~8–10 | ~10 |
-| **Estimated total** | **~12–18** | **~65–75** | **~150–200** |
+| **Estimated total** | **~20–26** | **~105–115** | **~150–200** |
 
-Cost Explorer recorded **USD 6.44** for 1–21 November 2026, fully covered by credits. Major charges were RDS 2.77, ALB 1.29, ECS 1.21, public IPv4 0.74, Bedrock 0.21, and Secrets Manager 0.20 USD. These are selected major charges rather than a complete bill reconciliation. Demo-only uptime means this observation cannot be extrapolated to continuous operation.
+Cost Explorer recorded **USD 6.44** for 1–21 November 2026, fully covered by credits. Major charges were RDS 2.77, ALB 1.29, ECS 1.21, public IPv4 0.74, Bedrock 0.21, and Secrets Manager 0.20 USD. These are selected major charges rather than a complete bill reconciliation. Demo-only uptime means this observation cannot be extrapolated to continuous operation. It was recorded before the Multi-AZ switch.
 
 :::todo[AWS Pricing Calculator]
 Validate each service configuration and Region in AWS Pricing Calculator and attach the dated estimate link. If ECS moves to private subnets, include the brief assumption of approximately USD 45/month for NAT.

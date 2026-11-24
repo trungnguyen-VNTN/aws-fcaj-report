@@ -33,7 +33,7 @@ Người mua tra cứu thông tin từ DB, lọc theo nhu cầu và xem giới h
 
 :::figure{src="/images/architecture/system-overview.png" alt="AWS architecture reference" caption="Bản tham khảo từ mã nguồn, cập nhật 22/11/2026"}
 
-Môi trường dev chạy một task. Task mờ ở AZ còn lại trong ảnh biểu diễn khả năng khởi động thay thế, không phải task thứ hai đang chạy.
+Từ 22/11/2026 (D33), môi trường dev chạy 2 task ECS, mỗi Availability Zone một task, và RDS ở chế độ Multi-AZ với bản dự phòng (Standby) ở AZ thứ hai. Diễn tập *Reboot with failover* ngày 22/11 chuyển AZ chính từ ap-southeast-1a sang ap-southeast-1b trong khoảng 20–45 giây; API gián đoạn khoảng nửa phút rồi tự phục hồi, không mất dữ liệu.
 
 :::todo[Sơ đồ Draw.io]
 Vẽ lại kiến trúc trên Draw.io bằng bộ icon AWS chính thức, xuất ảnh và thay bản tham khảo tại đường dẫn trên.
@@ -42,8 +42,8 @@ Vẽ lại kiến trúc trên Draw.io bằng bộ icon AWS chính thức, xuất
 ### Các dịch vụ AWS sử dụng
 
 - **CloudFront + S3** — React SPA và ảnh qua OAC; Function viết lại đường dẫn; hai bucket riêng tư.
-- **ALB + ECS Fargate + ECR** — ALB nhận CloudFront + header bí mật; Spring Boot 4 / Java 21, ARM64, 0,5 vCPU / 1 GB, 1 task.
-- **RDS PostgreSQL + Secrets Manager** — db.t4g.micro, 20 GB gp3, Single-AZ, private subnet, mã hóa; Flyway V1–V11.
+- **ALB + ECS Fargate + ECR** — ALB nhận CloudFront + header bí mật; Spring Boot 4 / Java 21, ARM64, 0,5 vCPU / 1 GB, 2 task ở 2 AZ.
+- **RDS PostgreSQL + Secrets Manager** — db.t4g.micro, 20 GB gp3, Multi-AZ (standby ở AZ thứ hai), private subnet, mã hóa; Flyway V1–V11.
 - **Cognito** — JWT sub và cognito:groups; USER / ADMIN.
 - **Bedrock + Guardrails** — Nova 2 Lite ở Tokyo; tool chỉ đọc, số liệu do code lấy từ DB.
 - **CloudWatch + SNS + Budgets** — Log 14 ngày, 7 alarm, cảnh báo thư điện tử; ngân sách 100 USD.
@@ -94,21 +94,21 @@ Terraform dựng hạ tầng; Maven wrapper và Flyway quản lý backend/schema
 
 ### Chi phí hạ tầng
 
-Ước tính USD/tháng theo giả định Singapore trong brief ngày 22/11/2026, chưa thuế, sai lệch có thể ±10%. Production là phương án tương lai chưa triển khai. Bedrock thực tế gọi tại Tokyo.
+Ước tính USD/tháng theo giả định Singapore, cập nhật ngày 23/11/2026 cho cấu hình Multi-AZ và 2 task (D33), chưa thuế, sai lệch có thể ±10%. Production là phương án tương lai chưa triển khai. Bedrock thực tế gọi tại Tokyo.
 
 | Dịch vụ / Cấu hình | Demo (~4h/day) | 24/7 | Production đề xuất |
 | --- | --- | --- | --- |
-| RDS t4g.micro, 20 GB gp3, Single-AZ | ~4 | ~22 | ~70 (Multi-AZ, t4g.small) |
+| RDS t4g.micro, 20 GB gp3, Multi-AZ | ~12 | ~44 | ~70 (Multi-AZ, t4g.small) |
 | ALB, 2 AZ | ~3 | ~20 | ~22 |
-| ECS ARM64, 0.5 vCPU / 1 GB, 1 task | ~2.5 | ~15 | ~30 (2 tasks) |
-| Public IPv4, 3 addresses | ~2 | ~11 | ~11 |
+| ECS ARM64, 0.5 vCPU / 1 GB, 2 tasks | ~5 | ~30 | ~30–60 (2–4 tasks, auto scaling) |
+| Public IPv4, 4 addresses | ~2.5 | ~15 | ~15 |
 | Secrets Manager, 2 secrets | 0.8 | 0.8 | 0.8 |
 | Bedrock Nova 2 Lite | <1 | <1 | Theo lượng dùng |
 | CloudFront, Cognito, CloudTrail, S3, ECR, CloudWatch | ~0–1 | ~1–3 | ~5 |
 | WAF (tùy chọn) | 0 | ~8–10 | ~10 |
-| **Tổng dự kiến** | **~12–18** | **~65–75** | **~150–200** |
+| **Tổng dự kiến** | **~20–26** | **~105–115** | **~150–200** |
 
-Cost Explorer ghi nhận **6,44 USD** cho 01–21/11/2026, được credit bù toàn bộ. RDS 2,77; ALB 1,29; ECS 1,21; IPv4 0,74; Bedrock 0,21; Secrets Manager 0,20 USD. Các khoản liệt kê là những khoản lớn, không phải phép cộng chi tiết toàn bộ hóa đơn. App chỉ bật khi demo nên không dùng số thực tế này để suy ra mức chạy 24/7.
+Cost Explorer ghi nhận **6,44 USD** cho 01–21/11/2026, được credit bù toàn bộ. RDS 2,77; ALB 1,29; ECS 1,21; IPv4 0,74; Bedrock 0,21; Secrets Manager 0,20 USD. Các khoản liệt kê là những khoản lớn, không phải phép cộng chi tiết toàn bộ hóa đơn. App chỉ bật khi demo nên không dùng số thực tế này để suy ra mức chạy 24/7. Số thực tế này ghi nhận trước khi bật Multi-AZ.
 
 :::todo[AWS Pricing Calculator]
 Đối chiếu từng cấu hình và vùng dịch vụ trên AWS Pricing Calculator, thêm liên kết estimate có ngày chốt giá. Nếu chuyển ECS sang private subnet, tính thêm NAT khoảng 45 USD/tháng theo giả định brief.

@@ -9,7 +9,7 @@ Provision private PostgreSQL and versioned schema migrations.
 
 1. **Review the source configuration**
 
-The rds module configures db.t4g.micro, 20 GB gp3, encryption, and Single-AZ operation. RDS manages its password in Secrets Manager with AWS-managed encryption keys. Deletion protection is enabled. Spring Boot runs Flyway V1–V11. V10 adds payment_events and V11 adds nutrition_profiles. Older schema and API documents are baselines; check migrations and D32 for the extensions.
+The rds module configures db.t4g.micro, 20 GB gp3, encryption, and Multi-AZ operation (a standby in the second AZ with automatic failover; D33). The `rds_multi_az` variable in `infra/envs/dev` defaults to `true`. RDS manages its password in Secrets Manager with AWS-managed encryption keys. Deletion protection is enabled. Spring Boot runs Flyway V1–V11. V10 adds payment_events and V11 adds nutrition_profiles. Older schema and API documents are baselines; check migrations and D32 for the extensions.
 
 [`infra/modules/rds/main.tf`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/modules/rds/main.tf)
 
@@ -19,7 +19,9 @@ The rds module configures db.t4g.micro, 20 GB gp3, encryption, and Single-AZ ope
   db_subnet_group_name   = aws_db_subnet_group.main.name
   vpc_security_group_ids = [var.security_group_id]
   publicly_accessible    = false
-  multi_az               = false
+  # Standby copy in the second AZ with automatic failover (prod-like HA; adds instance hours
+  # while the app is on and doubles storage).
+  multi_az = var.multi_az
 ```
 
 :::figure{src="/images/workshop/5.3.2-database-step1.png" alt="5.3.2-database-step1" caption="Screenshot pending"}
