@@ -2,7 +2,7 @@
 title: "Enable Nova 2 Lite and Guardrails"
 pre: "5.5.1."
 weight: 1
-status: "draft"
+status: "ready"
 ---
 
 Call Nova 2 Lite and assess safety using the prompt suite.

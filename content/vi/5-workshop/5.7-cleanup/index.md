@@ -2,7 +2,7 @@
 title: "Dọn tài nguyên"
 pre: "5.7."
 weight: 7
-status: "draft"
+status: "ready"
 ---
 
 1. **Tắt buổi demo**

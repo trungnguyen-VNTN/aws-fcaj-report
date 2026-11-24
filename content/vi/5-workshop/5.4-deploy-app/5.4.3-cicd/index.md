@@ -2,7 +2,7 @@
 title: "CI/CD với GitHub Actions OIDC"
 pre: "5.4.3."
 weight: 3
-status: "draft"
+status: "ready"
 ---
 
 Kiểm tra và deploy mà không lưu access key dài hạn.

@@ -2,7 +2,7 @@
 title: "Tạo cơ sở dữ liệu RDS"
 pre: "5.3.2."
 weight: 2
-status: "draft"
+status: "ready"
 ---
 
 Dựng PostgreSQL private và quản lý schema có phiên bản.

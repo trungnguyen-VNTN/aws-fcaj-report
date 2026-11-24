@@ -2,7 +2,7 @@
 title: "VNPAY sandbox payments"
 pre: "5.4.4."
 weight: 4
-status: "draft"
+status: "ready"
 ---
 
 Verify sandbox payments, authorization, and demo flows.

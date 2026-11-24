@@ -2,7 +2,7 @@
 title: "Monitoring, security and cost"
 pre: "5.6."
 weight: 6
-status: "draft"
+status: "ready"
 ---
 
 Monitor application health, retain audit events, and review costs. WAF is optional and enabled for selected demo sessions.

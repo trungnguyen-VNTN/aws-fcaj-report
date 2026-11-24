@@ -2,7 +2,7 @@
 title: "Frontend trên S3 và CloudFront"
 pre: "5.4.2."
 weight: 2
-status: "draft"
+status: "ready"
 ---
 
 Phân phối SPA và ảnh từ bucket riêng tư.

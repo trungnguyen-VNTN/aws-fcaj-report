@@ -2,7 +2,7 @@
 title: "Giám sát, bảo mật và chi phí"
 pre: "5.6."
 weight: 6
-status: "draft"
+status: "ready"
 ---
 
 Theo dõi sức khỏe ứng dụng, ghi dấu vết quản trị và đối chiếu chi phí. WAF là cấu hình tùy chọn chỉ bật theo buổi demo.

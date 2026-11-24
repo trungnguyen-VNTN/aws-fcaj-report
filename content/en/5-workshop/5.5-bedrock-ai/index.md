@@ -2,7 +2,7 @@
 title: "AI lookup with Amazon Bedrock"
 pre: "5.5."
 weight: 5
-status: "draft"
+status: "ready"
 ---
 
 Configure Bedrock in Tokyo, then check the tool, Guardrail, and prompt suite. The bonus adds profiles and code-computed suggestions.

@@ -2,7 +2,7 @@
 title: "CloudTrail, ALB logs and WAF"
 pre: "5.6.2."
 weight: 2
-status: "draft"
+status: "ready"
 ---
 
 Monitor application failures and audit administrative activity.

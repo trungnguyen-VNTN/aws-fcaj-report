@@ -2,7 +2,7 @@
 title: "Điều kiện chuẩn bị"
 pre: "5.2."
 weight: 2
-status: "draft"
+status: "ready"
 ---
 
 #### Quyền IAM

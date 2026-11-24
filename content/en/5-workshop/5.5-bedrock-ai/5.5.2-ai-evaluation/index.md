@@ -2,7 +2,7 @@
 title: "Evaluate the AI"
 pre: "5.5.2."
 weight: 2
-status: "draft"
+status: "ready"
 ---
 
 Call Nova 2 Lite and assess safety using the prompt suite.

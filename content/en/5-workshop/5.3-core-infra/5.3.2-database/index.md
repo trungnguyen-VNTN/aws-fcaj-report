@@ -2,7 +2,7 @@
 title: "Create the RDS database"
 pre: "5.3.2."
 weight: 2
-status: "draft"
+status: "ready"
 ---
 
 Provision private PostgreSQL and versioned schema migrations.

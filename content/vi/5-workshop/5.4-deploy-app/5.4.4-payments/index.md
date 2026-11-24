@@ -2,7 +2,7 @@
 title: "Thanh toán VNPAY sandbox"
 pre: "5.4.4."
 weight: 4
-status: "draft"
+status: "ready"
 ---
 
 Xác minh sandbox, phân quyền và các luồng demo.

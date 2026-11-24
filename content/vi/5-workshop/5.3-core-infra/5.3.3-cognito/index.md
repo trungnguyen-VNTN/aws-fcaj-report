@@ -2,7 +2,7 @@
 title: "Cấu hình Cognito"
 pre: "5.3.3."
 weight: 3
-status: "draft"
+status: "ready"
 ---
 
 Cấp danh tính từ JWT và phân quyền USER / ADMIN.

@@ -2,7 +2,7 @@
 title: "CloudTrail, ALB logs và WAF"
 pre: "5.6.2."
 weight: 2
-status: "draft"
+status: "ready"
 ---
 
 Theo dõi lỗi ứng dụng và ghi lại hoạt động quản trị.

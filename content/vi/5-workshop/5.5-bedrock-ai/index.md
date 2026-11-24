@@ -2,7 +2,7 @@
 title: "AI tra cứu với Amazon Bedrock"
 pre: "5.5."
 weight: 5
-status: "draft"
+status: "ready"
 ---
 
 Cấu hình Bedrock tại Tokyo rồi kiểm tra tool, Guardrail và bộ prompt. Phần bonus bổ sung hồ sơ và gợi ý tính bằng code.

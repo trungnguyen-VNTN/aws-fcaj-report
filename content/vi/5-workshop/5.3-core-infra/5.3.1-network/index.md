@@ -2,7 +2,7 @@
 title: "Tạo mạng VPC"
 pre: "5.3.1."
 weight: 1
-status: "draft"
+status: "ready"
 ---
 
 Tách luồng truy cập ALB, ECS và RDS.

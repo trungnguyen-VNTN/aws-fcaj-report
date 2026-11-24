@@ -2,7 +2,7 @@
 title: "Triển khai ứng dụng"
 pre: "5.4."
 weight: 4
-status: "draft"
+status: "ready"
 ---
 
 Triển khai backend ARM64, web React và thanh toán thử. Pipeline dùng role OIDC để lấy phiên AWS tạm thời.

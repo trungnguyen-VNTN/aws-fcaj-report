@@ -2,7 +2,7 @@
 title: "Configure Cognito"
 pre: "5.3.3."
 weight: 3
-status: "draft"
+status: "ready"
 ---
 
 Use JWT identity with USER / ADMIN authorization.

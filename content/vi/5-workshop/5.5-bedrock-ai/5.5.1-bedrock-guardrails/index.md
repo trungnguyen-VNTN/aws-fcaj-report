@@ -2,7 +2,7 @@
 title: "Bật Nova 2 Lite và Guardrails"
 pre: "5.5.1."
 weight: 1
-status: "draft"
+status: "ready"
 ---
 
 Gọi Nova 2 Lite và kiểm chứng độ an toàn theo bộ prompt.

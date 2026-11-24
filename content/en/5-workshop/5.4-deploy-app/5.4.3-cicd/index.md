@@ -2,7 +2,7 @@
 title: "CI/CD with GitHub Actions OIDC"
 pre: "5.4.3."
 weight: 3
-status: "draft"
+status: "ready"
 ---
 
 Verify and deploy using short-lived OIDC credentials.

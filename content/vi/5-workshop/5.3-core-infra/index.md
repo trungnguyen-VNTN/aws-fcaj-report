@@ -2,7 +2,7 @@
 title: "Hạ tầng cốt lõi"
 pre: "5.3."
 weight: 3
-status: "draft"
+status: "ready"
 ---
 
 Chuẩn bị mạng, cơ sở dữ liệu và xác thực làm nền cho backend. Thực hiện các bước dưới đây theo thứ tự.

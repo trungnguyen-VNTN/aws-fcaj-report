@@ -2,7 +2,7 @@
 title: "Frontend on S3 and CloudFront"
 pre: "5.4.2."
 weight: 2
-status: "draft"
+status: "ready"
 ---
 
 Serve the SPA and images from private buckets.

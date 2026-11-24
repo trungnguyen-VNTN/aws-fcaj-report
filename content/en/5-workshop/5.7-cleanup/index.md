@@ -2,7 +2,7 @@
 title: "Clean up"
 pre: "5.7."
 weight: 7
-status: "draft"
+status: "ready"
 ---
 
 1. **Stop the demo session**

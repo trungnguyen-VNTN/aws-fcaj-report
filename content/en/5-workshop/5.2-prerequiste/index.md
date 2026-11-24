@@ -2,7 +2,7 @@
 title: "Prerequisite"
 pre: "5.2."
 weight: 2
-status: "draft"
+status: "ready"
 ---
 
 #### IAM permissions

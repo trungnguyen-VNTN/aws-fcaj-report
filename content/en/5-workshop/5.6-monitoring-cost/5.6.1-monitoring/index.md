@@ -2,7 +2,7 @@
 title: "CloudWatch alarms and logs"
 pre: "5.6.1."
 weight: 1
-status: "draft"
+status: "ready"
 ---
 
 Monitor application failures and audit administrative activity.

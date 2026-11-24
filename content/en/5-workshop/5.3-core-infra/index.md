@@ -2,7 +2,7 @@
 title: "Core infrastructure"
 pre: "5.3."
 weight: 3
-status: "draft"
+status: "ready"
 ---
 
 Prepare networking, persistence, and authentication for the backend. Follow the child pages in order.

@@ -2,7 +2,7 @@
 title: "ECS Fargate và ALB"
 pre: "5.4.1."
 weight: 1
-status: "draft"
+status: "ready"
 ---
 
 Triển khai backend ARM64 với origin được giới hạn.

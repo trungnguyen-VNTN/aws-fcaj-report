@@ -2,7 +2,7 @@
 title: "Create the VPC network"
 pre: "5.3.1."
 weight: 1
-status: "draft"
+status: "ready"
 ---
 
 Separate ALB, ECS, and RDS access paths.

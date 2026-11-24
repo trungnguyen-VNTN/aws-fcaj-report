@@ -2,7 +2,7 @@
 title: "ECS Fargate and ALB"
 pre: "5.4.1."
 weight: 1
-status: "draft"
+status: "ready"
 ---
 
 Deploy the ARM64 backend behind restricted origin access.

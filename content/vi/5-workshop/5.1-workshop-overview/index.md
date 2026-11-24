@@ -2,7 +2,7 @@
 title: "Giới thiệu"
 pre: "5.1."
 weight: 1
-status: "draft"
+status: "ready"
 ---
 
 #### CloudFront → ALB → ECS

@@ -2,7 +2,7 @@
 title: "Deploy the application"
 pre: "5.4."
 weight: 4
-status: "draft"
+status: "ready"
 ---
 
 Deploy the ARM64 backend, React frontend, and sandbox payments. The pipeline obtains temporary AWS sessions through OIDC.
