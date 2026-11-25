@@ -2,35 +2,31 @@
 title: "Week 10 Worklog"
 pre: "1.10."
 weight: 10
-status: "draft"
+status: "ready"
 ---
 
-**Reviewed period:** 16/11/2026–22/11/2026
+**Topic:** Feature completion and verification
 
-Dates in the Day column are repository milestones. Actual start/completion dates are unconfirmed and shown as —. Earlier week-7 draft plan rows are retained.
+**Dates:** 16/11/2026 – 20/11/2026
 
 ### Week 10 Objectives:
 
-- Feature completion and verification.
+- Extend the catalog and add sandbox payments and nutrition profiles.
+- Move AI to Tokyo and complete testing and monitoring.
 
-### Tasks to be carried out this week:
+### Tasks carried out this week:
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 16/11 | Expanded catalog, dietary labels, meal analysis, and VNPAY sandbox milestone from the brief. | — | — | [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md) |
-| 17–18/11 | UI refinement. | — | — | [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md) |
-| 20/11 | Bedrock moves to Tokyo; E2E, CloudTrail/ALB logging infrastructure, optional WAF, and payment events. | — | — | [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md) |
-| 21/11 | Complete AI intents and D32 profiles/suggestions. Backend 86, frontend 145, E2E plus axe 57. Evaluation: 45 prompts, safety 17/17 and retrieval 27/28. | — | — | [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md) |
-| 22/11 | Audit infrastructure applied; CloudTrail/ALB logs populated and S3 endpoint available. Costs for 1–21 November: USD 6.44, fully covered by credits. | — | — | [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md) |
+| Monday | 152-product catalog, diet labels, meal analyzer; VNPAY sandbox payments | 16/11/2026 | 16/11/2026 | [USDA FoodData Central](https://fdc.nal.usda.gov/api-guide) |
+| Tuesday | UI refresh (UI Lab): colour tokens, product cards, home banner | 17/11/2026 | 17/11/2026 | [React](https://react.dev/learn) |
+| Wednesday | Move Bedrock and Guardrail calls to Tokyo (D18); write the project run guide | 18/11/2026 | 18/11/2026 | [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) |
+| Thursday | Admin VNPAY payment log (D30); update Playwright E2E tests | 19/11/2026 | 19/11/2026 | [VNPAY Sandbox](https://sandbox.vnpayment.vn/apis/docs/gioi-thieu/) |
+| Friday | Choose Nova 2 Lite; CloudTrail, ALB access logs, S3 endpoint, optional WAF (D29); weekend: profiles and meal suggestions (D32) | 20/11/2026 | 20/11/2026 | [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) |
 
 ### Week 10 Achievements:
 
-- Personal lab results await confirmation.
-
-:::todo[Actual results]
-Confirm personal contributions, actual start/completion dates, and days without records. The milestones above describe repository progress and need evidence before being used as personal results.
-:::
-
-[`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md)
-
-[`docs/decisions.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/decisions.md)
+- A 152-product catalog in 11 categories, filtered by 9 allergen groups and 6 diet labels.
+- VNPAY sandbox payments with HMAC-SHA512 IPN verification; admins can view the payment log.
+- AI runs Nova 2 Lite in Tokyo with Guardrails; the 45-prompt evaluation scored safety 17/17 and retrieval 27/28.
+- Tests on 21 November: backend 86, frontend 145, E2E plus axe 57 all passed; CloudTrail and ALB logs are available for audit.

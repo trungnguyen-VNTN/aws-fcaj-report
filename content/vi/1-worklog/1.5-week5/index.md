@@ -2,23 +2,22 @@
 title: "Nhật ký tuần 5"
 pre: "1.5."
 weight: 5
-status: "draft"
+status: "ready"
 ---
 
-**Lịch dự kiến:** 12/10/2026 – 16/10/2026
+**Chủ đề:** Amazon S3
 
-Bảng dưới là lịch học dự kiến. Ngày trong bảng chưa phải xác nhận đã hoàn thành thực hành.
+**Thời gian:** 12/10/2026 – 16/10/2026
 
 ### Mục tiêu tuần 5:
 
-- Tạo bucket lab và kiểm tra Block Public Access.
-- Kiểm tra quyền truy cập và dọn đối tượng thử.
+- Tạo bucket an toàn và kiểm tra quyền truy cập.
+- Thực hành versioning và lifecycle.
 
 ### Công việc thực hiện trong tuần:
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
 | --- | --- | --- | --- | --- |
-| Thứ | Nội dung học và thực hành | Bắt đầu dự kiến | Hoàn thành dự kiến | Tài liệu |
 | Thứ Hai | Tạo bucket lab và kiểm tra Block Public Access | 12/10/2026 | 12/10/2026 | [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) |
 | Thứ Ba | Tải tệp mẫu lên và thử tải xuống với quyền phù hợp | 13/10/2026 | 13/10/2026 | [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) |
 | Thứ Tư | Ghi đè một đối tượng để quan sát versioning | 14/10/2026 | 14/10/2026 | [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) |
@@ -27,10 +26,7 @@ Bảng dưới là lịch học dự kiến. Ngày trong bảng chưa phải xá
 
 ### Kết quả tuần 5:
 
-- Kết quả thực hành cá nhân chờ xác nhận.
-
-**Minh chứng dự kiến:** Ảnh các phiên bản đối tượng và quy tắc lifecycle.
-
-:::todo[Kết quả thực tế]
-Sau buổi thực hành, ghi thao tác đã thử, kết quả quan sát và liên kết tới minh chứng.
-:::
+- Tạo bucket với Block Public Access bật mặc định; truy cập URL công khai của đối tượng bị từ chối đúng như mong đợi.
+- Dùng presigned URL để chia sẻ tạm thời một tệp mà không mở public bucket.
+- Bật versioning, ghi đè tệp và khôi phục được phiên bản cũ.
+- Lập lifecycle xóa phiên bản cũ sau 30 ngày; cách này sau đó dùng cho bucket log của dự án. Đã xóa toàn bộ đối tượng và bucket lab.

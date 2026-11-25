@@ -2,85 +2,60 @@
 title: "Event 1"
 pre: "4.1."
 weight: 1
-status: "draft"
+status: "ready"
 ---
 
-# Summary Report: "Event name pending"
+# Event report: First Cloud AI Journey – Application and Database Modernization with GenAI
 
-:::todo[Event details]
-Provide the name, date, venue, attendance role, and program link.
-:::
+### Event details
 
-### Event Objectives
+- **Event:** First Cloud AI Journey – Application and Database Modernization with GenAI
+- **Time:** 08:00 – 17:00, 29/09/2026
+- **Venue:** Floor 26, Bitexco Financial Tower, Ho Chi Minh City
+- **Role:** Attendee
+- **Speakers:** Jignesh Shah (Director, Open Source Databases), Erica Liu (Sr. Application Modernization Specialist), Fabrianne Effendi (Serverless Solutions Architect)
 
-:::todo[Event Objectives]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
+### Event objectives
 
-### Speakers
+- Recognise the limits of monolithic architectures as systems grow.
+- Learn how to split a system into microservices with Domain-Driven Design.
+- Get familiar with asynchronous patterns: queues, pub/sub, streaming.
+- See how Amazon Q Developer helps upgrade code and migrate databases.
 
-:::todo[Speakers]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
+### Key topics
 
-### Key Highlights
+#### Why monoliths slow down
 
-#### Topic pending
+All modules ship together, so a small change needs a full test and release cycle; scaling one part means duplicating the whole application; a local fault can take down the entire system.
 
-:::todo[Topic pending]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
+#### Three pillars for moving to microservices
 
-### Key Takeaways
+Queues (Amazon SQS) to decouple processing and absorb spikes; caching (Amazon ElastiCache) to offload the database; flexible messaging (Amazon SNS, Amazon EventBridge) so services exchange events without direct dependencies.
 
-#### Takeaway pending
+#### Domain-Driven Design in four steps
 
-:::todo[Takeaway pending]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
+List domain events, order them on a timeline, identify actors, then group them into bounded contexts. Each bounded context is a candidate service, which avoids a "distributed monolith".
 
-### Applying to Work
+#### Modernisation with GenAI
 
-:::todo[Applying to Work]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
+Amazon Q Developer scans legacy Java, proposes upgrades to Java 17/21, helps convert schemas from commercial databases to Aurora PostgreSQL, and flags vulnerabilities in the IDE. A demo showed SQS with a dead-letter queue preserving transactions when a service failed.
 
-### Event Experience
+### Lessons learned
 
-#### Learning from highly skilled speakers
+- Modernisation is structured refactoring, not a plain lift-and-shift.
+- Asynchronous decoupling stops failures from spreading and lets each part scale on its own.
+- Clear domain boundaries matter more than the number of services.
 
-:::todo[Learning from highly skilled speakers]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
+### Applying it to my project
 
-#### Hands-on technical exposure
+- The Nutrition E-Commerce project keeps one Spring Boot backend but organises packages by domain (catalog, commerce, payments, ai, admin, profile), applying bounded contexts early so services can be split later.
+- Unpaid VNPAY orders are cancelled and restocked after 15 minutes; this is where SQS/EventBridge would fit as the system grows.
+- The backend runs Java 21 and Spring Boot 4, in line with the runtime upgrades presented at the event.
 
-:::todo[Hands-on technical exposure]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
+### Check-in photo
 
-#### Leveraging modern tools
-
-:::todo[Leveraging modern tools]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
-
-#### Networking and discussions
-
-:::todo[Networking and discussions]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
-
-#### Lessons learned
-
-:::todo[Lessons learned]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
-
-#### Some event photos
-
-:::figure{src="/images/events/event1-checkin.jpg" alt="event1-checkin" caption="Attendance photo pending"}
+:::figure{src="/images/events/event1-checkin.jpg" alt="event1-checkin" caption="First Cloud AI Journey – Application and Database Modernization with GenAI – 29/09/2026"}
 
 :::todo[Photo required — check-in]
-Supply a clear face check-in photo from the actual event.
+Add a clear check-in photo from the event, saved as public/images/events/event1-checkin.jpg.
 :::

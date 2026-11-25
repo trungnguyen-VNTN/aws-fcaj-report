@@ -49,7 +49,7 @@ Từ 22/11/2026 (D33), môi trường dev chạy 2 task ECS, mỗi Availability 
 | --- | --- |
 | Ứng dụng (production trên môi trường dev) | [https://ddn09pubqlwme.cloudfront.net](https://ddn09pubqlwme.cloudfront.net) |
 | Mã nguồn | [github.com/trungnguyen-VNTN/nutrition-ecommerce](https://github.com/trungnguyen-VNTN/nutrition-ecommerce) |
-| Video demo đầy đủ (4:57) | Đang cập nhật |
+| Video demo đầy đủ (4:57) | [https://youtu.be/_yt_s3DTMr0](https://youtu.be/_yt_s3DTMr0) |
 
 Để tiết kiệm chi phí, ứng dụng chỉ bật trong buổi demo và chấm bài (`demo-infra.ps1 up`), thời gian còn lại tắt (`down`). Khi app đang tắt, trang web vẫn mở nhưng API báo tạm ngưng; video demo ghi lại toàn bộ luồng: đăng nhập, lọc sản phẩm, hồ sơ dinh dưỡng, AI tra cứu, giỏ hàng, đặt hàng và trang quản trị.
 

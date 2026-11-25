@@ -2,35 +2,31 @@
 title: "Week 7 Worklog"
 pre: "1.7."
 weight: 7
-status: "draft"
+status: "ready"
 ---
 
-**Reviewed period:** 29/10/2026–01/11/2026
+**Topic:** Project setup and application skeleton
 
-Dates in the Day column are repository milestones. Actual start/completion dates are unconfirmed and shown as —. Earlier week-7 draft plan rows are retained.
+**Dates:** 26/10/2026 – 30/10/2026
 
 ### Week 7 Objectives:
 
-- Repository and application scaffold.
+- Fix the MVP scope and initial architecture.
+- Build the backend, frontend, and sign-in skeleton.
 
-### Tasks to be carried out this week:
+### Tasks carried out this week:
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| Monday | Write a handler for sample JSON payloads | 26/10/2026 | 26/10/2026 | [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) |
-| Tuesday | Configure an execution role with log access | 27/10/2026 | 27/10/2026 | [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) |
-| Wednesday | Connect a test route to Lambda | 28/10/2026 | 28/10/2026 | [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) |
-| 29/10 | Project repository initialized. | — | — | [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md) |
-| 01/11 | Frontend scaffold, catalog backend, and Cognito milestone recorded in the brief. | — | — | [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md) |
+| Monday | Analyse requirements and fix the MVP scope (catalog, accounts, cart, orders, read-only AI) | 26/10/2026 | 26/10/2026 | [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) |
+| Tuesday | Draft the database (products, nutrition, allergens, orders) and the API contract | 27/10/2026 | 27/10/2026 | [Flyway](https://documentation.red-gate.com/flyway) |
+| Wednesday | Draft the AWS architecture: CloudFront, ALB, ECS Fargate, RDS, Cognito | 28/10/2026 | 28/10/2026 | [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html) |
+| Thursday | Initialise the repository; catalog API with PostgreSQL and Flyway; Cognito user pool and groups; frontend scaffold | 29/10/2026 | 29/10/2026 | [Spring Boot](https://docs.spring.io/spring-boot/index.html) |
+| Friday | Connect filters and product detail to the API; cart and checkout; START/STOP scripts for local runs | 30/10/2026 | 30/10/2026 | [React](https://react.dev/learn) |
 
 ### Week 7 Achievements:
 
-- Personal lab results await confirmation.
-
-:::todo[Actual results]
-Confirm personal contributions, actual start/completion dates, and days without records. The milestones above describe repository progress and need evidence before being used as personal results.
-:::
-
-[`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md)
-
-[`docs/decisions.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/decisions.md)
+- Fixed the MVP scope and invariants: identity only from the JWT, read-only AI, incomplete products excluded when filtering (fail-closed).
+- The repository has a Spring Boot (Java 21) backend with Flyway, a React + TypeScript frontend, and Cognito with USER/ADMIN groups.
+- The basic shopping flow works locally: browse, filter, add to cart, place an order.
+- The whole application starts locally with one `START.bat` command.

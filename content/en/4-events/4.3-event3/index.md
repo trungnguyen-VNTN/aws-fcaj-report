@@ -2,85 +2,60 @@
 title: "Event 3"
 pre: "4.3."
 weight: 3
-status: "draft"
+status: "ready"
 ---
 
-# Summary Report: "Event name pending"
+# Event report: Enterprise AI on AWS Cloud – From Prototype to Production
 
-:::todo[Event details]
-Provide the name, date, venue, attendance role, and program link.
-:::
+### Event details
 
-### Event Objectives
+- **Event:** Enterprise AI on AWS Cloud – From Prototype to Production
+- **Time:** 09:00 – 12:00, 14/11/2026
+- **Venue:** Floor 26, Bitexco Financial Tower, Ho Chi Minh City
+- **Role:** Attendee
+- **Speakers:** Khang Duong, Phuong Huyen, Bao Nguyen, Khuong Huynh
 
-:::todo[Event Objectives]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
+### Event objectives
 
-### Speakers
+- Separate experimental AI from production enterprise AI.
+- Understand training versus inference and how tokens drive cost.
+- Learn four operating pillars: security, reliability, scalability, cost.
+- Get familiar with four common multi-agent patterns.
 
-:::todo[Speakers]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
+### Key topics
 
-### Key Highlights
+#### From "home kitchen" to "restaurant chain"
 
-#### Topic pending
+The speakers compared experimental AI with a home kitchen (the dish just has to taste good) and enterprise AI with a restaurant chain (process, safety, consistency, and controlled cost).
 
-:::todo[Topic pending]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
+#### Training, inference, and tokens
 
-### Key Takeaways
+Training runs in batches with heavy resources; inference runs continuously and needs low latency. For LLMs, input and output tokens directly drive latency and the bill, so prompts and context must be optimised.
 
-#### Takeaway pending
+#### Four operating pillars
 
-:::todo[Takeaway pending]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
+Security (IAM, KMS, Guardrails), reliability (Multi-AZ, retries with backoff), scalability (Auto Scaling, Lambda, ALB), and cost optimisation (right-sizing, small models for easy questions).
 
-### Applying to Work
+#### Four multi-agent patterns
 
-:::todo[Applying to Work]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
+Supervisor/Routing sends a question to the right agent; Sequential chains steps like an assembly line; Parallel runs agents at once and merges results; Evaluator–Optimizer lets one agent grade another until the output passes.
 
-### Event Experience
+### Lessons learned
 
-#### Learning from highly skilled speakers
+- Model accuracy is not enough; AI systems need measurement, monitoring, and cost limits.
+- Tokens are the cost unit, so the model should receive as little context as possible.
+- Multi-AZ resilience is a baseline requirement for production AI.
 
-:::todo[Learning from highly skilled speakers]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
+### Applying it to my project
 
-#### Hands-on technical exposure
+- The project uses Amazon Nova 2 Lite (a small, low-cost model) and sends only the food question, never personal data, which saves tokens and protects privacy; each account is limited to 30 questions a day.
+- After the event the project enabled RDS Multi-AZ and two ECS tasks across two AZs (D33), with a successful failover drill on 22 November.
+- The 45-prompt real-model evaluation acts as the "evaluator" that checks quality before each prompt change.
 
-:::todo[Hands-on technical exposure]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
+### Check-in photo
 
-#### Leveraging modern tools
-
-:::todo[Leveraging modern tools]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
-
-#### Networking and discussions
-
-:::todo[Networking and discussions]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
-
-#### Lessons learned
-
-:::todo[Lessons learned]
-The owner should provide actual event details with the session/date and supporting evidence.
-:::
-
-#### Some event photos
-
-:::figure{src="/images/events/event3-checkin.jpg" alt="event3-checkin" caption="Attendance photo pending"}
+:::figure{src="/images/events/event3-checkin.jpg" alt="event3-checkin" caption="Enterprise AI on AWS Cloud – From Prototype to Production – 14/11/2026"}
 
 :::todo[Photo required — check-in]
-Supply a clear face check-in photo from the actual event.
+Add a clear check-in photo from the event, saved as public/images/events/event3-checkin.jpg.
 :::

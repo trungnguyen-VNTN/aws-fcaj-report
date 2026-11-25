@@ -2,31 +2,31 @@
 title: "Week 8 Worklog"
 pre: "1.8."
 weight: 8
-status: "draft"
+status: "ready"
 ---
 
-**Reviewed period:** 02/11/2026–06/11/2026
+**Topic:** Interface redesign
 
-Dates in the Day column are repository milestones. Actual start/completion dates are unconfirmed and shown as —. Earlier week-7 draft plan rows are retained.
+**Dates:** 02/11/2026 – 06/11/2026
 
 ### Week 8 Objectives:
 
-- UI redesign.
+- Standardise CI and repository documentation.
+- Redesign the whole interface in a nutrition-label style.
 
-### Tasks to be carried out this week:
+### Tasks carried out this week:
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 03–06/11 | UI redesign. D11 selects the nutrition-label direction and D13 retains accessibility requirements. | — | — | [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md) |
+| Monday | Split CI steps, add PR/issue templates, README, licence; decide on a public ALB behind CloudFront | 02/11/2026 | 02/11/2026 | [GitHub Actions](https://docs.github.com/actions) |
+| Tuesday | Choose the Nutrition Label design (D11); new design foundation, app shell, Phosphor icons | 03/11/2026 | 03/11/2026 | [React](https://react.dev/learn) |
+| Wednesday | Accessibility review (D13): contrast, focus, keyboard; mobile tab bar | 04/11/2026 | 04/11/2026 | [WCAG 2.2](https://www.w3.org/TR/WCAG22/) |
+| Thursday | Shared components with fail-closed nutrition display; split the admin page into focused parts | 05/11/2026 | 05/11/2026 | [React](https://react.dev/learn) |
+| Friday | Rebuild home, products, detail, sign-in, cart, checkout, orders, chat, and admin pages | 06/11/2026 | 06/11/2026 | [React](https://react.dev/learn) |
 
 ### Week 8 Achievements:
 
-- Personal lab results await confirmation.
-
-:::todo[Actual results]
-Confirm personal contributions, actual start/completion dates, and days without records. The milestones above describe repository progress and need evidence before being used as personal results.
-:::
-
-[`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md)
-
-[`docs/decisions.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/decisions.md)
+- CI runs separate backend and frontend checks on every pull request.
+- Every page was rebuilt in the nutrition-label style with consistent colours, type, and icons.
+- The interface meets basic accessibility needs (contrast, focus, keyboard use) and works well on phones.
+- Products with missing data show "no data" instead of zero.

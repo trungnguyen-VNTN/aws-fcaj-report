@@ -2,7 +2,7 @@
 title: "Đề xuất dự án"
 pre: "2."
 weight: 2
-status: "draft"
+status: "ready"
 ---
 
 # Nền tảng Thương mại Điện tử Dinh dưỡng Cá nhân hóa trên AWS
@@ -107,7 +107,7 @@ Terraform dựng hạ tầng; Maven wrapper và Flyway quản lý backend/schema
 
 Cost Explorer ghi nhận **6,44 USD** cho 01–21/11/2026, được credit bù toàn bộ. RDS 2,77; ALB 1,29; ECS 1,21; IPv4 0,74; Bedrock 0,21; Secrets Manager 0,20 USD. Các khoản liệt kê là những khoản lớn, không phải phép cộng chi tiết toàn bộ hóa đơn. App chỉ bật khi demo nên không dùng số thực tế này để suy ra mức chạy 24/7. Số thực tế này ghi nhận trước khi bật Multi-AZ.
 
-**Bảng giá AWS Pricing Calculator:** [estimate ngày 25/11/2026](https://calculator.aws/#/estimate?id=07b14b65d16d429fced78430d48dd852ff134efe). Cột 24/7 lấy đúng số của Calculator (Singapore, riêng Bedrock ở Tokyo). Cột Demo quy đổi từ đó cho khoảng 120 giờ chạy mỗi tháng: các khoản tính theo giờ (RDS instance, Fargate, ALB, IPv4) nhân 120/730, còn ổ đĩa RDS (5,52 USD) và các khoản theo lượng dùng giữ nguyên. Giả định tải: 50 người dùng/tháng, 5 GB CloudFront, khoảng 3.600 câu hỏi AI/tháng (1 câu/phút trong 2 giờ/ngày, 1.500 token vào, 300 token ra). Calculator chưa có Amazon Nova 2 Lite nên dùng Amazon Nova Lite làm giá tham chiếu. Estimate không tính RDS Proxy và Database Insights Advanced vì dự án không dùng.
+**Bảng giá AWS Pricing Calculator:** [estimate ngày 25/11/2026](https://calculator.aws/#/estimate?id=8dfa24875b5ab56798dc086bcac564644ffcfce4). Cột 24/7 lấy đúng số của Calculator (Singapore, riêng Bedrock ở Tokyo). Cột Demo quy đổi từ đó cho khoảng 120 giờ chạy mỗi tháng: các khoản tính theo giờ (RDS instance, Fargate, ALB, IPv4) nhân 120/730, còn ổ đĩa RDS (5,52 USD) và các khoản theo lượng dùng giữ nguyên. Giả định tải: 50 người dùng/tháng, 5 GB CloudFront, khoảng 3.600 câu hỏi AI/tháng (1 câu/phút trong 2 giờ/ngày, 1.500 token vào, 300 token ra). Calculator chưa có Amazon Nova 2 Lite nên dùng Amazon Nova Lite làm giá tham chiếu. Estimate không tính RDS Proxy và Database Insights Advanced vì dự án không dùng.
 
 ### 7. Đánh giá rủi ro
 
@@ -115,15 +115,14 @@ Cost Explorer ghi nhận **6,44 USD** cho 01–21/11/2026, được credit bù t
 
 | Rủi ro | Ảnh hưởng | Khả năng | Mức độ |
 | --- | --- | --- | --- |
-| Chi phí ngoài dự kiến | — | — | — |
-| Lộ dữ liệu cá nhân | — | — | — |
-| AI trả lời sai/y tế | — | — | — |
-| Quota Bedrock | — | — | — |
-| HTTP từ CloudFront tới ALB | — | — | — |
+| Chi phí ngoài dự kiến | Trung bình | Trung bình | Trung bình |
+| Lộ dữ liệu cá nhân | Cao | Thấp | Trung bình |
+| AI trả lời sai/y tế | Cao | Trung bình | Cao |
+| Quota Bedrock | Trung bình | Cao (đã xảy ra ở Singapore) | Trung bình |
+| HTTP từ CloudFront tới ALB | Trung bình | Thấp | Thấp |
+| Sự cố một Availability Zone | Cao | Thấp | Trung bình (đã giảm nhờ Multi-AZ) |
 
-:::todo[Xác nhận ma trận rủi ro]
-Chủ repo xác nhận mức ảnh hưởng, khả năng và mức độ cho từng rủi ro. Chưa có bảng chấm trong nguồn dự án.
-:::
+Cách chấm: Ảnh hưởng và Khả năng theo ba mức Thấp / Trung bình / Cao; Mức độ là kết hợp của hai yếu tố, sau khi tính các biện pháp giảm thiểu bên dưới. Rủi ro AI được xếp Cao vì sai số liệu dinh dưỡng hoặc lời khuyên y tế có thể ảnh hưởng tới sức khỏe người dùng, nên được ưu tiên kiểm soát nhiều lớp.
 
 #### Biện pháp giảm thiểu
 

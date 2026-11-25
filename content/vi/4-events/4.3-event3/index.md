@@ -2,85 +2,60 @@
 title: "Sự kiện 3"
 pre: "4.3."
 weight: 3
-status: "draft"
+status: "ready"
 ---
 
-# Báo cáo tổng kết: "Chờ tên sự kiện"
+# Báo cáo tổng kết: Enterprise AI on AWS Cloud – Từ prototype đến production
 
-:::todo[Thông tin sự kiện]
-Điền tên, ngày, địa điểm, vai trò tham dự và link chương trình.
-:::
+### Thông tin sự kiện
+
+- **Tên sự kiện:** Enterprise AI on AWS Cloud – Từ prototype đến production
+- **Thời gian:** 09:00 – 12:00, 14/11/2026
+- **Địa điểm:** Tầng 26, Bitexco Financial Tower, TP. Hồ Chí Minh
+- **Vai trò:** Người tham dự
+- **Diễn giả:** Khang Duong, Phuong Huyen, Bao Nguyen, Khuong Huynh
 
 ### Mục tiêu sự kiện
 
-:::todo[Mục tiêu sự kiện]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
+- Phân biệt AI thử nghiệm với AI vận hành trong doanh nghiệp.
+- Hiểu khác biệt giữa training và inference, và tác động của token tới chi phí.
+- Nắm 4 trụ cột vận hành: bảo mật, tin cậy, mở rộng, chi phí.
+- Làm quen 4 mô hình multi-agent phổ biến.
 
-### Diễn giả
+### Nội dung nổi bật
 
-:::todo[Diễn giả]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
+#### Từ "bếp nhà" đến "chuỗi nhà hàng"
 
-### Các nội dung nổi bật
+Diễn giả so sánh AI thử nghiệm với bếp ăn gia đình (chỉ cần món ngon) và AI doanh nghiệp với chuỗi nhà hàng (cần quy trình, an toàn, ổn định, chi phí kiểm soát được).
 
-#### Chủ đề cần bổ sung
+#### Training, inference và token
 
-:::todo[Chủ đề cần bổ sung]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
+Training chạy theo đợt, tốn tài nguyên lớn; inference chạy liên tục và cần độ trễ thấp. Với LLM, số token vào/ra quyết định trực tiếp độ trễ và hóa đơn, nên cần tối ưu prompt và ngữ cảnh.
 
-### Bài học chính
+#### Bốn trụ cột vận hành
 
-#### Bài học cần xác nhận
+Bảo mật (IAM, KMS, Guardrails), tin cậy (Multi-AZ, thử lại có backoff), mở rộng (Auto Scaling, Lambda, ALB) và tối ưu chi phí (chọn đúng cỡ tài nguyên, dùng mô hình nhỏ cho câu hỏi dễ).
 
-:::todo[Bài học cần xác nhận]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
+#### Bốn mô hình multi-agent
 
-### Áp dụng vào công việc
+Supervisor/Routing chuyển câu hỏi tới agent phù hợp; Sequential nối các bước như dây chuyền; Parallel chạy nhiều agent cùng lúc rồi tổng hợp; Evaluator–Optimizer để một agent chấm và yêu cầu agent kia sửa đến khi đạt.
 
-:::todo[Áp dụng vào công việc]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
+### Bài học rút ra
 
-### Trải nghiệm sự kiện
+- Độ chính xác của mô hình chưa đủ; hệ thống AI cần đo lường, giám sát và giới hạn chi phí.
+- Token là đơn vị chi phí, cần thiết kế để model nhận ít ngữ cảnh nhất có thể.
+- Chịu lỗi nhiều AZ là yêu cầu cơ bản khi đưa AI vào vận hành.
 
-#### Học hỏi từ diễn giả có chuyên môn
+### Áp dụng vào dự án của em
 
-:::todo[Học hỏi từ diễn giả có chuyên môn]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
+- Dự án dùng Amazon Nova 2 Lite (mô hình nhỏ, rẻ) và chỉ gửi câu hỏi tìm món, không gửi dữ liệu cá nhân, giúp ít token và an toàn hơn; mỗi tài khoản giới hạn 30 câu/ngày.
+- Sau sự kiện, dự án bật RDS Multi-AZ và chạy 2 task ECS ở 2 AZ (D33), đã diễn tập failover thành công ngày 22/11.
+- Bộ đánh giá 45 câu với model thật đóng vai trò "evaluator" để kiểm tra chất lượng trước mỗi thay đổi prompt.
 
-#### Tiếp xúc kỹ thuật qua thực hành
+### Ảnh check-in
 
-:::todo[Tiếp xúc kỹ thuật qua thực hành]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
-
-#### Sử dụng công cụ hiện đại
-
-:::todo[Sử dụng công cụ hiện đại]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
-
-#### Kết nối và thảo luận
-
-:::todo[Kết nối và thảo luận]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
-
-#### Bài học rút ra
-
-:::todo[Bài học rút ra]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
-
-#### Một số ảnh sự kiện
-
-:::figure{src="/images/events/event3-checkin.jpg" alt="event3-checkin" caption="Ảnh tham dự chờ bổ sung"}
+:::figure{src="/images/events/event3-checkin.jpg" alt="event3-checkin" caption="Enterprise AI on AWS Cloud – Từ prototype đến production – 14/11/2026"}
 
 :::todo[Cần chụp ảnh — check-in]
-Bổ sung ảnh check-in rõ mặt tại đúng sự kiện.
+Bổ sung ảnh check-in rõ mặt tại sự kiện, lưu tên public/images/events/event3-checkin.jpg.
 :::

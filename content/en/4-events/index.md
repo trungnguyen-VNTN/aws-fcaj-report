@@ -2,29 +2,32 @@
 title: "Events Participated"
 pre: "4."
 weight: 4
-status: "draft"
+status: "ready"
 ---
 
 ### Event 1
 
-:::todo[Name, date, and role]
-Provide details of the event actually attended.
-:::
+- **Event:** First Cloud AI Journey – Application and Database Modernization with GenAI
+- **Time:** 08:00 – 17:00, 29/09/2026
+- **Venue:** Floor 26, Bitexco Financial Tower, Ho Chi Minh City
+- **Role:** Attendee
 
 [Open report](/4-events/4.1-event1)
 
 ### Event 2
 
-:::todo[Name, date, and role]
-Provide details of the event actually attended.
-:::
+- **Event:** First Cloud AI Journey Meetup – AWS Cloud, Cloud Security, and AI Agents
+- **Time:** 08:00 – 12:00, 24/10/2026
+- **Venue:** Floor 26, Bitexco Financial Tower, Ho Chi Minh City
+- **Role:** Attendee
 
 [Open report](/4-events/4.2-event2)
 
 ### Event 3
 
-:::todo[Name, date, and role]
-Provide details of the event actually attended.
-:::
+- **Event:** Enterprise AI on AWS Cloud – From Prototype to Production
+- **Time:** 09:00 – 12:00, 14/11/2026
+- **Venue:** Floor 26, Bitexco Financial Tower, Ho Chi Minh City
+- **Role:** Attendee
 
 [Open report](/4-events/4.3-event3)

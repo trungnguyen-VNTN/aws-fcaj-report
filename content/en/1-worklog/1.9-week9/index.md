@@ -2,34 +2,31 @@
 title: "Week 9 Worklog"
 pre: "1.9."
 weight: 9
-status: "draft"
+status: "ready"
 ---
 
-**Reviewed period:** 09/11/2026–13/11/2026
+**Topic:** Data and AWS deployment
 
-Dates in the Day column are repository milestones. Actual start/completion dates are unconfirmed and shown as —. Earlier week-7 draft plan rows are retained.
+**Dates:** 09/11/2026 – 13/11/2026
 
 ### Week 9 Objectives:
 
-- Data and AWS deployment.
+- Load real nutrition data and build the infrastructure with Terraform.
+- Deploy the application to AWS and add controlled AI.
 
-### Tasks to be carried out this week:
+### Tasks carried out this week:
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 10/11 | USDA data and infrastructure decisions D15–D19. | — | — | [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md) |
-| 11/11 | Terraform networking, RDS, ECR, Cognito, ALB, ECS, CloudFront, and D20 demo on/off operation. | — | — | [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md) |
-| 12/11 | OIDC deployment workflow, product images, and first AWS application deployment. | — | — | [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md) |
-| 13/11 | AI, Guardrails, evaluation suite, and CloudWatch alarms. | — | — | [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md) |
+| Monday | Load USDA FoodData Central data for the local catalog | 09/11/2026 | 09/11/2026 | [USDA FoodData Central](https://fdc.nal.usda.gov/api-guide) |
+| Tuesday | Write IAM policies for the deploy permission set and permissions boundary (D16); fix the Terraform layout | 10/11/2026 | 10/11/2026 | [IAM security best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) |
+| Wednesday | Terraform: network, RDS, ECR, Cognito, ALB, ECS, CloudFront, OIDC; demo-only uptime (D20) | 11/11/2026 | 11/11/2026 | [Terraform AWS provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) |
+| Thursday | Deploy through GitHub Actions OIDC; image bucket via CloudFront /images/*; seed the catalog; first run on AWS | 12/11/2026 | 12/11/2026 | [GitHub OIDC with AWS](https://docs.github.com/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services) |
+| Friday | Chat guardrail, CloudWatch alarms via SNS, rate limiting, password reset, 30-prompt AI evaluation | 13/11/2026 | 13/11/2026 | [Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) |
 
 ### Week 9 Achievements:
 
-- Personal lab results await confirmation.
-
-:::todo[Actual results]
-Confirm personal contributions, actual start/completion dates, and days without records. The milestones above describe repository progress and need evidence before being used as personal results.
-:::
-
-[`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md)
-
-[`docs/decisions.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/decisions.md)
+- The application runs on AWS through the CloudFront domain, with all infrastructure in Terraform.
+- GitHub Actions deploys through OIDC without long-lived access keys.
+- The catalog has USDA nutrition data and product photos; seven CloudWatch alarms send e-mail alerts.
+- Found that the Bedrock quota in Singapore is zero and recorded it for the following week.

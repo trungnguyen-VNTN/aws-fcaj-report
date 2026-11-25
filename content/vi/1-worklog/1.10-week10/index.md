@@ -2,35 +2,31 @@
 title: "Nhật ký tuần 10"
 pre: "1.10."
 weight: 10
-status: "draft"
+status: "ready"
 ---
 
-**Khoảng thời gian đối chiếu:** 16/11/2026–22/11/2026
+**Chủ đề:** Hoàn thiện tính năng và xác minh
 
-Các mốc trong cột Thứ là ngày ghi nhận tiến độ repo. Ngày bắt đầu/hoàn thành thực tế chưa được xác nhận nên để —. Các dòng kế hoạch đầu tuần 7 được giữ từ bản nháp.
+**Thời gian:** 16/11/2026 – 20/11/2026
 
 ### Mục tiêu tuần 10:
 
-- Hoàn thiện tính năng và xác minh.
+- Mở rộng catalog, thêm thanh toán sandbox và hồ sơ dinh dưỡng.
+- Đưa AI sang Tokyo và hoàn thiện kiểm thử, giám sát.
 
 ### Công việc thực hiện trong tuần:
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
 | --- | --- | --- | --- | --- |
-| 16/11 | Catalog mở rộng, nhãn chế độ ăn, phân tích bữa ăn và VNPAY sandbox theo mốc brief. | — | — | [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md) |
-| 17–18/11 | Hoàn thiện giao diện. | — | — | [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md) |
-| 20/11 | Bedrock chuyển Tokyo; E2E, hạ tầng CloudTrail/ALB logs/WAF tùy chọn và nhật ký thanh toán. | — | — | [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md) |
-| 21/11 | AI đủ intent; D32 hồ sơ và gợi ý. Backend 86, frontend 145, E2E + axe 57. Eval 45 câu: an toàn 17/17, tra cứu 27/28. | — | — | [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md) |
-| 22/11 | Apply hạ tầng audit; CloudTrail/ALB logs có dữ liệu, endpoint S3 available. Đo chi phí 01–21/11: 6,44 USD, credit bù hết. | — | — | [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md) |
+| Thứ Hai | Catalog 152 sản phẩm, nhãn chế độ ăn, công cụ phân tích bữa ăn; thanh toán VNPAY sandbox | 16/11/2026 | 16/11/2026 | [USDA FoodData Central](https://fdc.nal.usda.gov/api-guide) |
+| Thứ Ba | Làm mới giao diện (UI Lab): token màu, thẻ sản phẩm, banner trang chủ | 17/11/2026 | 17/11/2026 | [React](https://react.dev/learn) |
+| Thứ Tư | Chuyển lời gọi Bedrock và Guardrail sang Tokyo (D18); viết hướng dẫn chạy dự án | 18/11/2026 | 18/11/2026 | [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) |
+| Thứ Năm | Nhật ký thanh toán VNPAY cho admin (D30); cập nhật kiểm thử E2E với Playwright | 19/11/2026 | 19/11/2026 | [VNPAY Sandbox](https://sandbox.vnpayment.vn/apis/docs/gioi-thieu/) |
+| Thứ Sáu | Chọn Nova 2 Lite; CloudTrail, ALB access log, S3 endpoint, WAF tùy chọn (D29); cuối tuần: hồ sơ và gợi ý bữa ăn (D32) | 20/11/2026 | 20/11/2026 | [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) |
 
 ### Kết quả tuần 10:
 
-- Kết quả thực hành cá nhân chờ xác nhận.
-
-:::todo[Kết quả thực tế]
-Xác nhận phần việc cá nhân, ngày bắt đầu/hoàn thành và các ngày chưa có bản ghi. Các mốc trên là tiến độ repo, cần bổ sung minh chứng trước khi dùng làm kết quả cá nhân.
-:::
-
-[`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md)
-
-[`docs/decisions.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/decisions.md)
+- Catalog 152 sản phẩm trong 11 danh mục; lọc theo 9 nhóm chất gây dị ứng và 6 nhãn chế độ ăn.
+- Thanh toán VNPAY sandbox với IPN kiểm chữ ký HMAC-SHA512; admin xem được nhật ký thanh toán.
+- AI chạy Nova 2 Lite ở Tokyo với Guardrails; bộ đánh giá 45 câu đạt an toàn 17/17, tra cứu 27/28.
+- Kiểm thử ngày 21/11: backend 86, frontend 145, E2E + axe 57 đều đạt; có CloudTrail và log ALB để kiểm toán.

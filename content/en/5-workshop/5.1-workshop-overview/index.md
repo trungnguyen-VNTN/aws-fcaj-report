@@ -49,7 +49,7 @@ Read the diagram and decisions D15/D17/D18. CloudFront serves React and forwards
 | --- | --- |
 | Application (running on the dev environment) | [https://ddn09pubqlwme.cloudfront.net](https://ddn09pubqlwme.cloudfront.net) |
 | Source code | [github.com/trungnguyen-VNTN/nutrition-ecommerce](https://github.com/trungnguyen-VNTN/nutrition-ecommerce) |
-| Full demo video (4:57) | Coming soon |
+| Full demo video (4:57) | [https://youtu.be/_yt_s3DTMr0](https://youtu.be/_yt_s3DTMr0) |
 
 To save cost, the application is switched on only for demos and grading (`demo-infra.ps1 up`) and switched off otherwise (`down`). While it is off the site still loads but the API reports that it is paused; the demo video records the full flow: sign-in, product filters, nutrition profile, AI lookup, cart, checkout and the admin pages.
 

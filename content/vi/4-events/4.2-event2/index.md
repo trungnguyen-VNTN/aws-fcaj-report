@@ -2,85 +2,60 @@
 title: "Sự kiện 2"
 pre: "4.2."
 weight: 2
-status: "draft"
+status: "ready"
 ---
 
-# Báo cáo tổng kết: "Chờ tên sự kiện"
+# Báo cáo tổng kết: First Cloud AI Journey Meetup – AWS Cloud, Cloud Security và AI Agents
 
-:::todo[Thông tin sự kiện]
-Điền tên, ngày, địa điểm, vai trò tham dự và link chương trình.
-:::
+### Thông tin sự kiện
+
+- **Tên sự kiện:** First Cloud AI Journey Meetup – AWS Cloud, Cloud Security và AI Agents
+- **Thời gian:** 08:00 – 12:00, 24/10/2026
+- **Địa điểm:** Tầng 26, Bitexco Financial Tower, TP. Hồ Chí Minh
+- **Vai trò:** Người tham dự
+- **Diễn giả:** Kiệt Trần (Revve AI), Long Huỳnh và Thịnh Nguyễn (Styl Solution), Xuân An (AWS Student Builder Group HCMUTE), Khoa Kiều (ACB), Nghi Danh (AWS Community Builder)
 
 ### Mục tiêu sự kiện
 
-:::todo[Mục tiêu sự kiện]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
+- Xem các ứng dụng thực tế của Voice AI và AI Agent trên AWS.
+- Hiểu cách chia sẻ tài nguyên và quản trị nhiều tài khoản AWS.
+- Tiếp cận bảo mật "dịch chuyển trái" và kiểm thử xâm nhập có AI hỗ trợ.
+- Kết nối với cộng đồng kỹ sư AWS tại TP.HCM.
 
-### Diễn giả
+### Nội dung nổi bật
 
-:::todo[Diễn giả]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
+#### Voice AI tiếng Việt: Hear – Think – Speak
 
-### Các nội dung nổi bật
+Chuỗi nhận dạng giọng nói → LLM → tổng hợp giọng nói cho tổng đài tự động. Demo phỏng vấn sơ tuyển ứng viên bằng tiếng Việt, mục tiêu độ trễ toàn trình khoảng 1,8 giây để hội thoại tự nhiên.
 
-#### Chủ đề cần bổ sung
+#### AWS Resource Access Manager
 
-:::todo[Chủ đề cần bổ sung]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
+Chia sẻ subnet, Transit Gateway, Route 53 Resolver rule giữa các tài khoản trong cùng AWS Organizations, kết hợp IAM policy và Service Control Policy để đặt giới hạn quyền cho cả tổ chức.
 
-### Bài học chính
+#### Kiểm thử bảo mật dịch chuyển trái
 
-#### Bài học cần xác nhận
+Rà soát Terraform ngay trong pull request, phát hiện cấu hình sai trước khi triển khai, và dùng AI security agent để kiểm thử xâm nhập trong môi trường được cấp phép.
 
-:::todo[Bài học cần xác nhận]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
+#### Amazon Bedrock AgentCore và Kiro
 
-### Áp dụng vào công việc
+AgentCore Runtime cô lập phiên chạy của agent và tự co giãn; AgentCore Memory giữ ngữ cảnh ngắn hạn và dài hạn. Phiên Kiro nhấn mạnh quản lý cửa sổ ngữ cảnh và đặt guardrail để agent không xóa tài nguyên, lộ khóa hay đổi cấu hình khi chưa được phép.
 
-:::todo[Áp dụng vào công việc]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
+### Bài học rút ra
 
-### Trải nghiệm sự kiện
+- Ứng dụng AI thực tế cần hạ tầng ổn định, quản lý ngữ cảnh và giới hạn an toàn, không chỉ một mô hình tốt.
+- Bảo mật nên nằm trong quy trình phát triển (pull request, CI), không đợi đến lúc triển khai.
+- Quản trị nhiều tài khoản cần ranh giới quyền ở cấp tổ chức.
 
-#### Học hỏi từ diễn giả có chuyên môn
+### Áp dụng vào dự án của em
 
-:::todo[Học hỏi từ diễn giả có chuyên môn]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
+- Trợ lý AI của dự án đặt guardrail ở cả hai tầng: Bedrock Guardrails chặn lời khuyên y tế và prompt attack, còn backend chỉ cho model dùng một công cụ tìm kiếm chỉ đọc.
+- Hạ tầng dự án dùng permissions boundary và tách hai permission set (chỉ đọc / triển khai), cùng tinh thần với Service Control Policy.
+- Mọi thay đổi Terraform đều chạy `fmt`, `validate`, `plan` và được xem lại trước khi `apply`.
 
-#### Tiếp xúc kỹ thuật qua thực hành
+### Ảnh check-in
 
-:::todo[Tiếp xúc kỹ thuật qua thực hành]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
-
-#### Sử dụng công cụ hiện đại
-
-:::todo[Sử dụng công cụ hiện đại]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
-
-#### Kết nối và thảo luận
-
-:::todo[Kết nối và thảo luận]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
-
-#### Bài học rút ra
-
-:::todo[Bài học rút ra]
-Chủ repo điền từ sự kiện thực tế, có tên phiên/ngày và minh chứng phù hợp.
-:::
-
-#### Một số ảnh sự kiện
-
-:::figure{src="/images/events/event2-checkin.jpg" alt="event2-checkin" caption="Ảnh tham dự chờ bổ sung"}
+:::figure{src="/images/events/event2-checkin.jpg" alt="event2-checkin" caption="First Cloud AI Journey Meetup – AWS Cloud, Cloud Security và AI Agents – 24/10/2026"}
 
 :::todo[Cần chụp ảnh — check-in]
-Bổ sung ảnh check-in rõ mặt tại đúng sự kiện.
+Bổ sung ảnh check-in rõ mặt tại sự kiện, lưu tên public/images/events/event2-checkin.jpg.
 :::

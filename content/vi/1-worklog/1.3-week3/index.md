@@ -2,23 +2,22 @@
 title: "Nhật ký tuần 3"
 pre: "1.3."
 weight: 3
-status: "draft"
+status: "ready"
 ---
 
-**Lịch dự kiến:** 28/09/2026 – 02/10/2026
+**Chủ đề:** Amazon VPC và mạng
 
-Bảng dưới là lịch học dự kiến. Ngày trong bảng chưa phải xác nhận đã hoàn thành thực hành.
+**Thời gian:** 28/09/2026 – 02/10/2026
 
 ### Mục tiêu tuần 3:
 
-- Vẽ VPC và chọn dải CIDR.
-- Lần theo đường đi của một yêu cầu và xác định điểm chặn.
+- Thiết kế VPC với subnet public/private ở nhiều AZ.
+- Hiểu đường đi của một request và các điểm chặn.
 
 ### Công việc thực hiện trong tuần:
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
 | --- | --- | --- | --- | --- |
-| Thứ | Nội dung học và thực hành | Bắt đầu dự kiến | Hoàn thành dự kiến | Tài liệu |
 | Thứ Hai | Vẽ VPC và chọn dải CIDR | 28/09/2026 | 28/09/2026 | [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) |
 | Thứ Ba | Chia subnet public và private theo Availability Zone | 29/09/2026 | 29/09/2026 | [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) |
 | Thứ Tư | Đọc route table và luồng qua Internet Gateway | 30/09/2026 | 30/09/2026 | [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) |
@@ -27,10 +26,7 @@ Bảng dưới là lịch học dự kiến. Ngày trong bảng chưa phải xá
 
 ### Kết quả tuần 3:
 
-- Kết quả thực hành cá nhân chờ xác nhận.
-
-**Minh chứng dự kiến:** Sơ đồ VPC kèm bảng định tuyến mẫu.
-
-:::todo[Kết quả thực tế]
-Sau buổi thực hành, ghi thao tác đã thử, kết quả quan sát và liên kết tới minh chứng.
-:::
+- Thiết kế VPC 10.20.0.0/16 với 4 subnet (2 public, 2 private) ở 2 AZ; đây là bố cục dùng lại cho dự án.
+- Phân biệt subnet public (có route 0.0.0.0/0 tới Internet Gateway) và private (không có route ra Internet).
+- So sánh Security Group (stateful, gắn vào tài nguyên) với Network ACL (stateless, gắn vào subnet); chọn chuỗi SG ALB → ECS → RDS cho dự án.
+- Tìm hiểu chi phí NAT Gateway và phương án S3 Gateway Endpoint để giảm chi phí.

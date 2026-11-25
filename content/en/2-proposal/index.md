@@ -2,7 +2,7 @@
 title: "Proposal"
 pre: "2."
 weight: 2
-status: "draft"
+status: "ready"
 ---
 
 # AWS Personalized Nutrition E-Commerce Platform
@@ -107,7 +107,7 @@ Monthly USD estimates, checked against AWS Pricing Calculator on 25 November 202
 
 Cost Explorer recorded **USD 6.44** for 1–21 November 2026, fully covered by credits. Major charges were RDS 2.77, ALB 1.29, ECS 1.21, public IPv4 0.74, Bedrock 0.21, and Secrets Manager 0.20 USD. These are selected major charges rather than a complete bill reconciliation. Demo-only uptime means this observation cannot be extrapolated to continuous operation. It was recorded before the Multi-AZ switch.
 
-**AWS Pricing Calculator:** [estimate dated 25 November 2026](https://calculator.aws/#/estimate?id=07b14b65d16d429fced78430d48dd852ff134efe). The 24/7 column is taken directly from the Calculator (Singapore; Bedrock in Tokyo). The Demo column is derived from it for about 120 running hours a month: hourly items (RDS instance, Fargate, ALB, IPv4) are multiplied by 120/730, while RDS storage (USD 5.52) and usage-based items stay the same. Load assumptions: 50 monthly users, 5 GB of CloudFront transfer, about 3,600 AI questions a month (1 per minute for 2 hours a day, 1,500 input and 300 output tokens). The Calculator does not list Amazon Nova 2 Lite yet, so Amazon Nova Lite is used as the price reference. RDS Proxy and Database Insights Advanced are excluded because the project does not use them.
+**AWS Pricing Calculator:** [estimate dated 25 November 2026](https://calculator.aws/#/estimate?id=8dfa24875b5ab56798dc086bcac564644ffcfce4). The 24/7 column is taken directly from the Calculator (Singapore; Bedrock in Tokyo). The Demo column is derived from it for about 120 running hours a month: hourly items (RDS instance, Fargate, ALB, IPv4) are multiplied by 120/730, while RDS storage (USD 5.52) and usage-based items stay the same. Load assumptions: 50 monthly users, 5 GB of CloudFront transfer, about 3,600 AI questions a month (1 per minute for 2 hours a day, 1,500 input and 300 output tokens). The Calculator does not list Amazon Nova 2 Lite yet, so Amazon Nova Lite is used as the price reference. RDS Proxy and Database Insights Advanced are excluded because the project does not use them.
 
 ### 7. Risk Assessment
 
@@ -115,15 +115,14 @@ Cost Explorer recorded **USD 6.44** for 1–21 November 2026, fully covered by c
 
 | Risk | Impact | Likelihood | Severity |
 | --- | --- | --- | --- |
-| Unexpected costs | — | — | — |
-| Personal data exposure | — | — | — |
-| Incorrect/medical AI output | — | — | — |
-| Bedrock quota | — | — | — |
-| CloudFront-to-ALB HTTP | — | — | — |
+| Unexpected costs | Medium | Medium | Medium |
+| Personal data exposure | High | Low | Medium |
+| Incorrect/medical AI output | High | Medium | High |
+| Bedrock quota | Medium | High (occurred in Singapore) | Medium |
+| CloudFront-to-ALB HTTP | Medium | Low | Low |
+| Single Availability Zone failure | High | Low | Medium (reduced by Multi-AZ) |
 
-:::todo[Confirm risk matrix]
-The owner should confirm impact, likelihood, and severity for each risk. The source repository does not provide these ratings.
-:::
+Scoring: impact and likelihood use three levels (Low / Medium / High); severity combines both after the mitigations below. AI risk is rated High because wrong nutrition numbers or medical advice could affect user health, so it has several layers of control.
 
 #### Mitigation Strategies
 
