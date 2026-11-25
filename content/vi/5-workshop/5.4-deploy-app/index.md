@@ -5,9 +5,9 @@ weight: 4
 status: "ready"
 ---
 
-Triển khai backend ARM64, web React và thanh toán thử. Pipeline dùng role OIDC để lấy phiên AWS tạm thời.
+Triển khai backend ARM64, web React và thanh toán thử. Pipeline dùng token OIDC của GitHub, được AWS STS đổi lấy phiên AWS tạm thời của role deploy.
 
-:::figure{src="/images/architecture/5.4-deploy-app.png" alt="5.4-deploy-app" caption="Sơ đồ thành phần: CloudFront → S3 / ALB → 2 task ECS, ECR, GitHub Actions OIDC, VNPAY"}
+:::figure{src="/images/architecture/5.4-deploy-app.png" alt="5.4-deploy-app" caption="Sơ đồ thành phần: CloudFront → S3 / ALB → 2 task ECS, ECR, GitHub Actions OIDC qua AWS STS, VNPAY"}
 
 File draw.io để chỉnh sửa: [5.4-deploy-app.drawio](/files/5.4-deploy-app.drawio).
 

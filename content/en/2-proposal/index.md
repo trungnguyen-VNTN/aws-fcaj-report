@@ -31,7 +31,7 @@ Buyers query DB-sourced facts, filter products, and see data limitations. Store 
 
 ### 3. Solution Architecture
 
-:::figure{src="/images/architecture/system-overview.png" alt="AWS architecture reference" caption="AWS architecture drawn in draw.io with the AWS Architecture Icons, updated for Multi-AZ on 23 November 2026"}
+:::figure{src="/images/architecture/system-overview.png" alt="AWS architecture reference" caption="AWS architecture drawn in draw.io with the AWS Architecture Icons, updated for Multi-AZ and AWS STS on 25 November 2026"}
 
 Since 22 November 2026 (D33) the dev environment runs two ECS tasks, one per Availability Zone, and RDS runs Multi-AZ with a standby in the second AZ. A *Reboot with failover* drill on 22 November moved the primary from ap-southeast-1a to ap-southeast-1b in about 20–45 seconds; the API was interrupted for about half a minute and recovered on its own, with no data loss.
 
@@ -44,7 +44,7 @@ Since 22 November 2026 (D33) the dev environment runs two ECS tasks, one per Ava
 - **Bedrock + Guardrails** — Nova 2 Lite in Tokyo; read-only tool, numerical answers assembled from DB data.
 - **CloudWatch + SNS + Budgets** — 14-day logs, seven alarms, email alerts; USD 100 budget.
 - **CloudTrail + S3 audit + WAF** — Audit and ALB logs retained for 30 days; optional demo WAF; AWS-managed KMS encryption.
-- **Terraform + IAM + GitHub Actions** — S3 state with use_lockfile; SSO, boundary; CI/CD through OIDC.
+- **Terraform + IAM + STS + GitHub Actions** — S3 state with use_lockfile; SSO, boundary; CI/CD through OIDC, with AWS STS issuing temporary credentials (AssumeRoleWithWebIdentity) instead of stored access keys.
 
 The application runs in ap-southeast-1 with the nutrition-dev prefix and one dev environment. D15 places ECS in public subnets with public IPs to avoid NAT charges while RDS stays private. D17 keeps a single environment for the project. D18 moves Bedrock and Guardrail calls to ap-northeast-1 because this account has zero Singapore quota, using jp.amazon.nova-2-lite-v1:0. D24/D31 restrict the model to searchProducts with search, facts, compare, and plan intents; the backend assembles numbers. CloudFront currently reaches the ALB over HTTP because a custom domain is not configured.
 
@@ -54,7 +54,7 @@ The application runs in ap-southeast-1 with the nutrition-dev prefix and one dev
 - Spring Boot 4 / Java 21 backend packages include catalog for lookup, commerce for carts/orders, payments for IPN validation, ai for intent extraction, admin for administration APIs, and profile for targets and suggestions.
 - PostgreSQL uses parameterized SQL and Flyway V1–V11.
 - AI uses Nova 2 Lite with Guardrails; code validates filters and assembles DB-derived numbers.
-- GitHub Actions runs tests, builds ARM64 images, pushes ECR, and deploys through OIDC.
+- GitHub Actions runs tests, builds ARM64 images, obtains temporary credentials from AWS STS through OIDC, pushes to ECR, and deploys.
 
 ### 4. Technical Implementation
 

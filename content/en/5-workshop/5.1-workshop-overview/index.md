@@ -15,7 +15,7 @@ Nova 2 Lite translates requests into a read-only tool. Code assembles numbers fr
 
 #### Workshop overview
 
-:::figure{src="/images/architecture/system-overview.png" alt="AWS architecture reference" caption="AWS architecture drawn in draw.io with the AWS Architecture Icons, updated for Multi-AZ on 23 November 2026"}
+:::figure{src="/images/architecture/system-overview.png" alt="AWS architecture reference" caption="AWS architecture drawn in draw.io with the AWS Architecture Icons, updated for Multi-AZ and AWS STS on 25 November 2026"}
 
 Download the editable draw.io source: [aws-architecture.drawio](/files/aws-architecture.drawio).
 
@@ -30,7 +30,7 @@ Since 22 November 2026 (D33) the dev environment runs two ECS tasks, one per Ava
 | Bedrock + Guardrails | Nova 2 Lite in Tokyo; read-only tool, numerical answers assembled from DB data |
 | CloudWatch + SNS + Budgets | 14-day logs, seven alarms, email alerts; USD 100 budget |
 | CloudTrail + S3 audit + WAF | Audit and ALB logs retained for 30 days; optional demo WAF; AWS-managed KMS encryption |
-| Terraform + IAM + GitHub Actions | S3 state with use_lockfile; SSO, boundary; CI/CD through OIDC |
+| Terraform + IAM + STS + GitHub Actions | S3 state with use_lockfile; SSO, boundary; CI/CD through OIDC with AWS STS temporary credentials |
 
 Read the diagram and decisions D15/D17/D18. CloudFront serves React and forwards API calls. Cognito issues JWTs and the ALB routes requests to Spring Boot on ECS. Catalog, carts, and orders use RDS. D32 suggestions are computed by code while the model selects an intent.
 

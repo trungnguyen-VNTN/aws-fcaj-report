@@ -5,9 +5,9 @@ weight: 4
 status: "ready"
 ---
 
-Deploy the ARM64 backend, React frontend, and sandbox payments. The pipeline obtains temporary AWS sessions through OIDC.
+Deploy the ARM64 backend, React frontend, and sandbox payments. The pipeline exchanges its GitHub OIDC token with AWS STS for a temporary session of the deploy role.
 
-:::figure{src="/images/architecture/5.4-deploy-app.png" alt="5.4-deploy-app" caption="Component diagram: CloudFront → S3 / ALB → two ECS tasks, ECR, GitHub Actions OIDC, VNPAY"}
+:::figure{src="/images/architecture/5.4-deploy-app.png" alt="5.4-deploy-app" caption="Component diagram: CloudFront → S3 / ALB → two ECS tasks, ECR, GitHub Actions OIDC through AWS STS, VNPAY"}
 
 Editable draw.io source: [5.4-deploy-app.drawio](/files/5.4-deploy-app.drawio).
 

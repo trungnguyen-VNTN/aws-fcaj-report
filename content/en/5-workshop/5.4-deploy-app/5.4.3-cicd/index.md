@@ -9,7 +9,7 @@ Verify and deploy using short-lived OIDC credentials.
 
 1. **Review the source configuration**
 
-ci.yml runs Terraform fmt/validate, backend verify, and frontend checks. deploy.yml runs on master or workflow_dispatch, assumes an OIDC role, builds ARM64 images, and pushes SHA and latest tags to ECR. If ECS is off, it only publishes the image and the next up uses latest. Frontend deployment builds, syncs S3, and invalidates index.html. Set repository variables according to infra/README.md.
+ci.yml runs Terraform fmt/validate, backend verify, and frontend checks. deploy.yml runs on master or workflow_dispatch. The workflow requests an OIDC token from GitHub and calls AWS STS (`sts:AssumeRoleWithWebIdentity`) to exchange it for temporary credentials of the `nutrition-dev-github-deploy` role; the trust policy accepts only tokens from the master branch of the project repository, and the credentials expire after about one hour, so GitHub stores no access keys. The workflow then builds ARM64 images, and pushes SHA and latest tags to ECR. If ECS is off, it only publishes the image and the next up uses latest. Frontend deployment builds, syncs S3, and invalidates index.html. Set repository variables according to infra/README.md.
 
 [`infra/modules/github-oidc/main.tf`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/modules/github-oidc/main.tf)
 

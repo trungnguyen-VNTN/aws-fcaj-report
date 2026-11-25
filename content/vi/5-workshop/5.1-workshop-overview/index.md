@@ -15,7 +15,7 @@ Nova 2 Lite diễn giải yêu cầu thành tool chỉ đọc. Code ghép số l
 
 #### Workshop overview
 
-:::figure{src="/images/architecture/system-overview.png" alt="AWS architecture reference" caption="Sơ đồ kiến trúc AWS vẽ trên draw.io bằng bộ AWS Architecture Icons, cập nhật Multi-AZ ngày 23/11/2026"}
+:::figure{src="/images/architecture/system-overview.png" alt="AWS architecture reference" caption="Sơ đồ kiến trúc AWS vẽ trên draw.io bằng bộ AWS Architecture Icons, cập nhật Multi-AZ và AWS STS ngày 25/11/2026"}
 
 Tải file draw.io gốc để xem và chỉnh sửa: [aws-architecture.drawio](/files/aws-architecture.drawio).
 
@@ -30,7 +30,7 @@ Từ 22/11/2026 (D33), môi trường dev chạy 2 task ECS, mỗi Availability 
 | Bedrock + Guardrails | Nova 2 Lite ở Tokyo; tool chỉ đọc, số liệu do code lấy từ DB |
 | CloudWatch + SNS + Budgets | Log 14 ngày, 7 alarm, cảnh báo thư điện tử; ngân sách 100 USD |
 | CloudTrail + S3 audit + WAF | Audit và ALB logs lưu 30 ngày; WAF chỉ bật khi demo; KMS do AWS quản lý |
-| Terraform + IAM + GitHub Actions | State S3 use_lockfile; SSO, boundary; CI/CD qua OIDC |
+| Terraform + IAM + STS + GitHub Actions | State S3 use_lockfile; SSO, boundary; CI/CD qua OIDC, AWS STS cấp quyền tạm thời |
 
 Đọc sơ đồ và quyết định D15/D17/D18. React và API đi qua CloudFront. Cognito cấp JWT; ALB chuyển yêu cầu tới Spring Boot trên ECS. Catalog, giỏ và đơn dùng RDS. Bộ gợi ý D32 tính bằng code, model chỉ chọn intent.
 

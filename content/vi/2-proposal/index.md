@@ -31,7 +31,7 @@ Người mua tra cứu thông tin từ DB, lọc theo nhu cầu và xem giới h
 
 ### 3. Kiến trúc giải pháp
 
-:::figure{src="/images/architecture/system-overview.png" alt="AWS architecture reference" caption="Sơ đồ kiến trúc AWS vẽ trên draw.io bằng bộ AWS Architecture Icons, cập nhật Multi-AZ ngày 23/11/2026"}
+:::figure{src="/images/architecture/system-overview.png" alt="AWS architecture reference" caption="Sơ đồ kiến trúc AWS vẽ trên draw.io bằng bộ AWS Architecture Icons, cập nhật Multi-AZ và AWS STS ngày 25/11/2026"}
 
 Từ 22/11/2026 (D33), môi trường dev chạy 2 task ECS, mỗi Availability Zone một task, và RDS ở chế độ Multi-AZ với bản dự phòng (Standby) ở AZ thứ hai. Diễn tập *Reboot with failover* ngày 22/11 chuyển AZ chính từ ap-southeast-1a sang ap-southeast-1b trong khoảng 20–45 giây; API gián đoạn khoảng nửa phút rồi tự phục hồi, không mất dữ liệu.
 
@@ -44,7 +44,7 @@ Từ 22/11/2026 (D33), môi trường dev chạy 2 task ECS, mỗi Availability 
 - **Bedrock + Guardrails** — Nova 2 Lite ở Tokyo; tool chỉ đọc, số liệu do code lấy từ DB.
 - **CloudWatch + SNS + Budgets** — Log 14 ngày, 7 alarm, cảnh báo thư điện tử; ngân sách 100 USD.
 - **CloudTrail + S3 audit + WAF** — Audit và ALB logs lưu 30 ngày; WAF chỉ bật khi demo; KMS do AWS quản lý.
-- **Terraform + IAM + GitHub Actions** — State S3 use_lockfile; SSO, boundary; CI/CD qua OIDC.
+- **Terraform + IAM + STS + GitHub Actions** — State S3 use_lockfile; SSO, boundary; CI/CD qua OIDC, AWS STS cấp quyền tạm thời (AssumeRoleWithWebIdentity), không lưu access key.
 
 Ứng dụng ở ap-southeast-1, tiền tố nutrition-dev, chỉ một môi trường dev. D15 đặt ECS ở public subnet với IP công khai để tránh chi phí NAT, còn RDS giữ private. D17 chọn một môi trường để phù hợp đồ án. D18 chuyển lời gọi Bedrock và Guardrail sang ap-northeast-1 vì quota Singapore của tài khoản bằng 0; profile jp.amazon.nova-2-lite-v1:0. D24/D31 giới hạn model vào searchProducts với intent search, facts, compare, plan; số liệu do backend ghép. CloudFront → ALB hiện dùng HTTP vì chưa có domain riêng.
 
@@ -54,7 +54,7 @@ Từ 22/11/2026 (D33), môi trường dev chạy 2 task ECS, mỗi Availability 
 - Backend Spring Boot 4 / Java 21: catalog quản lý tra cứu; commerce xử lý giỏ/đơn; payments xác minh IPN; ai trích ý định; admin cung cấp API quản trị; profile tính mục tiêu và gợi ý.
 - Database PostgreSQL dùng SQL tham số hóa và Flyway V1–V11.
 - AI dùng Nova 2 Lite với Guardrails; code kiểm bộ lọc và ghép số liệu từ DB.
-- CI/CD GitHub Actions kiểm thử, build ARM64, đẩy ECR và deploy qua OIDC.
+- CI/CD GitHub Actions kiểm thử, build ARM64, lấy quyền tạm thời từ AWS STS qua OIDC, đẩy ECR và deploy.
 
 ### 4. Triển khai kỹ thuật
 
