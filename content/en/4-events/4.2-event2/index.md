@@ -54,8 +54,5 @@ AgentCore Runtime isolates agent sessions and scales them; AgentCore Memory keep
 
 ### Check-in photo
 
-:::figure{src="/images/events/event2-checkin.jpg" alt="event2-checkin" caption="First Cloud AI Journey Meetup – AWS Cloud, Cloud Security, and AI Agents – 24/10/2026"}
+:::figure{src="/images/events/event2-checkin.png" alt="event2-checkin" caption="First Cloud AI Journey Meetup – AWS Cloud, Cloud Security, and AI Agents – 24/10/2026"}
 
-:::todo[Photo required — check-in]
-Add a clear check-in photo from the event, saved as public/images/events/event2-checkin.jpg.
-:::

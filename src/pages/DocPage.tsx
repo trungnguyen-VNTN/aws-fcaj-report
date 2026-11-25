@@ -15,6 +15,7 @@ import { SelfEvalTable } from '../components/specialized/SelfEvalTable';
 import { BlogCard } from '../components/specialized/BlogCard';
 import { EventCard } from '../components/specialized/EventCard';
 import { ArchitectureFigure } from '../components/specialized/ArchitectureFigure';
+import { InternProfile } from '../components/specialized/InternProfile';
 import { Clock } from 'lucide-react';
 
 export const DocPage: React.FC = () => {
@@ -98,6 +99,8 @@ export const DocPage: React.FC = () => {
             </p>
           )}
         </header>
+
+        {cleanPath === '0-information' && <InternProfile />}
 
         {/* Document Content Rendering */}
         {doc?.content.trim() ? (

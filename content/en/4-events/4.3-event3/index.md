@@ -54,8 +54,5 @@ Supervisor/Routing sends a question to the right agent; Sequential chains steps 
 
 ### Check-in photo
 
-:::figure{src="/images/events/event3-checkin.jpg" alt="event3-checkin" caption="Enterprise AI on AWS Cloud – From Prototype to Production – 14/11/2026"}
+:::figure{src="/images/events/event3-checkin.png" alt="event3-checkin" caption="Enterprise AI on AWS Cloud – From Prototype to Production – 14/11/2026"}
 
-:::todo[Photo required — check-in]
-Add a clear check-in photo from the event, saved as public/images/events/event3-checkin.jpg.
-:::

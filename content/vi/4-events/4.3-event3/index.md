@@ -54,8 +54,5 @@ Supervisor/Routing chuyển câu hỏi tới agent phù hợp; Sequential nối 
 
 ### Ảnh check-in
 
-:::figure{src="/images/events/event3-checkin.jpg" alt="event3-checkin" caption="Enterprise AI on AWS Cloud – Từ prototype đến production – 14/11/2026"}
+:::figure{src="/images/events/event3-checkin.png" alt="event3-checkin" caption="Enterprise AI on AWS Cloud – Từ prototype đến production – 14/11/2026"}
 
-:::todo[Cần chụp ảnh — check-in]
-Bổ sung ảnh check-in rõ mặt tại sự kiện, lưu tên public/images/events/event3-checkin.jpg.
-:::

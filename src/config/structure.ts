@@ -21,6 +21,21 @@ export interface NavItem {
 
 export const reportManifest: NavItem[] = [
   {
+    "id": "0-information",
+    "path": "0-information",
+    "pre": "0.",
+    "title": {
+      "vi": "Thông tin thực tập sinh",
+      "en": "Intern Information"
+    },
+    "description": {
+      "vi": "Thông tin cá nhân, đơn vị và thời gian thực tập.",
+      "en": "Personal details, host organisation and internship period."
+    },
+    "iconName": "UserRound",
+    "templateType": "default"
+  },
+  {
     "id": "1-worklog",
     "path": "1-worklog",
     "pre": "1.",
@@ -809,6 +824,17 @@ export const reportManifest: NavItem[] = [
           "en": "Clean up"
         },
         "iconName": "Boxes",
+        "templateType": "workshop-step"
+      },
+      {
+        "id": "5.8-testing-troubleshooting",
+        "path": "5-workshop/5.8-testing-troubleshooting",
+        "pre": "5.8.",
+        "title": {
+          "vi": "Kiểm thử và xử lý sự cố",
+          "en": "Testing and troubleshooting"
+        },
+        "iconName": "Wrench",
         "templateType": "workshop-step"
       }
     ]

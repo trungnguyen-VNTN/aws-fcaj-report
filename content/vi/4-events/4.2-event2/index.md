@@ -54,8 +54,5 @@ AgentCore Runtime cô lập phiên chạy của agent và tự co giãn; AgentCo
 
 ### Ảnh check-in
 
-:::figure{src="/images/events/event2-checkin.jpg" alt="event2-checkin" caption="First Cloud AI Journey Meetup – AWS Cloud, Cloud Security và AI Agents – 24/10/2026"}
+:::figure{src="/images/events/event2-checkin.png" alt="event2-checkin" caption="First Cloud AI Journey Meetup – AWS Cloud, Cloud Security và AI Agents – 24/10/2026"}
 
-:::todo[Cần chụp ảnh — check-in]
-Bổ sung ảnh check-in rõ mặt tại sự kiện, lưu tên public/images/events/event2-checkin.jpg.
-:::

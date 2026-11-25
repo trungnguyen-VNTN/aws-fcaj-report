@@ -54,8 +54,5 @@ Amazon Q Developer quét mã Java cũ, đề xuất nâng cấp lên Java 17/21,
 
 ### Ảnh check-in
 
-:::figure{src="/images/events/event1-checkin.jpg" alt="event1-checkin" caption="First Cloud AI Journey – Hiện đại hóa ứng dụng và cơ sở dữ liệu với GenAI – 29/09/2026"}
+:::figure{src="/images/events/event1-checkin.png" alt="event1-checkin" caption="First Cloud AI Journey – Hiện đại hóa ứng dụng và cơ sở dữ liệu với GenAI – 29/09/2026"}
 
-:::todo[Cần chụp ảnh — check-in]
-Bổ sung ảnh check-in rõ mặt tại sự kiện, lưu tên public/images/events/event1-checkin.jpg.
-:::

@@ -54,8 +54,5 @@ Amazon Q Developer scans legacy Java, proposes upgrades to Java 17/21, helps con
 
 ### Check-in photo
 
-:::figure{src="/images/events/event1-checkin.jpg" alt="event1-checkin" caption="First Cloud AI Journey – Application and Database Modernization with GenAI – 29/09/2026"}
+:::figure{src="/images/events/event1-checkin.png" alt="event1-checkin" caption="First Cloud AI Journey – Application and Database Modernization with GenAI – 29/09/2026"}
 
-:::todo[Photo required — check-in]
-Add a clear check-in photo from the event, saved as public/images/events/event1-checkin.jpg.
-:::
