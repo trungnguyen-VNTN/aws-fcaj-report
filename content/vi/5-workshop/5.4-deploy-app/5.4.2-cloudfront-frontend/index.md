@@ -33,6 +33,6 @@ Mở route sâu của SPA và tải lại; kiểm tra API trả JSON và ảnh t
 
 #### Lỗi đã ghi nhận
 
-Chưa có lỗi cụ thể được ghi nhận cho bước này trong các nguồn đã đối chiếu. Khi phát sinh, ghi thời điểm, thông báo đã che định danh và cách xử lý được xác nhận.
+Favicon không hiện trên trang thật vì CloudFront trả 403: bước build tắt thư mục `public` nên file icon không được tải lên S3. Đã sửa cấu hình Vite và thêm bước kiểm tra icon trong bản build production. Các sự cố khác xem [5.8 Kiểm thử và xử lý sự cố](/5-workshop/5.8-testing-troubleshooting).
 
 Nguồn: [`infra/README.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/README.md), [`docs/runbook.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/runbook.md), [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md), [`infra/modules/frontend/main.tf`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/modules/frontend/main.tf).

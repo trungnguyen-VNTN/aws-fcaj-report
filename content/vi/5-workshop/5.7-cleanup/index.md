@@ -35,6 +35,6 @@ Full teardown theo runbook: tạo snapshot và chờ Available; người dùng c
 
 #### Lỗi đã ghi nhận
 
-Chưa có lỗi cụ thể được ghi nhận cho bước này trong các nguồn đã đối chiếu. Khi phát sinh, ghi thời điểm, thông báo đã che định danh và cách xử lý được xác nhận.
+Đóng cửa sổ khi `down`/`apply` đang chạy để lại khóa state (`Error acquiring the state lock`). Cách xử lý: kiểm tra không còn tiến trình Terraform nào chạy và state không đổi, rồi chạy `terraform force-unlock <LOCK_ID>`. Các sự cố khác xem [5.8 Kiểm thử và xử lý sự cố](/5-workshop/5.8-testing-troubleshooting).
 
 Nguồn: [`infra/README.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/README.md), [`docs/runbook.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/runbook.md), [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md), [`scripts/demo-infra.ps1`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/scripts/demo-infra.ps1).

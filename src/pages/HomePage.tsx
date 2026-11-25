@@ -155,11 +155,14 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-100 dark:border-aws-borderDark flex items-center justify-between text-xs text-slate-500">
-              <span className="flex items-center gap-1 text-slate-400">
-                <ShieldCheck className="w-4 h-4 text-emerald-500" />
-                <span>Chỉnh sửa thông tin tại: <code className="font-mono text-aws-smile">src/config/site.config.ts</code></span>
-              </span>
+            <div className="mt-6 pt-4 border-t border-slate-100 dark:border-aws-borderDark text-xs">
+              <Link
+                to={`/${language}/0-information`}
+                className="inline-flex items-center gap-1 font-semibold text-amber-700 dark:text-aws-smile hover:underline"
+              >
+                <ShieldCheck className="w-4 h-4 text-emerald-500" aria-hidden />
+                {language === 'vi' ? 'Xem đầy đủ thông tin thực tập sinh' : 'View full intern information'}
+              </Link>
             </div>
           </Card>
         </div>

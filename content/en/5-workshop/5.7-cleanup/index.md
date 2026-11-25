@@ -35,6 +35,6 @@ For full teardown, the runbook requires an Available snapshot, deliberate owner 
 
 #### Recorded troubleshooting
 
-No specific failure for this step was found in the reviewed sources. Record the date, redacted error, and verified resolution if an issue occurs.
+Closing the window while `down`/`apply` was running left a state lock (`Error acquiring the state lock`). Fix: confirm no Terraform process is running and the state is unchanged, then run `terraform force-unlock <LOCK_ID>`. Other incidents are listed in [5.8 Testing and troubleshooting](/5-workshop/5.8-testing-troubleshooting).
 
 Sources: [`infra/README.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/README.md), [`docs/runbook.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/runbook.md), [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md), [`scripts/demo-infra.ps1`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/scripts/demo-infra.ps1).

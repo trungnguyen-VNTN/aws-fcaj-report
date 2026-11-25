@@ -33,6 +33,6 @@ Reload a deep SPA route, check that the API returns JSON, verify /images/* deliv
 
 #### Recorded troubleshooting
 
-No specific failure for this step was found in the reviewed sources. Record the date, redacted error, and verified resolution if an issue occurs.
+The favicon was missing on the live site because CloudFront returned 403: the build disabled the `public` folder, so the icon never reached S3. The Vite config was fixed and the production build now checks for the icons. Other incidents are listed in [5.8 Testing and troubleshooting](/5-workshop/5.8-testing-troubleshooting).
 
 Sources: [`infra/README.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/README.md), [`docs/runbook.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/runbook.md), [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md), [`infra/modules/frontend/main.tf`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/modules/frontend/main.tf).

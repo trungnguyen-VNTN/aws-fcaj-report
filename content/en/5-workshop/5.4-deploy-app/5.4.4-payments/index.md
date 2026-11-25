@@ -41,6 +41,6 @@ PROGRESS records 86 backend, 145 frontend, and 57 E2E plus axe tests on 21 Novem
 
 #### Recorded troubleshooting
 
-No specific failure for this step was found in the reviewed sources. Record the date, redacted error, and verified resolution if an issue occurs.
+After a test payment with the NCB card, the order stayed "waiting for VNPAY confirmation": ALB logs showed VNPAY returning code 00 to the Return URL but never calling the IPN. The sandbox account had no IPN URL registered; after registering `https://<cloudfront>/api/payments/vnpay/ipn` with VNPAY, order #10 became paid and the payment log recorded the IPN. Other incidents are listed in [5.8 Testing and troubleshooting](/5-workshop/5.8-testing-troubleshooting).
 
 Sources: [`infra/README.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/README.md), [`docs/runbook.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/runbook.md), [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md), [`backend/src/main/java/com/nutrition/payments/VnpaySigner.java`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/backend/src/main/java/com/nutrition/payments/VnpaySigner.java).

@@ -46,6 +46,6 @@ Use the 1–21 November 2026 Cost Explorer interval and distinguish credits from
 
 #### Recorded troubleshooting
 
-No specific failure for this step was found in the reviewed sources. Record the date, redacted error, and verified resolution if an issue occurs.
+No issue specific to this step was recorded. Real incidents across the project (Terraform state lock, expired SSO, favicon 403, sign-out on reload, stopped RDS, Bedrock quota) and their fixes are collected in [5.8 Testing and troubleshooting](/5-workshop/5.8-testing-troubleshooting).
 
 Sources: [`infra/README.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/README.md), [`docs/runbook.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/runbook.md), [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md), [`scripts/demo-infra.ps1`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/scripts/demo-infra.ps1).
