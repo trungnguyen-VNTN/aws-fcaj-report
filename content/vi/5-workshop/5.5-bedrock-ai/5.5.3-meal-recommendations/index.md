@@ -2,7 +2,7 @@
 title: "Gợi ý bữa ăn (Bonus)"
 pre: "5.5.3."
 weight: 3
-status: "draft"
+status: "ready"
 ---
 
 Kiểm tra hồ sơ và gợi ý bữa tính từ dữ liệu DB.
@@ -28,10 +28,17 @@ public class RecommendationService {
 
 Tạo hồ sơ với dữ liệu thử và sự đồng ý. Kiểm tra sửa/xóa, các trường hợp không đủ điều kiện và gợi ý gồm món protein, rau/trái cây, tinh bột. Chỉ dùng sản phẩm còn hàng, đủ dữ liệu; allergen được loại theo fail-closed. Số gram làm tròn 10 và số liệu tính lại từ DB. Intent plan gọi cùng bộ gợi ý; model chỉ chọn bữa và allergen, không nhận dữ liệu cơ thể. PROGRESS ngày 21/11/2026 ghi test tự động đã qua, nhưng thử web đã đăng nhập còn mở.
 
-:::todo[Kết quả thực tế — hồ sơ]
-Bổ sung biên bản thử web /profile, /suggestions và câu hỏi AI gợi ý bữa sau khi đăng nhập.
-:::
+**Biên bản thử trên web (25/11/2026, tài khoản khách, môi trường dev trên AWS):**
+
+| Bước | Thao tác | Kết quả |
+| --- | --- | --- |
+| 1 | `/profile`: nhập năm sinh, giới tính, chiều cao, cân nặng, mức vận động, mục tiêu Tăng cơ; tích đồng ý rồi lưu | Mục tiêu **2.700 kcal/ngày**: protein 96 g, carbohydrate 377 g, chất béo 90 g. Năng lượng nghỉ 1.590 kcal, BMI 20. Trang hiện nhắc "không phải lời khuyên y tế" |
+| 2 | `/suggestions` → Bữa trưa | Mục tiêu bữa 1.013 kcal · 36 g protein. Gợi ý: cá ngừ ngâm nước (hộp) 130 g – 111,8 kcal, 25,2 g protein; cải xoăn kale 150 g – 52,5 kcal, 4,4 g protein; đậu gà 200 g – 756 kcal, 41 g protein. Tổng **920,3 kcal (91% mục tiêu)**, protein 70,6 g (196%) |
+| 3 | Hỏi trợ lý AI: "Gợi ý bữa trưa cho tôi" | AI trả về **đúng ba món, đúng số gram và số liệu** như trang Gợi ý, tổng 920,3 kcal (91%), kèm dòng "Số liệu tính từ dữ liệu cửa hàng và hồ sơ của bạn. Thông tin tham khảo, không phải tư vấn y tế" |
+| 4 | Trường hợp không đủ điều kiện (mang thai/cho con bú, bệnh cần giám sát, tuổi hoặc BMI ngoài ngưỡng) | Kiểm bằng test tự động `NutritionTargetsTest`: hệ thống trả về lý do không đủ điều kiện và không tính mục tiêu cá nhân. Trên form, ô "Có bệnh cần chế độ ăn có giám sát" ghi rõ hệ thống sẽ khuyên gặp chuyên gia |
+
+Kết quả bước 3 chứng minh model không tự tính số: intent `plan` gọi cùng bộ gợi ý với trang web, mọi con số do backend lấy từ PostgreSQL và hồ sơ của người dùng.
 
 #### Lỗi đã ghi nhận
 
-Chưa có biên bản lỗi thực tế của phần hồ sơ để tổng kết.
+Không phát sinh lỗi trong lần thử. Ghi nhận một điểm cần cải thiện: bộ gợi ý ưu tiên đủ năng lượng nên protein có thể vượt khá xa mục tiêu bữa (196% trong lần thử) khi món tinh bột giàu đạm như đậu gà được chọn; có thể giới hạn thêm theo protein ở phiên bản sau.
