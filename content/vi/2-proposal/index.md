@@ -90,25 +90,24 @@ Terraform dựng hạ tầng; Maven wrapper và Flyway quản lý backend/schema
 
 ### Chi phí hạ tầng
 
-Ước tính USD/tháng theo giả định Singapore, cập nhật ngày 23/11/2026 cho cấu hình Multi-AZ và 2 task (D33), chưa thuế, sai lệch có thể ±10%. Production là phương án tương lai chưa triển khai. Bedrock thực tế gọi tại Tokyo.
+Ước tính USD/tháng, đối chiếu AWS Pricing Calculator ngày 25/11/2026 cho cấu hình Multi-AZ và 2 task (D33), chưa thuế, sai lệch có thể ±10%. Production là phương án tương lai chưa triển khai. Bedrock thực tế gọi tại Tokyo.
 
-| Dịch vụ / Cấu hình | Demo (~4h/day) | 24/7 | Production đề xuất |
+| Dịch vụ / Cấu hình | Demo (~4h/ngày) | 24/7 (Pricing Calculator) | Production đề xuất |
 | --- | --- | --- | --- |
-| RDS t4g.micro, 20 GB gp3, Multi-AZ | ~12 | ~44 | ~70 (Multi-AZ, t4g.small) |
-| ALB, 2 AZ | ~3 | ~20 | ~22 |
-| ECS ARM64, 0.5 vCPU / 1 GB, 2 tasks | ~5 | ~30 | ~30–60 (2–4 tasks, auto scaling) |
-| Public IPv4, 4 addresses | ~2.5 | ~15 | ~15 |
-| Secrets Manager, 2 secrets | 0.8 | 0.8 | 0.8 |
-| Bedrock Nova 2 Lite | <1 | <1 | Theo lượng dùng |
-| CloudFront, Cognito, CloudTrail, S3, ECR, CloudWatch | ~0–1 | ~1–3 | ~5 |
-| WAF (tùy chọn) | 0 | ~8–10 | ~10 |
-| **Tổng dự kiến** | **~20–26** | **~105–115** | **~150–200** |
+| RDS PostgreSQL db.t4g.micro, Multi-AZ, 20 GB gp3 | ~11,6 | 42,75 | ~70 (Multi-AZ, db.t4g.small) |
+| ECS Fargate ARM64, 0,5 vCPU / 1 GB, 2 task | ~5,9 | 35,98 | ~36–72 (2–4 task, auto scaling) |
+| Application Load Balancer | ~3,1 | 18,63 | ~22 |
+| Public IPv4, 4 địa chỉ | ~2,4 | 14,60 | ~15 |
+| Secrets Manager, 2 secret | 0,85 | 0,85 | 0,85 |
+| Bedrock (Nova Lite làm giá tham chiếu, Tokyo) | <0,7 | 0,70 | Theo lượng dùng |
+| CloudFront 1,02 · CloudWatch 1,70 · ECR 0,10 · S3 0,07 · Cognito 0 · CloudTrail 0 | ~2,9 | 2,89 | ~5 |
+| **Tổng (không WAF)** | **~27** | **116,40** | **~150–190** |
+| WAF (tùy chọn, nhóm Optional) | 0 | 9,60 | ~10 |
+| **Tổng có WAF** | — | **126,00** | **~160–200** |
 
 Cost Explorer ghi nhận **6,44 USD** cho 01–21/11/2026, được credit bù toàn bộ. RDS 2,77; ALB 1,29; ECS 1,21; IPv4 0,74; Bedrock 0,21; Secrets Manager 0,20 USD. Các khoản liệt kê là những khoản lớn, không phải phép cộng chi tiết toàn bộ hóa đơn. App chỉ bật khi demo nên không dùng số thực tế này để suy ra mức chạy 24/7. Số thực tế này ghi nhận trước khi bật Multi-AZ.
 
-:::todo[AWS Pricing Calculator]
-Đối chiếu từng cấu hình và vùng dịch vụ trên AWS Pricing Calculator, thêm liên kết estimate có ngày chốt giá. Nếu chuyển ECS sang private subnet, tính thêm NAT khoảng 45 USD/tháng theo giả định brief.
-:::
+**Bảng giá AWS Pricing Calculator:** [estimate ngày 25/11/2026](https://calculator.aws/#/estimate?id=07b14b65d16d429fced78430d48dd852ff134efe). Cột 24/7 lấy đúng số của Calculator (Singapore, riêng Bedrock ở Tokyo). Cột Demo quy đổi từ đó cho khoảng 120 giờ chạy mỗi tháng: các khoản tính theo giờ (RDS instance, Fargate, ALB, IPv4) nhân 120/730, còn ổ đĩa RDS (5,52 USD) và các khoản theo lượng dùng giữ nguyên. Giả định tải: 50 người dùng/tháng, 5 GB CloudFront, khoảng 3.600 câu hỏi AI/tháng (1 câu/phút trong 2 giờ/ngày, 1.500 token vào, 300 token ra). Calculator chưa có Amazon Nova 2 Lite nên dùng Amazon Nova Lite làm giá tham chiếu. Estimate không tính RDS Proxy và Database Insights Advanced vì dự án không dùng.
 
 ### 7. Đánh giá rủi ro
 
