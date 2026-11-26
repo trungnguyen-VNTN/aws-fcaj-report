@@ -5,7 +5,7 @@ weight: 1
 status: "ready"
 ---
 
-Nhật ký gồm 12 tuần, từ 14/09 đến 04/12/2026. Mỗi tuần ghi mục tiêu, công việc theo ngày và kết quả. Tuần 1–6 học các dịch vụ AWS cốt lõi; tuần 7–11 xây dựng và vận hành dự án trên AWS; tuần 12 tổng kết, nộp báo cáo và bảo vệ.
+Nhật ký gồm 12 tuần, từ 14/09 đến 04/12/2026. Mỗi tuần ghi mục tiêu, công việc theo ngày và kết quả. Tuần 1–6 học các dịch vụ AWS cốt lõi; tuần 7–11 xây dựng và vận hành dự án trên AWS; tuần 12 sẽ được cập nhật sau.
 
 - [Tuần 1: Nền tảng AWS và AWS CLI](/1-worklog/1.1-week1)
 - [Tuần 2: IAM và kiểm soát truy cập](/1-worklog/1.2-week2)
@@ -18,4 +18,4 @@ Nhật ký gồm 12 tuần, từ 14/09 đến 04/12/2026. Mỗi tuần ghi mục
 - [Tuần 9: Dữ liệu và triển khai AWS](/1-worklog/1.9-week9)
 - [Tuần 10: Hoàn thiện tính năng và xác minh](/1-worklog/1.10-week10)
 - [Tuần 11: Chịu lỗi Multi-AZ, chi phí và Budgets](/1-worklog/1.11-week11)
-- [Tuần 12: Tổng kết, nộp báo cáo và bảo vệ](/1-worklog/1.12-week12)
+- [Tuần 12](/1-worklog/1.12-week12)
