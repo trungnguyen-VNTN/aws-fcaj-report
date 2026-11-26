@@ -82,9 +82,9 @@ export const siteConfig: FullSiteConfig = {
     defaultLanguage: "vi",
   },
   links: {
-    awsStudyGroupBlog: "https://awsstudygroup.com",
+    awsStudyGroupBlog: "https://cloudjourney.awsfcaj.com/",
     awsStudyGroupFacebook: "https://www.facebook.com/groups/awsstudygroupfcj",
-    awsCloudJourney: "https://cloudjourney.awsstudygroup.com",
+    awsCloudJourney: "https://cloudjourney.awsfcaj.com/",
     awsDocumentation: "https://docs.aws.amazon.com",
     fcajProgram: "https://awsfcaj.com",
   },

@@ -145,7 +145,7 @@ When Bedrock is unavailable, retain catalog/shopping flows and return a controll
 - Terraform and demo-session operations instructions.
 - A grouped workshop and bilingual report.
 
-Sources: [`CLAUDE.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/CLAUDE.md), [`docs/architecture.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/architecture.md), [`docs/decisions.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/decisions.md), [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md), [`docs/api-contract.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/api-contract.md), [`docs/db-schema.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/db-schema.md).
+Sources: [`README.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/README.md), [`docs/architecture.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/architecture.md), [`docs/decisions.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/decisions.md), [`docs/api-contract.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/api-contract.md), [`docs/db-schema.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/db-schema.md).
 
 #### Long-term Value
 

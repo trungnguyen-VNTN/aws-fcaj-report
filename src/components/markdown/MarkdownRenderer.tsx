@@ -125,6 +125,21 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
               );
             }
 
+            // Static files under public/ (diagrams, images, attachments): plain download link,
+            // not a client-side route, otherwise the router shows the empty "pending content" page.
+            if (/^\/(files|images)\//.test(href) || /\.(drawio|xml|png|jpe?g|svg|pdf|zip)$/i.test(href)) {
+              return (
+                <a
+                  href={href}
+                  download
+                  className="text-aws-anchor dark:text-aws-teal hover:underline font-medium"
+                  {...props}
+                >
+                  {children}
+                </a>
+              );
+            }
+
             // Relative document links
             const cleanHref = href.replace(/^\.?\//, '').replace(/\.(md|html)$/, '');
             const targetRoute = `/${language}/${cleanHref}`;

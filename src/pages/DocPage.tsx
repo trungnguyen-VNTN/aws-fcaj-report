@@ -157,19 +157,19 @@ export const DocPage: React.FC = () => {
                   title="Deep Dive: Xây dựng Hệ thống Serverless Event-Driven trên AWS"
                   date="2025-09-15"
                   summary="Tìm hiểu cách phân rã microservices và tối ưu độ trễ với Amazon EventBridge và AWS Lambda."
-                  externalUrl="https://awsstudygroup.com"
+                  externalUrl="https://cloudjourney.awsfcaj.com/"
                 />
                 <BlogCard
                   title="Ứng dụng Amazon Bedrock Guardrails bảo vệ ứng dụng GenAI thực tế"
                   date="2025-09-28"
                   summary="Triển khai chính sách chặn rò rỉ dữ liệu PII và kiểm soát an toàn câu trả lời của mô hình ngôn ngữ lớn."
-                  externalUrl="https://awsstudygroup.com"
+                  externalUrl="https://cloudjourney.awsfcaj.com/"
                 />
                 <BlogCard
                   title="Tối ưu chi phí và hiệu năng kiến trúc Cloud Well-Architected"
                   date="2025-10-10"
                   summary="Kinh nghiệm thực tiễn áp dụng AWS Well-Architected Framework trong đề tài thực tập FCAJ."
-                  externalUrl="https://awsstudygroup.com"
+                  externalUrl="https://cloudjourney.awsfcaj.com/"
                 />
               </div>
             )}

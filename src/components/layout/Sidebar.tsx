@@ -232,12 +232,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onOpenSearch 
             {t.common.links}
           </div>
           <a
-            href={siteConfig.links.awsStudyGroupBlog}
+            href={siteConfig.links.awsCloudJourney}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-between px-2 py-1 text-slate-600 dark:text-slate-400 hover:text-aws-smile transition-colors rounded"
           >
-            <span className="truncate">AWS Study Group Blog</span>
+            <span className="truncate">The First Cloud Journey</span>
             <ExternalLink className="w-3 h-3 shrink-0 opacity-60" />
           </a>
           <a

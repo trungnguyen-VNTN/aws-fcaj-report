@@ -22,7 +22,7 @@ Trong thời gian thực tập **09/2026–12/2026 (12 tuần)**, dự án Nền
 | 11 | Đóng góp cho dự án/nhóm | Dự án có mã Terraform, ứng dụng, kiểm thử và tài liệu làm đầu ra để đối chiếu. Em cần gắn phần việc cá nhân với minh chứng cụ thể khi tổng kết đóng góp. | ✅ |  |  |
 | 12 | Tổng thể | Em nhìn nhận quá trình này là một chặng học tập có tiến bộ. Điều em muốn thể hiện là sự kiên trì tìm hiểu, khả năng sửa cách làm khi có dữ kiện mới và ý thức tiếp tục hoàn thiện. |  | ✅ |  |
 
-Dữ kiện đối chiếu ngày **21/11/2026** trong `docs/PROGRESS.md`: 86 test backend, 145 test frontend, 57 test E2E + axe; bộ đánh giá AI 45 câu đạt an toàn 17/17 và tra cứu 27/28. Các số liệu này mô tả kết quả dự án và hỗ trợ việc đối chiếu minh chứng cá nhân.
+Kết quả dự án ghi nhận ngày **21/11/2026**: 86 test backend, 145 test frontend, 57 test E2E + axe; bộ đánh giá AI 45 câu đạt an toàn 17/17 và tra cứu 27/28. Các số liệu này mô tả kết quả dự án và hỗ trợ việc đối chiếu minh chứng cá nhân.
 
 ### Cần cải thiện
 

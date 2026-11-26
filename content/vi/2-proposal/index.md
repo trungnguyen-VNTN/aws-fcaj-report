@@ -145,7 +145,7 @@ Khi Bedrock không gọi được, duy trì catalog và luồng mua hàng, trả
 - Terraform và hướng dẫn vận hành theo buổi demo.
 - Bộ workshop 7 mục lớn cùng các bước con và báo cáo song ngữ.
 
-Nguồn đối chiếu: [`CLAUDE.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/CLAUDE.md), [`docs/architecture.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/architecture.md), [`docs/decisions.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/decisions.md), [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md), [`docs/api-contract.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/api-contract.md), [`docs/db-schema.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/db-schema.md).
+Nguồn đối chiếu: [`README.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/README.md), [`docs/architecture.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/architecture.md), [`docs/decisions.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/decisions.md), [`docs/api-contract.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/api-contract.md), [`docs/db-schema.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/db-schema.md).
 
 #### Giá trị dài hạn
 

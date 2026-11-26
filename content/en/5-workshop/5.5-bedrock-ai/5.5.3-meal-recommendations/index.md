@@ -26,7 +26,7 @@ public class RecommendationService {
 
 2. **Verify the result**
 
-Use synthetic profile data and consent. Check edit/deletion, ineligible cases, and suggestions combining protein, vegetables/fruit, and starch. Products must be in stock with complete data and fail-closed allergen filtering. Gram amounts are rounded to 10 and numbers recalculated from DB data. The plan intent invokes the same recommendation service; the model selects a meal and allergens without receiving body measurements. PROGRESS on 21 November 2026 records passing automated tests but leaves signed-in live testing open.
+Use synthetic profile data and consent. Check edit/deletion, ineligible cases, and suggestions combining protein, vegetables/fruit, and starch. Products must be in stock with complete data and fail-closed allergen filtering. Gram amounts are rounded to 10 and numbers recalculated from DB data. The plan intent invokes the same recommendation service; the model selects a meal and allergens without receiving body measurements. Automated tests passed on 21 November 2026; the signed-in live test record is below.
 
 **Live test record (25 November 2026, customer account, dev environment on AWS):**
 

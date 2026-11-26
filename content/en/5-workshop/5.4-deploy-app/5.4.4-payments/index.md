@@ -35,7 +35,7 @@ Enable the app using demo-infra.ps1 up -Vnpay as documented in the runbook. VNPA
 
 2. **Verify the result**
 
-PROGRESS records 86 backend, 145 frontend, and 57 E2E plus axe tests on 21 November 2026. CLAUDE.md documents backend ./mvnw verify and frontend npm test -- --maxWorkers=1 plus npm run test:e2e. A signed-in live test record for profiles, suggestions, and VNPAY is still needed because PROGRESS leaves this open.
+Automated tests on 21 November 2026: 86 backend, 145 frontend, and 57 E2E plus axe. The repository README lists the commands: backend `./mvnw verify`; frontend `npm test -- --maxWorkers=1` and `npm run test:e2e`. Signed-in live tests (profiles, meal suggestions, VNPAY sandbox payment) were performed on 25 November 2026; see 5.4.4 and 5.5.3.
 
 :::figure{src="/images/workshop/step13-result.png" alt="Payments and testing" caption="Admin payment log: the VNPAY sandbox IPN for order #10 recorded as paid"}
 
@@ -43,4 +43,4 @@ PROGRESS records 86 backend, 145 frontend, and 57 E2E plus axe tests on 21 Novem
 
 After a test payment with the NCB card, the order stayed "waiting for VNPAY confirmation": ALB logs showed VNPAY returning code 00 to the Return URL but never calling the IPN. The sandbox account had no IPN URL registered; after registering `https://<cloudfront>/api/payments/vnpay/ipn` with VNPAY, order #10 became paid and the payment log recorded the IPN. Other incidents are listed in [5.8 Testing and troubleshooting](/5-workshop/5.8-testing-troubleshooting).
 
-Sources: [`infra/README.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/README.md), [`docs/runbook.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/runbook.md), [`docs/PROGRESS.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/PROGRESS.md), [`backend/src/main/java/com/nutrition/payments/VnpaySigner.java`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/backend/src/main/java/com/nutrition/payments/VnpaySigner.java).
+Sources: [`infra/README.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/infra/README.md), [`docs/runbook.md`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/docs/runbook.md), [`backend/src/main/java/com/nutrition/payments/VnpaySigner.java`](https://github.com/trungnguyen-VNTN/nutrition-ecommerce/blob/master/backend/src/main/java/com/nutrition/payments/VnpaySigner.java).

@@ -22,7 +22,7 @@ During the **September–December 2026 internship (12 weeks)**, the AWS Personal
 | 11 | Contribution to project/team | Terraform, the application, tests, and documentation provide project outputs to review. I need to connect my individual contributions to specific evidence when summarizing my work. | ✅ |  |  |
 | 12 | Overall | I view this as a period of progressive learning. I want to demonstrate persistence, a willingness to revise my approach when evidence changes, and commitment to continued improvement. |  | ✅ |  |
 
-Recorded project results on **21 November 2026** in `docs/PROGRESS.md` include 86 backend tests, 145 frontend tests, 57 E2E plus axe tests, and a 45-prompt AI evaluation with safety 17/17 and retrieval 27/28. These figures describe project outcomes and provide context for checking individual evidence.
+Project results recorded on **21 November 2026** include 86 backend tests, 145 frontend tests, 57 E2E plus axe tests, and a 45-prompt AI evaluation with safety 17/17 and retrieval 27/28. These figures describe project outcomes and provide context for checking individual evidence.
 
 ### Needs Improvement
 
