@@ -10,7 +10,7 @@ status: "ready"
 ### Thông tin sự kiện
 
 - **Tên sự kiện:** AWS First Cloud AI Journey Community Day
-- **Thời gian:** Buổi sáng, 31/10/2026
+- **Thời gian:** 09:00 – 12:00, 31/10/2026
 - **Địa điểm:** Tầng 26, Bitexco Financial Tower, TP. Hồ Chí Minh
 - **Vai trò:** Người tham dự
 - **Diễn giả:** Thinh Nguyen, Henry Duc Bui, Hung Tran, Dao Luong, Khang Duong, Tuan Tran (STYL Solutions, CloudThinker, NAB, FCAJ, AWS Student Builder Group SGU)

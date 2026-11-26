@@ -17,7 +17,7 @@ status: "ready"
 ### Event 2
 
 - **Event:** AWS First Cloud AI Journey Community Day
-- **Time:** Morning, 31/10/2026
+- **Time:** 09:00 – 12:00, 31/10/2026
 - **Venue:** Floor 26, Bitexco Financial Tower, Ho Chi Minh City
 - **Role:** Attendee
 
