@@ -5,54 +5,53 @@ weight: 1
 status: "ready"
 ---
 
-# Event report: First Cloud AI Journey – Application and Database Modernization with GenAI
+# Event report: First Cloud AI Journey Meetup – AWS Cloud, Cloud Security, and AI Agents
 
 ### Event details
 
-- **Event:** First Cloud AI Journey – Application and Database Modernization with GenAI
-- **Time:** 08:00 – 17:00, 29/09/2026
+- **Event:** First Cloud AI Journey Meetup – AWS Cloud, Cloud Security, and AI Agents
+- **Time:** 08:00 – 12:00, 24/10/2026
 - **Venue:** Floor 26, Bitexco Financial Tower, Ho Chi Minh City
 - **Role:** Attendee
-- **Speakers:** Jignesh Shah (Director, Open Source Databases), Erica Liu (Sr. Application Modernization Specialist), Fabrianne Effendi (Serverless Solutions Architect)
+- **Speakers:** Kiệt Trần (Revve AI), Long Huỳnh, Thịnh Nguyễn (Styl Solution), Xuân An (AWS Student Builder Group HCMUTE), Khoa Kiều (ACB), Nghi Danh (AWS Community Builder)
 
 ### Event objectives
 
-- Recognise the limits of monolithic architectures as systems grow.
-- Learn how to split a system into microservices with Domain-Driven Design.
-- Get familiar with asynchronous patterns: queues, pub/sub, streaming.
-- See how Amazon Q Developer helps upgrade code and migrate databases.
+- See real applications of Voice AI and AI agents on AWS.
+- Understand resource sharing and multi-account governance on AWS.
+- Learn shift-left security and AI-assisted penetration testing.
+- Connect with the AWS engineering community in Ho Chi Minh City.
 
 ### Key topics
 
-#### Why monoliths slow down
+#### Vietnamese Voice AI: Hear – Think – Speak
 
-All modules ship together, so a small change needs a full test and release cycle; scaling one part means duplicating the whole application; a local fault can take down the entire system.
+A speech recognition → LLM → speech synthesis chain for an automated contact centre. The demo ran a Vietnamese screening interview with an end-to-end latency target of about 1.8 seconds.
 
-#### Three pillars for moving to microservices
+#### AWS Resource Access Manager
 
-Queues (Amazon SQS) to decouple processing and absorb spikes; caching (Amazon ElastiCache) to offload the database; flexible messaging (Amazon SNS, Amazon EventBridge) so services exchange events without direct dependencies.
+Sharing subnets, Transit Gateways, and Route 53 Resolver rules across accounts in AWS Organizations, combined with IAM policies and Service Control Policies as organisation-wide guardrails.
 
-#### Domain-Driven Design in four steps
+#### Shift-left security testing
 
-List domain events, order them on a timeline, identify actors, then group them into bounded contexts. Each bounded context is a candidate service, which avoids a "distributed monolith".
+Reviewing Terraform inside pull requests, catching misconfigurations before deployment, and using an AI security agent for penetration tests in authorised environments.
 
-#### Modernisation with GenAI
+#### Amazon Bedrock AgentCore and Kiro
 
-Amazon Q Developer scans legacy Java, proposes upgrades to Java 17/21, helps convert schemas from commercial databases to Aurora PostgreSQL, and flags vulnerabilities in the IDE. A demo showed SQS with a dead-letter queue preserving transactions when a service failed.
+AgentCore Runtime isolates agent sessions and scales them; AgentCore Memory keeps short- and long-term context. The Kiro session stressed context-window management and guardrails that stop agents from deleting resources, leaking keys, or changing configuration without approval.
 
 ### Lessons learned
 
-- Modernisation is structured refactoring, not a plain lift-and-shift.
-- Asynchronous decoupling stops failures from spreading and lets each part scale on its own.
-- Clear domain boundaries matter more than the number of services.
+- Real AI products need reliable runtime, context management, and safety limits, not only a good model.
+- Security belongs in the development flow (pull requests, CI), not just at deployment.
+- Multi-account governance needs organisation-level permission boundaries.
 
 ### Applying it to my project
 
-- The Nutrition E-Commerce project keeps one Spring Boot backend but organises packages by domain (catalog, commerce, payments, ai, admin, profile), applying bounded contexts early so services can be split later.
-- Unpaid VNPAY orders are cancelled and restocked after 15 minutes; this is where SQS/EventBridge would fit as the system grows.
-- The backend runs Java 21 and Spring Boot 4, in line with the runtime upgrades presented at the event.
+- The project AI assistant uses guardrails at two layers: Bedrock Guardrails block medical advice and prompt attacks, and the backend gives the model a single read-only search tool.
+- The infrastructure uses a permissions boundary and two permission sets (read-only / deploy), in the same spirit as Service Control Policies.
+- Every Terraform change runs `fmt`, `validate`, and `plan` and is reviewed before `apply`.
 
 ### Check-in photo
 
-:::figure{src="/images/events/event1-checkin.png" alt="event1-checkin" caption="First Cloud AI Journey – Application and Database Modernization with GenAI – 29/09/2026"}
-
+:::figure{src="/images/events/event1-checkin.png" alt="event1-checkin" caption="First Cloud AI Journey Meetup – AWS Cloud, Cloud Security, and AI Agents – 24/10/2026"}

@@ -5,54 +5,54 @@ weight: 2
 status: "ready"
 ---
 
-# Event report: First Cloud AI Journey Meetup – AWS Cloud, Cloud Security, and AI Agents
+# Event report: AWS First Cloud AI Journey Community Day
 
 ### Event details
 
-- **Event:** First Cloud AI Journey Meetup – AWS Cloud, Cloud Security, and AI Agents
-- **Time:** 08:00 – 12:00, 24/10/2026
+- **Event:** AWS First Cloud AI Journey Community Day
+- **Time:** Morning, 31/10/2026
 - **Venue:** Floor 26, Bitexco Financial Tower, Ho Chi Minh City
 - **Role:** Attendee
-- **Speakers:** Kiệt Trần (Revve AI), Long Huỳnh và Thịnh Nguyễn (Styl Solution), Xuân An (AWS Student Builder Group HCMUTE), Khoa Kiều (ACB), Nghi Danh (AWS Community Builder)
+- **Speakers:** Thinh Nguyen, Henry Duc Bui, Hung Tran, Dao Luong, Khang Duong, Tuan Tran (STYL Solutions, CloudThinker, NAB, FCAJ, AWS Student Builder Group SGU)
 
 ### Event objectives
 
-- See real applications of Voice AI and AI agents on AWS.
-- Understand resource sharing and multi-account governance on AWS.
-- Learn shift-left security and AI-assisted penetration testing.
-- Connect with the AWS engineering community in Ho Chi Minh City.
+- Hear community builders present real projects they are building on AWS.
+- Understand how Amazon SQS helps build reliable asynchronous systems.
+- Compare how other teams design, operate, and troubleshoot with the approach in my own project.
+- Connect with speakers and other FCAJ interns.
 
 ### Key topics
 
-#### Vietnamese Voice AI: Hear – Think – Speak
+#### Speakers presenting their own projects
 
-A speech recognition → LLM → speech synthesis chain for an automated contact centre. The demo ran a Vietnamese screening interview with an end-to-end latency target of about 1.8 seconds.
+Most of the morning was speakers from STYL Solutions, CloudThinker, NAB, and FCAJ presenting their own projects: the original problem, the architecture chosen on AWS, what had to change once it ran for real, and the lessons learned. Telling the story of a project made the reasoning behind each architecture decision clear, rather than just listing services.
 
-#### AWS Resource Access Manager
+#### AWS SQS: Building Reliable Asynchronous Systems (Dao Luong)
 
-Sharing subnets, Transit Gateways, and Route 53 Resolver rules across accounts in AWS Organizations, combined with IAM policies and Service Control Policies as organisation-wide guardrails.
+Luong Cam Dao (R&D team, AWS Student Builder Group SGU) started from a real AI Content project: content generation steps are slow and traffic spikes overload services that call each other directly. Amazon SQS sits in between to decouple producers and consumers, absorb spikes, and allow asynchronous processing.
 
-#### Shift-left security testing
+#### Concepts for running queues reliably
 
-Reviewing Terraform inside pull requests, catching misconfigurations before deployment, and using an AI security agent for penetration tests in authorised environments.
+The talk stressed what matters in production: the visibility timeout must be long enough for processing, processing must be idempotent because a message can be delivered more than once, repeatedly failing messages should move to a dead-letter queue so they do not block the queue, and queue depth should be monitored to see whether work is piling up.
 
-#### Amazon Bedrock AgentCore and Kiro
+#### Community connections
 
-AgentCore Runtime isolates agent sessions and scales them; AgentCore Memory keeps short- and long-term context. The Kiro session stressed context-window management and guardrails that stop agents from deleting resources, leaking keys, or changing configuration without approval.
+The event showed that students and interns can share the stage with industry engineers when they have a real project to tell. After the talks there was time to talk directly with speakers about each person’s project.
 
 ### Lessons learned
 
-- Real AI products need reliable runtime, context management, and safety limits, not only a good model.
-- Security belongs in the development flow (pull requests, CI), not just at deployment.
-- Multi-account governance needs organisation-level permission boundaries.
+- An architecture is most convincing when told with the real problem and the fixes made in production.
+- Queues decouple services and absorb load, but are only reliable with a correct visibility timeout, idempotent processing, and a dead-letter queue.
+- Monitoring (queue depth, repeated failures) is part of the design, not an afterthought.
 
 ### Applying it to my project
 
-- The project AI assistant uses guardrails at two layers: Bedrock Guardrails block medical advice and prompt attacks, and the backend gives the model a single read-only search tool.
-- The infrastructure uses a permissions boundary and two permission sets (read-only / deploy), in the same spirit as Service Control Policies.
-- Every Terraform change runs `fmt`, `validate`, and `plan` and is reviewed before `apply`.
+- The topic matches our team’s SQS + Lambda + DLQ blog post: I compared the causes of messages landing in the DLQ with what the speaker presented.
+- In the Nutrition E-Commerce project, VNPAY IPNs are handled idempotently (a repeated IPN returns code 02 and never updates the order twice), the same idea as handling messages delivered more than once.
+- Unpaid VNPAY orders are cancelled by a scheduled task after 15 minutes; as the system grows, this is a natural place for SQS (a delay queue) with a DLQ for failed processing.
+- For the project defence, I present the architecture as "problem → decision → incident → fix", as the speakers did.
 
 ### Check-in photo
 
-:::figure{src="/images/events/event2-checkin.png" alt="event2-checkin" caption="First Cloud AI Journey Meetup – AWS Cloud, Cloud Security, and AI Agents – 24/10/2026"}
-
+:::figure{src="/images/events/event2-checkin.png" alt="event2-checkin" caption="AWS First Cloud AI Journey Community Day – 31/10/2026"}

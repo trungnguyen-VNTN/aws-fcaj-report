@@ -7,8 +7,8 @@ status: "ready"
 
 ### Event 1
 
-- **Event:** First Cloud AI Journey – Application and Database Modernization with GenAI
-- **Time:** 08:00 – 17:00, 29/09/2026
+- **Event:** First Cloud AI Journey Meetup – AWS Cloud, Cloud Security, and AI Agents
+- **Time:** 08:00 – 12:00, 24/10/2026
 - **Venue:** Floor 26, Bitexco Financial Tower, Ho Chi Minh City
 - **Role:** Attendee
 
@@ -16,8 +16,8 @@ status: "ready"
 
 ### Event 2
 
-- **Event:** First Cloud AI Journey Meetup – AWS Cloud, Cloud Security, and AI Agents
-- **Time:** 08:00 – 12:00, 24/10/2026
+- **Event:** AWS First Cloud AI Journey Community Day
+- **Time:** Morning, 31/10/2026
 - **Venue:** Floor 26, Bitexco Financial Tower, Ho Chi Minh City
 - **Role:** Attendee
 
